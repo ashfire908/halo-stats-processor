@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+.header h1, .header h2, .header h3,
+.header h4, .header h5 { margin: 0; }
+
+.header p {
+  margin: 0;
+  margin-left: 2em;
+  font-size: smaller;
+}
+
+#data_menu h2 { margin-bottom: 0; }
+#data_menu p { margin-top: 0; }
+
+dl {
+  margin-left: 2em;
+  margin-top: 0;
+}
+ul {
+  padding-left: 2em;
+  margin-top: 0;
+}
+dl dt { display: inline; }
+dl dd {
+  display: inline;
+  margin-left: .5em;
+}
+.subdata { margin-left: 2em; }
+h3, h4 { margin-bottom: 0; }
+

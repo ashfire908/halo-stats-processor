@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>ODST Game Data - Submit Request</title>
+  <link rel="stylesheet" href="odst_data.css" type="text/css">
+</head>
+<body>
+  <div class="header">
+    <h1>ODST Game Data</h1>
+    <p>Quick-and-Dirty Page to test parts of the parser</p>
+  </div>
+  
+  <p>The ODST Game Info parser is <a href="raw_code.php">available for download</a>.</p>
+  
+  <h2>Game Data Request</h2>
+  <form method="GET" action="game_data.php">
+    <label>Game ID: <input type="text" name="gameid"></label><br><br>
+    <input type="submit">
+  </form>
+  
+  <h2>Dump Game Data XML/SOAP</h2>
+  <form method="GET" action="game_dump.php">
+    <label>Game ID: <input type="text" name="gameid"></label><br><br>
+    <input type="submit">
+  </form>
+  
+  <h2>Dump Game Metadata</h2>
+  <form method="GET" action="metadata.php">
+    <input type="submit">
+  </form>
+</body>
+</html>
