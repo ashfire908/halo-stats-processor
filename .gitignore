@@ -1,0 +1,6 @@
+# Git ignore
+
+# Ignore files from Eclipse
+.project
+.settings
+.buildpath
