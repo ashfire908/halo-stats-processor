@@ -1,0 +1,2272 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<GetGameMetaDataResponse xmlns="http://www.bungie.net/api/odst">
+			<GetGameMetaDataResult
+				xmlns:a="http://schemas.datacontract.org/2004/07/BungieNet.API.ODST.Response"
+				xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<reason xmlns="http://schemas.datacontract.org/2004/07/BungieNet.API">Okay</reason>
+				<status xmlns="http://schemas.datacontract.org/2004/07/BungieNet.API">7777</status>
+				<a:Data
+					xmlns:b="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Halo3.ODST">
+					<b:CharClassEnum>Infantry</b:CharClassEnum>
+					<b:CharTypeEnum>Brute</b:CharTypeEnum>
+					<b:CharacterInfo
+						xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>Infantry</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Brute</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>brute_ultra</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Recruits compete for their postings as well as their
+											gear.</d:Desc>
+										<d:Disp>Brute Infantry</d:Disp>
+										<d:Id>Brute_Infantry</d:Id>
+										<d:Img />
+										<d:Pnts>20</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Bugger</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>drone_minor</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Yanme’e physiology is well suited for the role of
+											infiltrator.</d:Desc>
+										<d:Disp>Drone Infantry</d:Disp>
+										<d:Id>Bugger_Infantry</d:Id>
+										<d:Img />
+										<d:Pnts>10</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Grunt</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>grunt_major</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>More experience and gear doesn't always connote good
+											morale.</d:Desc>
+										<d:Disp>Grunt Infantry</d:Disp>
+										<d:Id>Grunt_Infantry</d:Id>
+										<d:Img />
+										<d:Pnts>10</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Jackal</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>jackal_minor</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Recruits are often posted as security or "movable
+											shields".</d:Desc>
+										<d:Disp>Jackal Infantry</d:Disp>
+										<d:Id>Jackal_Infantry</d:Id>
+										<d:Img />
+										<d:Pnts>15</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Engineer</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>engineer</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>A sentient labor-saving device with the ability to
+											self-repair and self-replicate. Good with computers.</d:Desc>
+										<d:Disp>Engineer</d:Disp>
+										<d:Id>Engineer_Infantry</d:Id>
+										<d:Img />
+										<d:Pnts>-</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Marine</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>marine</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Killing your friends is socially unacceptable.
+										</d:Desc>
+										<d:Disp>Marine Infantry</d:Disp>
+										<d:Id>Marine_Infantry</d:Id>
+										<d:Img />
+										<d:Pnts>-</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>Specialist</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Brute</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>brute_stalker</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>These Special Police Units are feared by all factions.
+										</d:Desc>
+										<d:Disp>Brute Spec-Ops</d:Disp>
+										<d:Id>Brute_Specialist</d:Id>
+										<d:Img />
+										<d:Pnts>30</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Grunt</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>grunt_ultra</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Trained as pilots and heavy weapons specialists; still
+											jumpy.</d:Desc>
+										<d:Disp>Grunt Spec-Ops</d:Disp>
+										<d:Id>Grunt_Specialist</d:Id>
+										<d:Img />
+										<d:Pnts>10</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Hunter</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>hunter</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Hunters are deployed more as weapons platforms than
+											troops.</d:Desc>
+										<d:Disp>Hunter Spec-Ops</d:Disp>
+										<d:Id>Hunter_Specialist</d:Id>
+										<d:Img />
+										<d:Pnts>150</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Jackal</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>jackal_sniper</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Only battle-hardened veterans are chosen to become
+											snipers.</d:Desc>
+										<d:Disp>Jackal Spec-Ops</d:Disp>
+										<d:Id>Jackal_Specialist</d:Id>
+										<d:Img />
+										<d:Pnts>20</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>Leader</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Brute</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>brute_captain_ultra</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>To be effective, officers need to inspire fear and
+											respect.</d:Desc>
+										<d:Disp>Brute Leader</d:Disp>
+										<d:Id>Brute_Leader</d:Id>
+										<d:Img />
+										<d:Pnts>50</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Bugger</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>drone_captain_major</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Drones aren’t brave; they’re just incapable of feeling
+											fear.</d:Desc>
+										<d:Disp>Drone Leader</d:Disp>
+										<d:Id>Bugger_Leader</d:Id>
+										<d:Img />
+										<d:Pnts>10</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>Hero</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Brute</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>brute_war_chieftain</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Commanding troops requires both audacity and great
+											strength.</d:Desc>
+										<d:Disp>Brute Hero</d:Disp>
+										<d:Id>Brute_Hero</d:Id>
+										<d:Img />
+										<d:Pnts>150</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Marine</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>marine_hero</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Surrender is not an option.</d:Desc>
+										<d:Disp>ODST</d:Disp>
+										<d:Id>Marine_Hero</d:Id>
+										<d:Img />
+										<d:Pnts>???</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Guardians</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>questionmark</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Killed, once again, by the guardians.</d:Desc>
+										<d:Disp>Guardians</d:Disp>
+										<d:Id>Guardian_Hero</d:Id>
+										<d:Img />
+										<d:Pnts>-</d:Pnts>
+										<d:Vehic>false</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>LightVehicle</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Chopper</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>chopper</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Primarily Brute-crewed reconnaissance and fast attack
+											vehicle.</d:Desc>
+										<d:Disp>Chopper</d:Disp>
+										<d:Id>Chopper_LightVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>100</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Ghost</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>ghost</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Primary reconnaissance vehicle of the Covenant forces.
+										</d:Desc>
+										<d:Disp>Ghost</d:Disp>
+										<d:Id>Ghost_LightVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>100</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Mongoose</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>mongoose</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Small, fast and maneuverable; often used by anti-armor
+											teams.</d:Desc>
+										<d:Disp>Mongoose</d:Disp>
+										<d:Id>Mongoose_LightVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>50</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Shade</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>shade</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>The name Shade is applied generically to all Covenant
+											stationary anti-infantry guns.</d:Desc>
+										<d:Disp>Shade</d:Disp>
+										<d:Id>Shade_LightVehicle</d:Id>
+										<d:Img>/images/Halo3Stats/cp/vehicles/shade.gif</d:Img>
+										<d:Pnts>50</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>EngineerRechargeStation</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>engineer_pod</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>It's a little like a birdhouse for Huragok. A great
+											big exploding birdhouse.</d:Desc>
+										<d:Disp>Recharge Station</d:Disp>
+										<d:Id>EngineerRechargeStation_LightVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>-</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>StandardVehicle</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Banshee</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>banshee</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Primary ground support aircraft of the Covenant
+											forces.</d:Desc>
+										<d:Disp>Banshee</d:Disp>
+										<d:Id>Banshee_StandardVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>100</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Warthog</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>warthog</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>The most common reconnaissance vehicle in the UNSC’s
+											arsenal.</d:Desc>
+										<d:Disp>Warthog</d:Disp>
+										<d:Id>Warthog_StandardVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>100-150</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>HeavyVehicle</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Phantom</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>phantom</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Heavily armed and armored troop transport VOTL craft.
+										</d:Desc>
+										<d:Disp>Phantom</d:Disp>
+										<d:Id>Phantom_HeavyVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>250</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Scorpion</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>scorpion</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>The M808B is the most common main battle tank in
+											service with the UNSC.</d:Desc>
+										<d:Disp>Scorpion</d:Disp>
+										<d:Id>Scorpion_LightVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>200</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Wraith</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>wraith</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>A Wraith is the backbone of any Covenant assault
+											force.</d:Desc>
+										<d:Disp>Wraith</d:Disp>
+										<d:Id>Wraith_HeavyVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>200</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+						<c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+							<c:Key>GiantVehicle</c:Key>
+							<c:Value>
+								<c:KeyValueOfstringChar93kMfpyL>
+									<c:Key>Scarab</c:Key>
+									<c:Value
+										xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+										<d:ImgName>scarab</d:ImgName>
+										<d:ImgPath>/images/halo3stats/odst/characters/{0}_{1}/{2}.{3}
+										</d:ImgPath>
+										<d:Desc>Ultimate assault engine of the Covenant ground forces.
+										</d:Desc>
+										<d:Disp>Scarab</d:Disp>
+										<d:Id>Scarab_GiantVehicle</d:Id>
+										<d:Img />
+										<d:Pnts>500</d:Pnts>
+										<d:Vehic>true</d:Vehic>
+									</c:Value>
+								</c:KeyValueOfstringChar93kMfpyL>
+							</c:Value>
+						</c:KeyValueOfstringArrayOfKeyValueOfstringChar93kMfpyLty7Ep6D1>
+					</b:CharacterInfo>
+					<b:ImageSizeEnum>sm</b:ImageSizeEnum>
+					<b:ImageTypeEnum>png</b:ImageTypeEnum>
+					<b:MedalEnum>GrenadeStick</b:MedalEnum>
+					<b:MedalInfo
+						xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>KillingSpree</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killing_spree</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 10 opponents in a row without dying.</d:Desc>
+								<d:Disp>Killing Spree!</d:Disp>
+								<d:LrgImg />
+								<d:Points>50</d:Points>
+								<d:Row>0</d:Row>
+								<d:RowDisplay>Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>158</d:Tier>
+								<d:Type>KillingSpree</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>KillingFrenzy</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killing_frenzy</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 20 opponents in a row without dying.</d:Desc>
+								<d:Disp>Killing Frenzy!</d:Disp>
+								<d:LrgImg />
+								<d:Points>100</d:Points>
+								<d:Row>0</d:Row>
+								<d:RowDisplay>Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>157</d:Tier>
+								<d:Type>KillingFrenzy</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>RunningRiot</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>running_riot</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 30 opponents in a row without dying.</d:Desc>
+								<d:Disp>Running Riot!</d:Disp>
+								<d:LrgImg />
+								<d:Points>250</d:Points>
+								<d:Row>0</d:Row>
+								<d:RowDisplay>Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>156</d:Tier>
+								<d:Type>RunningRiot</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Rampage</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>rampage</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 40 opponents in a row without dying.</d:Desc>
+								<d:Disp>Rampage!</d:Disp>
+								<d:LrgImg />
+								<d:Points>500</d:Points>
+								<d:Row>0</d:Row>
+								<d:RowDisplay>Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>155</d:Tier>
+								<d:Type>Rampage</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Untouchable</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>untouchable</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 50 opponents in a row without dying.</d:Desc>
+								<d:Disp>Untouchable!</d:Disp>
+								<d:LrgImg />
+								<d:Points>750</d:Points>
+								<d:Row>0</d:Row>
+								<d:RowDisplay>Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>154</d:Tier>
+								<d:Type>Untouchable</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Invincible</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>invincible</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 100 opponents in a row without dying.</d:Desc>
+								<d:Disp>Invincible!</d:Disp>
+								<d:LrgImg />
+								<d:Points>1000</d:Points>
+								<d:Row>0</d:Row>
+								<d:RowDisplay>Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>150</d:Tier>
+								<d:Type>Invincible</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>ShotgunSpree</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>shotgun_spree</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 5 opponents in a row with the shotgun without
+									dying.</d:Desc>
+								<d:Disp>Shotgun Spree!</d:Disp>
+								<d:LrgImg />
+								<d:Points>500</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>0</d:Tier>
+								<d:Type>ShotgunSpree</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>OpenSeason</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>open_season</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 10 opponents in a row with the shotgun without
+									dying.</d:Desc>
+								<d:Disp>Open Season!</d:Disp>
+								<d:LrgImg />
+								<d:Points>1000</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>1</d:Tier>
+								<d:Type>OpenSeason</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>ShotgunBlank</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName />
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc />
+								<d:Disp />
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>201</d:Tier>
+								<d:Type>ShotgunBlank</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>SniperSpree</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>sniper_spree</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 5 opponents in a row with a sniper weapon without
+									dying.</d:Desc>
+								<d:Disp>Sniper Spree!</d:Disp>
+								<d:LrgImg />
+								<d:Points>500</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>2</d:Tier>
+								<d:Type>SniperSpree</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Sharpshooter</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>sharpshooter</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 10 opponents in a row with a sniper weapon without
+									dying.</d:Desc>
+								<d:Disp>Sharpshooter!</d:Disp>
+								<d:LrgImg />
+								<d:Points>1000</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>3</d:Tier>
+								<d:Type>Sharpshooter</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>SniperBlank</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName />
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc />
+								<d:Disp />
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>203</d:Tier>
+								<d:Type>SniperBlank</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>SplatterSpree</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>splatter_spree</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Splatter 5 opponents in a row using a vehicle without
+									dying.</d:Desc>
+								<d:Disp>Splatter Spree!</d:Disp>
+								<d:LrgImg />
+								<d:Points>500</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>4</d:Tier>
+								<d:Type>SplatterSpree</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>VehicularManslaughter</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>vehicular_manslaughter</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Splatter 10 opponents in a row using a vehicle without
+									dying.</d:Desc>
+								<d:Disp>Vehicular Manslaughter!</d:Disp>
+								<d:LrgImg />
+								<d:Points>1000</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>5</d:Tier>
+								<d:Type>VehicularManslaughter</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>SplatterBlank</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName />
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc />
+								<d:Disp />
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>204</d:Tier>
+								<d:Type>SplatterBlank</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>HammerSpree</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>hammer_spree</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 5 opponents in a row with a Gravity Hammer without
+									dying.</d:Desc>
+								<d:Disp>Hammer Spree!</d:Disp>
+								<d:LrgImg />
+								<d:Points>500</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>6</d:Tier>
+								<d:Type>HammerSpree</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>BallPeenBuster</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>ball_peen_buster</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 10 opponents in a row with the Gravity Hammer
+									without dying.</d:Desc>
+								<d:Disp>Dream Crusher!</d:Disp>
+								<d:LrgImg />
+								<d:Points>1000</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>7</d:Tier>
+								<d:Type>BallPeenBuster</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>HammerBlank</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName />
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc />
+								<d:Disp />
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>207</d:Tier>
+								<d:Type>HammerBlank</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>StickSpree</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>stick_spree</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 5 opponents in a row with grenade sticks without
+									dying.</d:Desc>
+								<d:Disp>Stick Spree!</d:Disp>
+								<d:LrgImg />
+								<d:Points>500</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>8</d:Tier>
+								<d:Type>StickSpree</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Corrected</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>corrected</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 10 opponents in a row with grenade sticks without
+									dying.</d:Desc>
+								<d:Disp>Sticky Fingers!</d:Disp>
+								<d:LrgImg />
+								<d:Points>1000</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>9</d:Tier>
+								<d:Type>Corrected</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>StickBlank</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName />
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc />
+								<d:Disp />
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>1</d:Row>
+								<d:RowDisplay>Weapon Spree Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>209</d:Tier>
+								<d:Type>StickBlank</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>DoubleKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>double_kill</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill 2 opponents in the blink of an eye.</d:Desc>
+								<d:Disp>Double Kill!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>314</d:Tier>
+								<d:Type>DoubleKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>TripleKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>triple_kill</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 3rd kill moments after your 2nd.</d:Desc>
+								<d:Disp>Triple Kill!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>313</d:Tier>
+								<d:Type>TripleKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>OverKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>overkill</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 4th kill moments after your 3rd.</d:Desc>
+								<d:Disp>Overkill!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>312</d:Tier>
+								<d:Type>OverKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Killtacular</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killtacular</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 5th kill moments after your 4th.</d:Desc>
+								<d:Disp>Killtacular!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>311</d:Tier>
+								<d:Type>Killtacular</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Killtrocity</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killtrocity</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 6th kill moments after your 5th.</d:Desc>
+								<d:Disp>Killtrocity!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>310</d:Tier>
+								<d:Type>Killtrocity</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Killamanjaro</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killamanjaro</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 7th kill moments after your 6th.</d:Desc>
+								<d:Disp>Killimanjaro!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>309</d:Tier>
+								<d:Type>Killamanjaro</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Killtastrophe</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killtastrophe</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 8th kill moments after your 7th.</d:Desc>
+								<d:Disp>Killtastrophe!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>308</d:Tier>
+								<d:Type>Killtastrophe</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Killpocalpyse</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killpocolypse</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 9th kill moments after your 8th.</d:Desc>
+								<d:Disp>Killpocalypse!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>307</d:Tier>
+								<d:Type>Killpocalpyse</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Killionaire</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>killionaire</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Get a 10th kill moments after your 9th.</d:Desc>
+								<d:Disp>Killionaire!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>2</d:Row>
+								<d:RowDisplay>Multi-Kill Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>151</d:Tier>
+								<d:Type>Killionaire</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>MeleeKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>melee</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Hit and kill an opponent with a melee attack.</d:Desc>
+								<d:Disp>Beat Down!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>610</d:Tier>
+								<d:Type>MeleeKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>StealthKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>stealth_kill</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Hit and kill an opponent with a melee attack from
+									behind.</d:Desc>
+								<d:Disp>Assassin!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>609</d:Tier>
+								<d:Type>StealthKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>GrenadeStick</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>sticky</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill an opponent by sticking them with a plasma or brute
+									grenade.</d:Desc>
+								<d:Disp>Grenade Stick!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>607</d:Tier>
+								<d:Type>GrenadeStick</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Headshot</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>headshot</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill an enemy with a headshot.</d:Desc>
+								<d:Disp>Headshot!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>606</d:Tier>
+								<d:Type>Headshot</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>LaserKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>laser_kill</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill an enemy by using the Spartan Laser.</d:Desc>
+								<d:Disp>Laser Kill!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>605</d:Tier>
+								<d:Type>LaserKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>RoadKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>splatter</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Hit and kill an opponent with your vehicle.</d:Desc>
+								<d:Disp>Splatter!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>604</d:Tier>
+								<d:Type>RoadKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>NeedlerSuperdetonationKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>needles</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Score a kill by filling an opponent with enough needles
+									to cause a detonation.</d:Desc>
+								<d:Disp>Needler Kill!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>603</d:Tier>
+								<d:Type>NeedlerSuperdetonationKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>EmpKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>emp</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill an enemy with an EMP.</d:Desc>
+								<d:Disp>EMP Kill!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>602</d:Tier>
+								<d:Type>EmpKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Incineration</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>incineration</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill an opponent with a flame-based weapon.</d:Desc>
+								<d:Disp>Incineration!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>600</d:Tier>
+								<d:Type>Incineration</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>DeathFromTheGrave</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>death_from_the_grave</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Kill an opponent after you have died.</d:Desc>
+								<d:Disp>Death from the Grave!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>602</d:Tier>
+								<d:Type>DeathFromTheGrave</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>VehicleJack</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>carjacking</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Board a vehicle by removing and then quickly killing its
+									driver.</d:Desc>
+								<d:Disp>Vehicle Jack!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>504</d:Tier>
+								<d:Type>VehicleJack</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Assist</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>assistance</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Assist a teammate in killing the enemy.</d:Desc>
+								<d:Disp>Assist!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>500</d:Tier>
+								<d:Type>Assist</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>Hero</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>hero</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Complete a wave as the last man standing.</d:Desc>
+								<d:Disp>Hero!</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>3</d:Row>
+								<d:RowDisplay>Style Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>500</d:Tier>
+								<d:Type>Hero</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+						<c:KeyValueOfstringMedal93kMfpyL>
+							<c:Key>VisionModeKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName />
+								<d:ImgPath>/images/halo3stats/odst/medals/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Vision kill.</d:Desc>
+								<d:Disp>Vision Kill</d:Disp>
+								<d:LrgImg />
+								<d:Points>0</d:Points>
+								<d:Row>4</d:Row>
+								<d:RowDisplay>Game Play Medals</d:RowDisplay>
+								<d:SmlImg />
+								<d:ThmImg />
+								<d:Tier>602</d:Tier>
+								<d:Type>VisionModeKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringMedal93kMfpyL>
+					</b:MedalInfo>
+					<b:SkullInfo
+						xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>Iron</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Respawning is disabled. Be careful!</d:Desc>
+								<d:Display>Iron</d:Display>
+								<d:ID>Iron</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/iron_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/iron_off.png
+								</d:ImageOff>
+								<d:Multiplier>3</d:Multiplier>
+								<d:Sort>0</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>BlackEye</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Melee to recharge your Stamina.</d:Desc>
+								<d:Display>Blackeye</d:Display>
+								<d:ID>BlackEye</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/black_eye_on.png
+								</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/black_eye_off.png
+								</d:ImageOff>
+								<d:Multiplier>1.5</d:Multiplier>
+								<d:Sort>1</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>ToughLuck</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Enemies always evade danger.</d:Desc>
+								<d:Display>Tough Luck</d:Display>
+								<d:ID>ToughLuck</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/tough_luck_on.png
+								</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/tough_luck_off.png
+								</d:ImageOff>
+								<d:Multiplier>1.5</d:Multiplier>
+								<d:Sort>2</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>Catch</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Enemies love to throw grenades.</d:Desc>
+								<d:Display>Catch</d:Display>
+								<d:ID>Catch</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/catch_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/catch_off.png
+								</d:ImageOff>
+								<d:Multiplier>1.5</d:Multiplier>
+								<d:Sort>3</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>Famine</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Weapons drop low-ammo weapons.</d:Desc>
+								<d:Display>Famine</d:Display>
+								<d:ID>Famine</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/famine_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/famine_off.png
+								</d:ImageOff>
+								<d:Multiplier>2</d:Multiplier>
+								<d:Sort>4</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>ThunderStorm</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Enemies are upgraded.</d:Desc>
+								<d:Display>Thunderstorm</d:Display>
+								<d:ID>ThunderStorm</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/thunderstorm_on.png
+								</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/thunderstorm_off.png
+								</d:ImageOff>
+								<d:Multiplier>1.5</d:Multiplier>
+								<d:Sort>5</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>Tilt</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Enemy shields deflect bullets.</d:Desc>
+								<d:Display>Tilt</d:Display>
+								<d:ID>Tilt</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/tilt_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/tilt_off.png
+								</d:ImageOff>
+								<d:Multiplier>2</d:Multiplier>
+								<d:Sort>6</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>Mythic</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Enemies have 2x health.</d:Desc>
+								<d:Display>Mythic</d:Display>
+								<d:ID>Mythic</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/mythic_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/mythic_off.png
+								</d:ImageOff>
+								<d:Multiplier>2</d:Multiplier>
+								<d:Sort>7</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>Blind</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>No first person HUD.</d:Desc>
+								<d:Display>Blind</d:Display>
+								<d:ID>Blind</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/blind_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/blind_off.png
+								</d:ImageOff>
+								<d:Multiplier>0</d:Multiplier>
+								<d:Sort>8</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>Cowbell</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Physics impulses increased.</d:Desc>
+								<d:Display>Cowbell</d:Display>
+								<d:ID>Cowbell</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/cowbell_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/cowbell_off.png
+								</d:ImageOff>
+								<d:Multiplier>0</d:Multiplier>
+								<d:Sort>9</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>GruntBirthdayParty</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Grunt headshots cause confetti.</d:Desc>
+								<d:Display>Grunt Birthday Party</d:Display>
+								<d:ID>GruntBirthdayParty</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/grunt_birthday_party_on.png
+								</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/grunt_birthday_party_off.png
+								</d:ImageOff>
+								<d:Multiplier>0</d:Multiplier>
+								<d:Sort>10</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+						<c:KeyValueOfstringSkull93kMfpyL>
+							<c:Key>IWHBYD</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:Desc>Rare dialog is frequent and vice versa.</d:Desc>
+								<d:Display>IWHBYD</d:Display>
+								<d:ID>IWHBYD</d:ID>
+								<d:Image>/images/Halo3Stats/skulls/odst/IWHBYD_on.png</d:Image>
+								<d:ImageOff>/images/Halo3Stats/skulls/odst/IWHBYD_off.png
+								</d:ImageOff>
+								<d:Multiplier>0</d:Multiplier>
+								<d:Sort>11</d:Sort>
+							</c:Value>
+						</c:KeyValueOfstringSkull93kMfpyL>
+					</b:SkullInfo>
+					<b:WeaponEnum>Unknown</b:WeaponEnum>
+					<b:WeaponInfo
+						xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>AssaultRifle</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>assault_rifle</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Gas operated, fully-automatic projectile rifle capable
+									of sustained continuous fire. Accurate if used in short, well
+									aimed bursts and otherwise ferociously powerful at close range.
+								</d:Desc>
+								<d:Disp>Assault Rifle - MA5C ICWS</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>AssaultRifle</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Banshee</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>banshee</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Primary ground support aircraft of the Covenant forces.
+								</d:Desc>
+								<d:Disp>Banshee - (Type-26 GSA)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Banshee</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>BattleRifle</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>questionmark</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The UNSC’s accurate semi-automatic medium range rifle,
+									fires three rounds per squeeze of the trigger.</d:Desc>
+								<d:Disp>Battle Rifle - BR55HB SR</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>BattleRifle</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>BeamRifle</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>beam_rifle</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>A hand carried Covenant particle beam weapon, with an
+									adjustable 5x / 10x scope.</d:Desc>
+								<d:Disp>Beam Rifle - (Type-50 SR)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>BeamRifle</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>BombExplosion</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>explosion</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>WUH-BLAM!</d:Desc>
+								<d:Disp>Explosion</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>BombExplosion</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>BruteShot</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>brute_shot</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Fires explosive projectiles and is furnished with an
+									elaborate and dangerous bayonet.</d:Desc>
+								<d:Disp>Brute Shot - (Type-25 GL)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>BruteShot</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Carbine</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>carbine</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>An unusual Covenant projectile weapon, firing shielded
+									radioactive rounds.</d:Desc>
+								<d:Disp>Carbine - (Type-51 Carbine)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Carbine</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Chopper</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>chopper</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Primarily Brute crewed reconnaissance and fast attack
+									vehicle.</d:Desc>
+								<d:Disp>Chopper - (Type-25 RAV)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Chopper</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>CollisionDamage</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>questionmark</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>I'm calling my lawyer!</d:Desc>
+								<d:Disp>Classified</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>CollisionDamage</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Excavator</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>mauler</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Holds 5 shells per magazine, this massive handgun is
+									favored by Brutes and is based on their native, pre-Covenant
+									technology.</d:Desc>
+								<d:Disp>Mauler - (Type-52 Pistol)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Excavator</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Explosion</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>explosion</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>WUH-BLAM!</d:Desc>
+								<d:Disp>Explosion</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Explosion</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>FallingDamage</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>falldamage</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Iiiiiiiieeeeeeeee!!!</d:Desc>
+								<d:Disp>Classified</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>FallingDamage</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>FirebombGrenade</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>firebomb</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The type-3 antipersonnel, anti-material incendiary
+									grenade is used to destroy material and inflict grievous
+									injuries upon personnel.</d:Desc>
+								<d:Disp>Firebomb - (Type-3 AP/AM-IG)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>FirebombGrenade</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>FlakCannon</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>fuel_rod</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>A shoulder fired Covenant projectile weapon, it is
+									commonly employed in both anti-personnel and anti-vehicle
+									roles.</d:Desc>
+								<d:Disp>Fuel Rod Gun - (Type-33 LAAW)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>FlakCannon</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>FragGrenade</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>frag_grenade</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Standard issue UNSC fragmentation grenade.</d:Desc>
+								<d:Disp>Frag Grenade - M9 HE-DP</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>FragGrenade</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Ghost</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>ghost</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Armed with twin rapid fire plasma cannons, this is a
+									typical Covenant ground assault and recon vehicle.</d:Desc>
+								<d:Disp>Ghost - (Type-32 RAV)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Ghost</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>GravityHammer</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>gravity_hammer</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Favored by Brutes, this weapon is as much a symbol of
+									leadership as it is a weapon.</d:Desc>
+								<d:Disp>Gravity Hammer - (Type-2 EW/H)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>GravityHammer</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Hornet</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>hornet</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The AV-14s provide close-in fire support and point
+									target attacks against enemy armor.</d:Desc>
+								<d:Disp>Hornet - AV-14 Attack VTOL</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Hornet</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>HumanTurret</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>50_cal</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Standard issue UNSC turret-mounted heavy machinegun. It
+									is extremely heavy, as one might expect, and slow to spin up to
+									full firing rate.</d:Desc>
+								<d:Disp>Heavy Machine Gun - AIE-486H</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>HumanTurret</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>MagnumPistol</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>auto_mag</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>An accurized version of the standard UNSC sidearm with
+									integrated sound suppressor and black polymer finish. Issued
+									with VnSLS/V 6E smart-linked scope.</d:Desc>
+								<d:Disp>Auto Mag - M6C/SOCOM</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>MagnumPistol</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Melee</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>melee</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Somebody smashed somebody!</d:Desc>
+								<d:Disp>Melee</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Melee</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>MissleLauncher</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>missile_pod</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Although technically designed for vehicle or stationary
+									use, the LAU-65D can be detached from its base to be used as a
+									mobile support weapon.</d:Desc>
+								<d:Disp>Missile Pod - LAU-65D</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>MissleLauncher</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Mongoose</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>mongoose</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>This is purely a transport vehicle, and while fast and
+									maneuverable, it possesses no defensive or offensive
+									capabilities whatsoever.</d:Desc>
+								<d:Disp>Mongoose - M274 ULATV</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Mongoose</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Needler</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>needler</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Razor sharp crystalline projectiles with a combined
+									explosive property, are fired from this elaborate Covenant
+									weapon.</d:Desc>
+								<d:Disp>Needler - (Type-33 GML)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Needler</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>PlasmaCannon</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>plasma_cannon</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The type-42 DESW has become a much more common sight on
+									the battlefield since the Brutes have come to prominence within
+									the Covenant.</d:Desc>
+								<d:Disp>Plasma Cannon - (Type-42 DESW)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>PlasmaCannon</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>PlasmaGrenade</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>plasma_grenade</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Highly explosive Covenant grenade with a dangerous
+									adherence property.</d:Desc>
+								<d:Disp>Plasma Grenade - (Type-1 AP-G)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>PlasmaGrenade</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>PlasmaPistol</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>plasma_pistol</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Fires directed energy bolts with a shield-depleting
+									Overcharge function.</d:Desc>
+								<d:Disp>Plasma Pistol - (Type-25 DEP)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>PlasmaPistol</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>PlasmaRifle</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>plasma_rifle_brute</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>A common, light plasma weapon favored by Covenant
+									forces.</d:Desc>
+								<d:Disp>Plasma Rifle - (Type-25 DER)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>PlasmaRifle</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>PlasmaTurret</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>plasma_cannon</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The type-42 DESW has become a much more common sight on
+									the battlefield since the Brutes have come to prominence within
+									the Covenant.</d:Desc>
+								<d:Disp>Plasma Cannon - (Type-42 DESW)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>PlasmaTurret</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>ProximityMine</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>tripmine</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>A simple proximity mine that reacts to pressure or
+									movement.</d:Desc>
+								<d:Disp>Tripmine - TR/9 AP Mine</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>ProximityMine</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>RocketLauncher</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>rocket_launcher</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The accurate, destructive heavy ordnance weapon of the
+									UNSC arsenal.</d:Desc>
+								<d:Disp>Rocket Launcher - M41 MAV/AW</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>RocketLauncher</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Scorpion</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>scorpion</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Remember this maxim - Speed is life, never provide the
+									enemy with a stationary target.</d:Desc>
+								<d:Disp>Scorpion - M808B MBT</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Scorpion</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>ScorpionGunner</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>tank_gunner</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The M247T 7.62mm medium machine gun</d:Desc>
+								<d:Disp>Scorpion - M247T MMG</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>ScorpionGunner</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>ShadeTurret</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>shade</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Covenant ground forces often employ stationary energy
+									weapon turrets to strengthen defensive positions.</d:Desc>
+								<d:Disp>Shade - (Type-26 ASG)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>ShadeTurret</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Shotgun</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>shotgun</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The UNSC’s resident close-quarters assault weapon.
+								</d:Desc>
+								<d:Disp>Shotgun - M90A CAWS</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Shotgun</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Smg</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>smg</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>A favorite of the ODSTs, this variant of the M7/C is
+									issued with a the SS/M 49 sound suppressor and SLS/V 5B
+									smart-linked scope.</d:Desc>
+								<d:Disp>Silenced SMG - M7S/Caseless</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Smg</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>SniperRifle</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>sniper_rifle</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The primary sniper rifle system used by UNSC forces.
+								</d:Desc>
+								<d:Disp>Sniper Rifle - SRS 99D AM</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>SniperRifle</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>SpartanLaser</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>spartan_laser</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>A directed energy weapon. It’s slow, but one of the most
+									powerful portable armaments in the UNSC arsenal.</d:Desc>
+								<d:Disp>Spartan Laser - WAV M6 GGNR</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>SpartanLaser</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>ClaymoreGrenade</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>spike_grenade</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>A primitive and deadly explosive device that impales any
+									target and holds tight until it explodes in a shredding hail of
+									razor sharp metal.</d:Desc>
+								<d:Disp>Spike Grenade - (Type-2 AP-FG)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>ClaymoreGrenade</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>SpikeRifle</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>spike_rifle</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Holding 48 spikes per magazine, this vicious and
+									dangerous rifle is favored by Brutes and based on their native,
+									pre-Covenant technology.</d:Desc>
+								<d:Disp>Spiker - (Type-25 Carbine)</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>SpikeRifle</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Tank</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>scorpion</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The M808B Main Battle Tank is the primary armored
+									fighting vehicle in UNSC service.</d:Desc>
+								<d:Disp>Scorpion - M808B MBT</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Tank</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Unknown</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>questionmark</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Killed, once again, by the guardians.</d:Desc>
+								<d:Disp>Guardians</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Unknown</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>VehicleKill</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>questionmark</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>Hey, buddy, that's a felony.</d:Desc>
+								<d:Disp>Classified</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>VehicleKill</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>WarthogDriver</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>warthog</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The ubiquitous Warthog - three thousand kilos of
+									fuel-injected ballistic polycarbonate, titanium, and carbon
+									nanotube.</d:Desc>
+								<d:Disp>Warthog - Driver</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>WarthogDriver</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>WarthogGunner</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>warthog_gunner</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The M41 light anti-aircraft gun is an externally
+									powered, three-barreled, rotary-fire machine gun. Though
+									inaccurate at long ranges, it has excellent penetration
+									characteristics and a high rate of fire.</d:Desc>
+								<d:Disp>Turret - M41 LAAG</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>WarthogGunner</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>Wraith</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>wraith</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The Wraith assault gun carriage is the primary armored
+									fighting vehicle used by the Covenant. It is bulbous and
+									thickly armored, but surprisingly maneuverable.</d:Desc>
+								<d:Disp>Wraith - Driver</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>Wraith</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>WraithAntiinfantry</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>wraith_gunner</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>All post-2549 model Wraiths have an extended crew area
+									with a Type-52 DESW in a ring mount.</d:Desc>
+								<d:Disp>Wraith - Gunner</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>WraithAntiinfantry</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>FlameThrower</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>flame_thrower</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The M7057 is a standard chemical flamethrower, which
+									projects and ignites a stream of volatile, semi-liquid fuel.
+								</d:Desc>
+								<d:Disp>FlameThrower - M7057 DP</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>FlameThrower</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>ElephantTurret</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>50_cal</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The M41 light anti-aircraft gun is an externally
+									powered, three-barreled, rotary-fire machine gun. Though
+									inaccurate at long ranges, it has excellent penetration
+									characteristics and a high rate of fire.</d:Desc>
+								<d:Disp>Elephant - M41 LAAG</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>ElephantTurret</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+						<c:KeyValueOfstringWeap93kMfpyL>
+							<c:Key>WarthogGunnerGauss</c:Key>
+							<c:Value
+								xmlns:d="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources">
+								<d:ImgName>warthog_gauss</d:ImgName>
+								<d:ImgPath>/images/halo3stats/odst/weapons/{0}_{1}/{2}.{3}
+								</d:ImgPath>
+								<d:Desc>The gauss cannon is an excellent anti-vehicle weapon but
+									it is not very effective against massed infantry.</d:Desc>
+								<d:Disp>Warthog - M68 ALIM</d:Disp>
+								<d:LrgImg />
+								<d:SmlImg />
+								<d:Type>WarthogGunnerGauss</d:Type>
+							</c:Value>
+						</c:KeyValueOfstringWeap93kMfpyL>
+					</b:WeaponInfo>
+				</a:Data>
+			</GetGameMetaDataResult>
+		</GetGameMetaDataResponse>
+	</s:Body>
+</s:Envelope>
