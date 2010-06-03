@@ -1,14 +1,20 @@
 <?php
+// ODST Game Parser
+
 // Bungie.net Settings
 define('BUNGIE_SERVER', 'www.bungie.net');
 define('ODST_SERVICE', 'api/odst/ODSTService');
-define('SOAP_ACTION', 'GetGameDetail');
+define('ODST_GAME', 'GetGameDetail');
+define('ODST_METADATA', 'GetGameMetaData');
+define('ODST_SOAP_CLIENT_URI', 'http://tempuri.org/');
+define('SOAP_CLIENT_VERSION', 2);
+define('SOAP_REQUEST_VERSION', SOAP_1_1);
 // Parser Settings
 define('DATE_FORMAT', 'Y-m-d\TH:i:s'); // For date_create_from_format()
 date_default_timezone_set('America/Los_Angeles');
 
-// Define the game data class
-class GameInfo {
+// ODST Game class
+class ODSTGame {
 	// Errors
 	Public $error = false;
 	Public $error_details = array(0, '');
@@ -47,8 +53,8 @@ class GameInfo {
 	Public $medals = array();
 }
 
-// Player class
-class Player {
+// ODST Player class
+class ODSTPlayer {
 	Public $id;
 	Public $gamertag;
 	Public $service_tag;
@@ -61,8 +67,8 @@ class Player {
 	Public $medals = array();
 }
 
-// Firefight wave stats class
-class WaveStats {
+// ODST Firefight wave stats class
+class ODSTFirefightWave {
 	Public $id;
 	Public $activity = false;
 	Public $start;
@@ -79,11 +85,11 @@ class WaveStats {
 
 function get_metadata() {
     $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
-    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/GetGameMetaData';
+    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/' . ODST_METADATA;
     // Get/make the client
     $client = new SoapClient(null, array('location' => $url,
-                                         'uri' => 'http://tempuri.org/',
-                                         'soap_version' => 2,
+                                         'uri' => ODST_SOAP_CLIENT_URI,
+                                         'soap_version' => SOAP_CLIENT_VERSION,
                                          'trace' => true));
     $soap_request = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><GetGameMetaData xmlns="http://www.bungie.net/api/odst" /></s:Body></s:Envelope>';
     return $client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1);
@@ -91,11 +97,11 @@ function get_metadata() {
 
 function dump_data($game_id) {
 	$url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
-    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/'. SOAP_ACTION;
+    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/'. ODST_GAME;
     // Get/make the client
     $client = new SoapClient(null, array('location' => $url,
-                                         'uri' => 'http://tempuri.org/',
-                                         'soap_version' => 2,
+                                         'uri' => ODST_SOAP_CLIENT_URI,
+                                         'soap_version' => SOAP_CLIENT_VERSION,
                                          'trace' => true));
     $soap_request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body><GetGameDetail xmlns=\"http://www.bungie.net/api/odst\"><gameId>${game_id}</gameId></GetGameDetail></s:Body></s:Envelope>";
     return $client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1);
@@ -103,11 +109,11 @@ function dump_data($game_id) {
 
 function get_data($game_ids) {
     $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
-    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/'. SOAP_ACTION;
+    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/'. ODST_GAME;
     // Get/make the client
     $client = new SoapClient(null, array('location' => $url,
-                                         'uri' => 'http://tempuri.org/',
-                                         'soap_version' => 2,
+                                         'uri' => ODST_SOAP_CLIENT_URI,
+                                         'soap_version' => SOAP_CLIENT_VERSION,
                                          'trace' => true));
     $game_data = array();
     foreach ($game_ids as $game_id) {
@@ -118,7 +124,7 @@ function get_data($game_ids) {
 }
 
 function parse_data($game_xml) {
-    $game = new GameInfo;    
+    $game = new ODSTGame;    
     
     // Load the XML into DOM and grab the GameDetail Result for simplexml
     $dom = new DOMDocument;
@@ -191,7 +197,7 @@ function parse_data($game_xml) {
     // Players
     $game->player_count = count($players->children('b', true));
     foreach($players->children('b', true) as $player) {
-        $player_info = new Player;
+        $player_info = new ODSTPlayer;
         $player_info->id = (int) $player->DataIndex;
         $player_info->gamertag = rtrim((string) $player->Gamertag);
         $player_info->service_tag = (string) $player->ServiceTag;
@@ -223,7 +229,7 @@ function parse_data($game_xml) {
     if ($game->firefight == true) {
     	$a = 1;
     	foreach ($waves->children('b', true) as $wave) {
-    		$game->wave_stats[$a] = new WaveStats;
+    		$game->wave_stats[$a] = new ODSTFirefightWave;
     		$game->wave_stats[$a]->id = $a;
     		$game->wave_stats[$a]->start = $wave->STR;
     		if ($a > 1) {
