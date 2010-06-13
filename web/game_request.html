@@ -1,7 +1,9 @@
-<html>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>ODST Game Data - Submit Request</title>
-  <link rel="stylesheet" href="odst_data.css" type="text/css">
+  <link rel="stylesheet" href="odst_data.css" type="text/css" />
 </head>
 <body>
   <div class="header">
@@ -9,23 +11,36 @@
     <p>Quick-and-Dirty Page to test parts of the parser</p>
   </div>
   
-  <p>The ODST Game Info parser is <a href="raw_code.php">available for download</a>.</p>
-  
   <h2>Game Data Request</h2>
-  <form method="GET" action="game_data.php">
-    <label>Game ID: <input type="text" name="gameid"></label><br><br>
-    <input type="submit">
+  <form method="get" action="game_data.php">
+    <fieldset>
+      <label>Game ID: <input type="text" name="gameid" /></label>
+    </fieldset>
+    <p><input type="submit" /></p>
   </form>
   
-  <h2>Dump Game Data XML/SOAP</h2>
-  <form method="GET" action="game_dump.php">
-    <label>Game ID: <input type="text" name="gameid"></label><br><br>
-    <input type="submit">
+  <h2>Raw Game Data XML/SOAP</h2>
+  <form method="get" action="raw_xmldata.php">
+    <fieldset>
+      <input type="hidden" name="mode" value="game" />
+      <label>Game ID: <input type="text" name="gameid" /></label>
+    </fieldset>
+    <p><input type="submit" /></p>
   </form>
   
-  <h2>Dump Game Metadata</h2>
-  <form method="GET" action="metadata.php">
-    <input type="submit">
+  <h2>Raw Game Metadata</h2>
+  <form method="get" action="raw_xmldata.php">
+    <p><input type="hidden" name="mode" value="metadata" />
+    <input type="submit" /></p>
+  </form>
+  
+  <h2>Download code</h2>
+  <form method="get" action="raw_code.php">
+    <fieldset>
+      <label>game_parser.php<input type="radio" name="file" value="parser" /></label><br />
+      <label>game_data.php<input type="radio" name="file" value="data" /></label>
+    </fieldset>
+    <p><input type="submit" /></p>
   </form>
 </body>
 </html>

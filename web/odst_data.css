@@ -28,3 +28,7 @@ dl dd {
 .subdata { margin-left: 2em; }
 h3, h4 { margin-bottom: 0; }
 
+fieldset {
+  border: none;
+  padding: 0;
+}
