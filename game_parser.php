@@ -41,8 +41,6 @@ class ODSTGame {
     
     // Parse/Load Game Stats method
     function load_game() {
-        $game = new ODSTGame;    
-        
         // Grab the GameDetail Result for simplexml
         $xml = simplexml_import_dom($this->xml_data->getElementsByTagName('GetGameDetailResult')->item(0));
         
@@ -71,12 +69,11 @@ class ODSTGame {
         $this->map = (string) $game_data->MapName;
         $this->time_bonus = (float) $game_data->TimeBonus;
         
-        // Break down the string and feed it into mktime.
-        // Break down date into date and time
+        // Break down string into date and time
         $datetime = explode('T', $game_data->GameDate);
         list($dt_year, $dt_month, $dt_day) = explode('-', $datetime[0]);
         list($dt_hour, $dt_minute, $dt_second) = explode(':', $datetime[1]);
-        
+            
         // Set datetime
         $this->datetime = date_create('@' . (string) mktime($dt_hour, $dt_minute,
                                       $dt_second, $dt_month, $dt_day, $dt_year));
@@ -294,76 +291,88 @@ class ODSTGame {
     }
     
     // SOAP/XML data
-    Public $xml_data;
+    public $xml_data;
     
     // Errors
-    Public $error = false;
-    Public $error_details = array(0, '');
+    public $error = false;
+    public $error_details = array(0, '');
     
     // General info
-    Public $difficulty;
-    Public $duration;
-    Public $datetime;
-    Public $map;
-    Public $scoring_enabled = false;
-    Public $score = -1;
-    Public $time_bonus = 0.0;
-    Public $firefight = false;
+    public $difficulty;
+    public $duration;
+    public $datetime;
+    public $map;
+    public $scoring_enabled = false;
+    public $score = -1;
+    public $time_bonus = 0.0;
+    public $firefight = false;
     
     // Players
-    Public $player_count;
-    Public $players = array();    
+    public $player_count;
+    public $players = array();    
     
     // Skulls
-    Public $skulls_primary_start = array();
-    Public $skulls_secondary_start = array();
+    public $skulls_primary_start = array();
+    public $skulls_secondary_start = array();
     
     // Sets, Rounds, Waves, and Bonus Rounds
-    Public $total_waves = -1;
-    Public $bonus_rounds = -1;
-    Public $set_reached = -1;
-    Public $round_reached = -1;
-    Public $wave_reached = -1;
+    public $total_waves = -1;
+    public $bonus_rounds = -1;
+    public $set_reached = -1;
+    public $round_reached = -1;
+    public $wave_reached = -1;
     
     // Wave stats
-    Public $wave_stats = array();
+    public $wave_stats = array();
     
     // Weapons
-    Public $weapons_used = array();
+    public $weapons_used = array();
     // Medals
-    Public $medals = array();
+    public $medals = array();
 }
 
 // ODST Player class
 class ODSTPlayer {
-    Public $id;
-    Public $gamertag;
-    Public $service_tag;
-    Public $score = -1;
-    Public $kills = 0;
-    Public $deaths = 0;
-    Public $suicides = 0;
-    Public $betrayals = 0;
-    Public $weapons_used = array();
-    Public $medals = array();
+    public $id;
+    public $gamertag;
+    public $service_tag;
+    public $score = -1;
+    public $kills = 0;
+    public $deaths = 0;
+    public $suicides = 0;
+    public $betrayals = 0;
+    public $weapons_used = array();
+    public $medals = array();
 }
 
 // ODST Firefight wave stats class
 class ODSTFirefightWave {
-    Public $id;
-    Public $activity = false;
-    Public $start;
-    Public $end;
-    Public $length;
-    Public $score = -1;
-    Public $kills = 0;
-    Public $deaths = 0;
-    Public $suicides = 0;
-    Public $betrayals = 0;
-    Public $weapons_used = array();
-    Public $medals = array();
+    public $id;
+    public $activity = false;
+    public $start;
+    public $end;
+    public $length;
+    public $score = -1;
+    public $kills = 0;
+    public $deaths = 0;
+    public $suicides = 0;
+    public $betrayals = 0;
+    public $weapons_used = array();
+    public $medals = array();
 }
 
+// Firefight Wave Position Calculator
+function wave_position($total_waves) {
+    $bonus_rounds = (int) floor($total_waves / 16);
+    $calc_waves = $total_waves - $bonus_rounds - 1;
+    $set_reached = (int) floor($calc_waves / 15) + 1;
+    $round_reached = (int) floor($calc_waves % 15 / 5) + 1;
+    $wave_reached = $calc_waves % 15 % 5 + 1;
+    
+    return array($bonus_rounds, $set_reached, $round_reached, $wave_reached);
+}
+
+// Utility functions - Will be removed/replaced at some point
 function get_metadata() {
     $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
     $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/' . ODST_METADATA;
@@ -386,14 +395,4 @@ function get_gamexml($game_id) {
                                          'trace' => true));
     $soap_request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body><GetGameDetail xmlns=\"http://www.bungie.net/api/odst\"><gameId>${game_id}</gameId></GetGameDetail></s:Body></s:Envelope>";
     return $client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1);
-}
-
-function wave_position($total_waves) {
-    $bonus_rounds = (int) floor($total_waves / 16);
-    $calc_waves = $total_waves - $bonus_rounds - 1;
-    $set_reached = (int) floor($calc_waves / 15) + 1;
-    $round_reached = (int) floor($calc_waves % 15 / 5) + 1;
-    $wave_reached = $calc_waves % 15 % 5 + 1;
-    
-    return array($bonus_rounds, $set_reached, $round_reached, $wave_reached);
 }
