@@ -28,7 +28,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
       &middot;
       <a href="game_request.html">Request data on another game</a>
       &middot;
-      <a href="game_dump.php?gameid=<?php echo $_GET['gameid']; ?>">Get raw SOAP/XML data</a>
+      <a href="raw_xmldata.php?mode=game&amp;gameid=<?php echo $_GET['gameid']; ?>">Get raw SOAP/XML data</a>
     </p>
   </div>
   
