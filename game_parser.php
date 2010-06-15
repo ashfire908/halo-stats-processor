@@ -10,14 +10,12 @@ define('ODST_SOAP_CLIENT_URI', 'http://tempuri.org/');
 define('SOAP_CLIENT_VERSION', 2);
 define('SOAP_REQUEST_VERSION', SOAP_1_1);
 // Parser Settings
-define('DATE_FORMAT', 'Y-m-d\TH:i:s'); // For date parsing
 date_default_timezone_set('America/Los_Angeles');
 
 // ODST Game class
 class ODSTGame {
     function __construct() {
-        // Create SOAP/XML DOMDocument
-        $this->xml_data = new DOMDocument;
+        $this->init_xml();
     }
     
     // Diffculty constants
@@ -25,6 +23,16 @@ class ODSTGame {
     const NORMAL = 1;
     const HEROIC = 2;
     const LEGENDARY = 3;
+    
+    function init_xml() {
+        // (Re)create a blank DOMDocument for SOAP/XML data
+        $this->xml_data = new DOMDocument;
+    }
+    
+    function dump_xml() {
+        // Recreate the XML document into a string
+        return $this->xml_data->saveXML();
+    }
     
     // Retrieve Game Stats method
     function get_game($game_id) {
@@ -361,6 +369,259 @@ class ODSTFirefightWave {
     public $medals = array();
 }
 
+// ODST Metadata class
+class ODSTMetadata {
+    function __construct() {
+        // Create SOAP/XML DOMDocument
+        $this->init_xml();
+    }
+    
+    // Constants for image size/type
+    const IMAGE_SMALL = 'sm';
+    const IMAGE_MEDIUM = 'med';
+    const IMAGE_LARGE = 'large';
+    const IMAGE_PNG = 'png';
+    const IMAGE_GIF = 'gif';
+    
+    function init_xml() {
+        // (Re)create a blank DOMDocument for SOAP/XML data
+        $this->xml_data = new DOMDocument;
+    }
+    
+    function dump_xml() {
+        // Recreate the XML document into a string
+        return $this->xml_data->saveXML();
+    }
+    
+    function image_url($object, $mode, $size = NULL, $type = NULL) {
+        if ($object->image_gen === false) {
+            return;
+        }
+        if ($size == NULL) {
+            if ($this->image_default_size == NULL) {
+                return;
+            }
+            $size = $this->image_default_size;
+        }
+        if ($type == NULL) {
+            if ($this->image_default_type == NULL) {
+                return;
+            }
+            $type = $this->image_default_type;
+        }
+        $path = $object->image_path;
+        $path = str_replace('{0}', $type, $path);
+        $path = str_replace('{1}', $size, $path);
+        $path = str_replace('{2}', $object->image_name, $path);
+        $path = str_replace('{3}', $type, $path);
+        switch ($mode) {
+            case 'get':
+                return 'http://' . BUNGIE_SERVER . $path;
+                break;
+            case 'set':
+                $object->image_url = 'http://' . BUNGIE_SERVER . $path;
+                break;
+        }
+    }
+    
+    function get_metadata() {
+        $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
+        $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/' . ODST_METADATA;
+        // Get/make the client
+        $client = new SoapClient(null, array('location' => $url,
+                                             'uri' => ODST_SOAP_CLIENT_URI,
+                                             'soap_version' => SOAP_CLIENT_VERSION,
+                                             'trace' => true));
+        $soap_request = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><GetGameMetaData xmlns="http://www.bungie.net/api/odst" /></s:Body></s:Envelope>';
+        $this->xml_data->loadXML($client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1));
+    }
+    
+    function load_metadata() {
+        // Grab the GetGameMetaDataResult Result for simplexml
+        $xml = simplexml_import_dom($this->xml_data->getElementsByTagName('GetGameMetaDataResult')->item(0));
+        
+        // Error Handling
+        $this->error_details[0] = (int) $xml->status;
+        $this->error_details[1] = (string) $xml->reason;
+        
+        if ($this->error_details[0] != 7777) {
+            $this->error = true;
+            return;
+        }
+        
+        // Get metadata
+        $metadata = $xml->children('a', true)->children('b', true);
+        
+        $character_xml = $metadata->CharacterInfo; // Characters
+        $medal_xml = $metadata->MedalInfo; // Medals
+        $skull_xml = $metadata->SkullInfo; // Skulls
+        $weapon_xml = $metadata->WeaponInfo; // Weapons
+        
+        // Process Characters
+        foreach($character_xml->children('c', true) as $character_class) {
+            foreach($character_class->Value->KeyValueOfstringChar93kMfpyL as $character) {
+                $odst_character = new ODSTCharacter;
+                $character_attr = $character->Value->children('d', true);
+                
+                $odst_character->id = (string) $character_attr->Id;
+                list($odst_character->name, $odst_character->class) = explode('_', $odst_character->id);
+                $odst_character->display_name = (string) $character_attr->Disp;
+                $odst_character->image_name = (string) $character_attr->ImgName;
+                $odst_character->image_path = (string) $character_attr->ImgPath;
+                $odst_character->description = (string) $character_attr->Desc;
+                $odst_character->points = (int) $character_attr->Pnts;
+                if ($character_attr->Vehic == 'true') {
+                    $odst_character->vehicle = true;
+                } elseif ($character_attr->Vehic == 'false') {
+                    $odst_character->vehicle = false;
+                }
+                
+                if (! array_key_exists($odst_character->class, $this->characters)) {
+                    $this->characters[$odst_character->class] = array();
+                }
+                $this->characters[$odst_character->class][$odst_character->name] = $odst_character;
+            }
+        }
+        
+        // Process Medals
+        foreach($medal_xml->children('c', true) as $medal) {
+            $odst_medal = new ODSTMedal;
+            $medal_attr = $medal->Value->children('d', true);
+            
+            $odst_medal->id = (string) $medal_attr->Type;
+            $odst_medal->display_name = (string) $medal_attr->Disp;
+            $odst_medal->image_name = (string) $medal_attr->ImgName;
+            $odst_medal->image_path = (string) $medal_attr->ImgPath;
+            $odst_medal->group = (string) $medal_attr->RowGroup;
+            $odst_medal->description = (string) $medal_attr->Desc;
+            $odst_medal->points = (int) $medal_attr->Points;
+            $odst_medal->display_row = (int) $medal_attr->Row;
+            $odst_medal->tier = (int) $medal_attr->Tier;
+            
+            $this->medals[$odst_medal->id] = $odst_medal;
+        }
+        
+        // Process Skulls
+        foreach($skull_xml->children('c', true) as $skull) {
+            $odst_skull = new ODSTSkull;
+            $skull_attr = $skull->Value->children('d', true);
+            
+            $odst_skull->id = (string) $skull_attr->ID;
+            $odst_skull->display_name = (string) $skull_attr->Display;
+            $odst_skull->image_enabled = (string) $skull_attr->Image;
+            $odst_skull->image_disabled = (string) $skull_attr->ImageOff;
+            $odst_skull->description = (string) $skull_attr->Desc;
+            $odst_skull->score_multiplier = (float) $skull_attr->Multiplier;
+            $odst_skull->order = (int) $skull_attr->Sort;
+            
+            $this->skulls[$odst_skull->id] = $odst_skull;
+        }
+        
+        // Process Weapons
+        foreach ($weapon_xml->children('c', true) as $weapon) {
+            $odst_weapon = new ODSTWeapon;
+            $weapon_attr = $weapon->Value->children('d', true);
+            
+            $odst_weapon->id = (string) $weapon_attr->Type;
+            $odst_weapon->display_name = (string) $weapon_attr->Disp;
+            $odst_weapon->image_name = (string) $weapon_attr->ImgName;
+            $odst_weapon->image_path = (string) $weapon_attr->ImgPath;
+            $odst_weapon->description = (string) $weapon_attr->Desc;
+            
+            $this->weapons[$odst_weapon->id] = $odst_weapon;
+        }
+        
+        // Get default image size and type
+        $this->image_default_size = (string) $metadata->ImageSizeEnum;
+        $this->image_default_type = (string) $metadata->ImageTypeEnum;
+    }
+    
+
+    // SOAP/XML data
+    public $xml_data;
+    
+    // Errors
+    public $error = false;
+    public $error_details = array(0, '');
+    
+    // General Groups
+    public $characters = array(); // Characters
+    public $medals = array(); // Medals
+    public $skulls = array(); // Skulls
+    public $weapons = array(); // Weapons
+    
+    // Image defaults
+    public $image_default_size;
+    public $image_default_type;
+}
+
+// ODST Metadata Character
+class ODSTCharacter {
+    public $image_gen = true; // Image URL Generation supported
+    
+    public $id; // Internal name
+    public $name; // Character name
+    public $class; // Character class
+    public $display_name; // Human-friendly name
+    public $image_name;
+    public $image_path;
+    public $image_url;
+    public $description;
+    public $points = 0;
+    public $vehicle = false;
+}
+
+// ODST Metadata Medal
+class ODSTMedal {
+    public $image_gen = true; // Image URL Generation supported
+    
+    public $id; // Internal name
+    public $display_name; // Human-friendly name
+    public $image_name;
+    public $image_path;
+    public $image_url;
+    public $group;
+    public $description;
+    public $points = 0;
+    public $display_row;
+    public $tier;
+}
+
+// ODST Metadata Skull
+class ODSTSkull {
+    public $image_gen = false; // Image URL Generation not supported
+    
+    function image_url($type) {
+        switch ($type) {
+            case 'enabled':
+                return 'http://' . BUNGIE_SERVER . $self->image_enabled;
+                break;
+            case 'disabled':
+                return 'http://' . BUNGIE_SERVER . $self->image_disabled;
+                break;
+        }
+    }
+    public $id; // Internal name
+    public $display_name; // Human-friendly name
+    public $image_enabled;
+    public $image_disabled;
+    public $description;
+    public $score_multiplier;
+    public $order;
+}
+
+// ODST Metadata Weapon
+class ODSTWeapon {
+    public $image_gen = true;  // Image URL Generation supported
+    
+    public $id; // Internal name
+    public $display_name; // Human-friendly name
+    public $image_name;
+    public $image_path;
+    public $image_url;
+    public $description;
+}
+
 // Firefight Wave Position Calculator
 function wave_position($total_waves) {
     $bonus_rounds = (int) floor($total_waves / 16);
@@ -370,29 +631,4 @@ function wave_position($total_waves) {
     $wave_reached = $calc_waves % 15 % 5 + 1;
     
     return array($bonus_rounds, $set_reached, $round_reached, $wave_reached);
-}
-
-// Utility functions - Will be removed/replaced at some point
-function get_metadata() {
-    $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
-    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/' . ODST_METADATA;
-    // Get/make the client
-    $client = new SoapClient(null, array('location' => $url,
-                                         'uri' => ODST_SOAP_CLIENT_URI,
-                                         'soap_version' => SOAP_CLIENT_VERSION,
-                                         'trace' => true));
-    $soap_request = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><GetGameMetaData xmlns="http://www.bungie.net/api/odst" /></s:Body></s:Envelope>';
-    return $client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1);
-}
-
-function get_gamexml($game_id) {
-    $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
-    $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/'. ODST_GAME;
-    // Get/make the client
-    $client = new SoapClient(null, array('location' => $url,
-                                         'uri' => ODST_SOAP_CLIENT_URI,
-                                         'soap_version' => SOAP_CLIENT_VERSION,
-                                         'trace' => true));
-    $soap_request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body><GetGameDetail xmlns=\"http://www.bungie.net/api/odst\"><gameId>${game_id}</gameId></GetGameDetail></s:Body></s:Envelope>";
-    return $client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1);
 }

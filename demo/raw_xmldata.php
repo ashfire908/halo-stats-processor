@@ -9,12 +9,16 @@ switch ($_GET['mode']) {
         }
         header('Content-Type: text/xml; charset=utf-8');
         header("Content-Disposition: attachment; filename=\"game_${gameid}.xml\"");
-        echo get_gamexml($gameid);
+        $odst_game = new ODSTGame;
+        $odst_game->get_game($gameid);
+        echo $odst_game->dump_xml();
         break;
     case 'metadata':
         header('Content-Type: text/xml; charset=utf-8');
         header('Content-Disposition: attachment; filename="game_metadata.xml"');
-        echo get_metadata();
+        $metadata = new ODSTMetadata;
+        $metadata->get_metadata();
+        echo $metadata->dump_xml();
         break;
     default:
     	echo 'No operation selected.';
