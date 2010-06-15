@@ -1,16 +1,14 @@
 <?php
-// Game Parser
+require_once('parser.php');
+// ODST Game Parser
 
-// Bungie.net Settings
-define('BUNGIE_SERVER', 'www.bungie.net');
+// ODST SOAP Settings
 define('ODST_SERVICE', 'api/odst/ODSTService');
 define('ODST_GAME', 'GetGameDetail');
 define('ODST_METADATA', 'GetGameMetaData');
 define('ODST_SOAP_CLIENT_URI', 'http://tempuri.org/');
 define('SOAP_CLIENT_VERSION', 2);
 define('SOAP_REQUEST_VERSION', SOAP_1_1);
-// Parser Settings
-date_default_timezone_set('America/Los_Angeles');
 
 // ODST Game class
 class ODSTGame {
