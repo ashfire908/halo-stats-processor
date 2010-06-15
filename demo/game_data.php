@@ -1,5 +1,5 @@
 <?php
-require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../game_parser.php');
+require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../odst_parser.php');
 function btt($var) {
   if ($var === true) {
     return 'Yes';

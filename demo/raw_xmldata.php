@@ -1,5 +1,5 @@
 <?php
-require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../game_parser.php');
+require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../odst_parser.php');
 switch ($_GET['mode']) {
     case 'game':
         $gameid = $_GET['gameid'];
