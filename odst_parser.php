@@ -298,6 +298,15 @@ class ODSTGame {
                     $player->score = $player->score * $this->time_bonus;
                 }
             }
+            
+            // Convert scores to integers
+            $this->score = (int) $this->score;
+            foreach ($this->players as $player) {
+                $player->score = (int) $player->score;
+            }
+            foreach ($this->wave_stats as $wave) {
+                $wave->score = (int) $wave->score;
+            }
         }
     }
     
@@ -345,7 +354,7 @@ class ODSTGame {
 // ODST Player class
 class ODSTPlayer {
     function emblem_url($size) {
-        list($a_pri, $a_sec, $e_pri, $e_sec) = $this->emblem_colors;
+        list(, $a_pri, $a_sec, $e_pri, $e_sec) = $this->emblem_colors;
         list(, $e_design, $b_design, $e_toggle) = $this->emblem_flags;
         
         // Reverse Toggle setting
@@ -354,6 +363,7 @@ class ODSTPlayer {
         $url = 'http://' . BUNGIE_SERVER . '/' . EMBLEM_PATH .
         "?s=$size&0=$a_pri&1=$a_sec&2=$e_pri&3=$e_sec&fi=$e_design&bi=$b_design&fl=$e_toggle&m="
          . ODST_EMBLEM_GAME;
+        return $url;
     }
     
     public $id;
