@@ -111,11 +111,31 @@ foreach ($game->players as $player) {
 ?>    <div class="subdata">
       <h4>Player ID <?php echo $player->id;?></h4>
       <dl>
+        <dt>Emblem</dt>
+        <dd>
+          <a href="<?php echo $player->emblem_url(100);?>" title="Player <?php echo $player->id;?>'s Emblem">
+            <img src="<?php echo $player->emblem_url(100);?>" height="100" width="100" alt="Player <?php echo $player->id;?>'s Emblem" />
+          </a>
+          <br />
+        </dd>
+        
         <dt>Gamertag</dt>
         <dd><?php echo $player->gamertag;?><br /></dd>
   
         <dt>Service Tag</dt>
         <dd><?php echo $player->service_tag;?><br /></dd>
+        
+        <dt>ArmorFlags</dt>
+        <dd><?php echo implode(', ', $player->armor_flags);?><br /></dd>
+  
+        <dt>ArmorType</dt>
+        <dd><?php echo $player->armor_type;?><br /></dd>
+    
+        <dt>EmblemColors</dt>
+        <dd><?php echo implode(', ', $player->emblem_colors);?><br /></dd>
+  
+        <dt>EmblemFlags</dt>
+        <dd><?php echo implode(', ', $player->emblem_flags);?><br /></dd>
   
         <dt>Score</dt>
         <dd><?php echo $player->score;?><br /></dd>

@@ -32,3 +32,8 @@ fieldset {
   border: none;
   padding: 0;
 }
+
+img {
+  border: none;
+  vertical-align: middle;
+}
