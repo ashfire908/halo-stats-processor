@@ -2,6 +2,7 @@
 require_once('parser.php');
 // ODST Game Parser
 
+define('ODST_EMBLEM_GAME', 2);
 // ODST SOAP Settings
 define('ODST_SERVICE', 'api/odst/ODSTService');
 define('ODST_GAME', 'GetGameDetail');
@@ -98,6 +99,10 @@ class ODSTGame {
             $player_info->id = (int) $player->DataIndex;
             $player_info->gamertag = rtrim((string) $player->Gamertag);
             $player_info->service_tag = (string) $player->ServiceTag;
+            $player_info->armor_flags = unpack('C*', base64_decode((string) $player->ArmorFlags));
+            $player_info->armor_type = (int) $player->ArmorType;
+            $player_info->emblem_colors = unpack('C*', base64_decode((string) $player->EmblemColors));
+            $player_info->emblem_flags = unpack('C*', base64_decode((string) $player->EmblemFlags));
             if ($this->scoring_enabled) {
                 $player_info->score = 0;
             }
@@ -339,9 +344,25 @@ class ODSTGame {
 
 // ODST Player class
 class ODSTPlayer {
+    function emblem_url($size) {
+        list($a_pri, $a_sec, $e_pri, $e_sec) = $this->emblem_colors;
+        list(, $e_design, $b_design, $e_toggle) = $this->emblem_flags;
+        
+        // Reverse Toggle setting
+        $e_toggle = $e_toggle? 0 : 1;
+
+        $url = 'http://' . BUNGIE_SERVER . '/' . EMBLEM_PATH .
+        "?s=$size&0=$a_pri&1=$a_sec&2=$e_pri&3=$e_sec&fi=$e_design&bi=$b_design&fl=$e_toggle&m="
+         . ODST_EMBLEM_GAME;
+    }
+    
     public $id;
     public $gamertag;
     public $service_tag;
+    public $armor_flags;
+    public $armor_type;
+    public $emblem_colors;
+    public $emblem_flags;
     public $score = -1;
     public $kills = 0;
     public $deaths = 0;
