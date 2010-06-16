@@ -13,7 +13,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>ODST Game Data - Results for gameid <?php echo $_GET['gameid']; ?></title>
-  <link rel="stylesheet" href="odst_data.css" type="text/css" />
+  <link rel="stylesheet" href="demo_css.css" type="text/css" />
 </head>
 <body>
   <div class="header">
