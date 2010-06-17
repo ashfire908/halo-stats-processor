@@ -422,7 +422,7 @@ class ODSTMetadata {
         return $this->xml_data->saveXML();
     }
     
-    function image_url($object, $mode, $size = NULL, $type = NULL) {
+    function image_url($object, $size = NULL, $type = NULL) {
         if ($object->image_gen === false) {
             return;
         }
@@ -443,14 +443,8 @@ class ODSTMetadata {
         $path = str_replace('{1}', $size, $path);
         $path = str_replace('{2}', $object->image_name, $path);
         $path = str_replace('{3}', $type, $path);
-        switch ($mode) {
-            case 'get':
-                return 'http://' . BUNGIE_SERVER . $path;
-                break;
-            case 'set':
-                $object->image_url = 'http://' . BUNGIE_SERVER . $path;
-                break;
-        }
+        
+        return 'http://' . BUNGIE_SERVER . $path;
     }
     
     function get_metadata() {
@@ -591,7 +585,6 @@ class ODSTCharacter {
     public $display_name; // Human-friendly name
     public $image_name;
     public $image_path;
-    public $image_url;
     public $description;
     public $points = 0;
     public $vehicle = false;
@@ -605,7 +598,6 @@ class ODSTMedal {
     public $display_name; // Human-friendly name
     public $image_name;
     public $image_path;
-    public $image_url;
     public $group;
     public $description;
     public $points = 0;
@@ -644,7 +636,6 @@ class ODSTWeapon {
     public $display_name; // Human-friendly name
     public $image_name;
     public $image_path;
-    public $image_url;
     public $description;
 }
 
