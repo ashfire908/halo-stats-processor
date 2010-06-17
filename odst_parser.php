@@ -505,10 +505,7 @@ class ODSTMetadata {
                     $odst_character->vehicle = false;
                 }
                 
-                if (! array_key_exists($odst_character->class, $this->characters)) {
-                    $this->characters[$odst_character->class] = array();
-                }
-                $this->characters[$odst_character->class][$odst_character->name] = $odst_character;
+                $this->characters[$odst_character->id] = $odst_character;
             }
         }
         
