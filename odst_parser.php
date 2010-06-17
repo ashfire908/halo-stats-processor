@@ -607,14 +607,18 @@ class ODSTMedal {
 
 // ODST Metadata Skull
 class ODSTSkull {
+    // Enabled/Disabled Skull Image constants
+    const SKULL_ENABLED = true;
+    const SKULL_DISABLED = false;
+    
     public $image_gen = false; // Image URL Generation not supported
     
-    function image_url($type) {
-        switch ($type) {
-            case 'enabled':
+    function image_url($mode) {
+        switch ($mode) {
+            case SKULL_ENABLED:
                 return 'http://' . BUNGIE_SERVER . $self->image_enabled;
                 break;
-            case 'disabled':
+            case SKULL_DISABLED:
                 return 'http://' . BUNGIE_SERVER . $self->image_disabled;
                 break;
         }
