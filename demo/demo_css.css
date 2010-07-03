@@ -1,4 +1,8 @@
-@CHARSET "UTF-8";
+@charset "UTF-8";
+
+.forms h2 { margin-bottom: 0; }
+
+.header { margin-bottom: .8em; }
 
 .header h1, .header h2, .header h3,
 .header h4, .header h5 { margin: 0; }

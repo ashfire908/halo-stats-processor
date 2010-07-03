@@ -5,16 +5,24 @@
   <title>ODST Game Data - Submit Request</title>
   <link rel="stylesheet" href="demo_css.css" type="text/css" />
 </head>
-<body>
+<body class="forms">
   <div class="header">
     <h1>ODST Game Data</h1>
     <p>Quick-and-Dirty Page to test parts of the parser</p>
   </div>
   
-  <h2>Game Data Request</h2>
+  <h2>Game Data</h2>
   <form method="get" action="game_data.php">
     <fieldset>
       <label>Game ID: <input type="text" name="gameid" /></label>
+    </fieldset>
+    <p><input type="submit" /></p>
+  </form>
+  
+  <h2>Recent Games</h2>
+  <form method="get" action="recent_games.php">
+    <fieldset>
+      <label>Gamertag: <input type="text" name="gamertag" /></label>
     </fieldset>
     <p><input type="submit" /></p>
   </form>
@@ -32,15 +40,6 @@
   <form method="get" action="raw_xmldata.php">
     <p><input type="hidden" name="mode" value="metadata" />
     <input type="submit" /></p>
-  </form>
-  
-  <h2>Download code</h2>
-  <form method="get" action="raw_code.php">
-    <fieldset>
-      <label>odst_parser.php<input type="radio" name="file" value="parser" /></label><br />
-      <label>game_data.php<input type="radio" name="file" value="data" /></label>
-    </fieldset>
-    <p><input type="submit" /></p>
   </form>
 </body>
 </html>
