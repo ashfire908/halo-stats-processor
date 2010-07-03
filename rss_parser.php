@@ -69,7 +69,7 @@ function odst_rss($gamertag) {
         list(, $game->gameid) = explode("=", $link_match[0]);
         
         // Datetime
-        $game->datetime = DateTime::createFromFormat(RSS_DATE_FORMAT, $date);
+        $game->datetime = date_create($date);
         
         // Remaining stats
         // Run the regexps on the description.

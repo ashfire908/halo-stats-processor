@@ -76,14 +76,8 @@ class ODSTGame {
         $this->map = (string) $game_data->MapName;
         $this->time_bonus = (float) $game_data->TimeBonus;
         
-        // Break down string into date and time
-        $datetime = explode('T', $game_data->GameDate);
-        list($dt_year, $dt_month, $dt_day) = explode('-', $datetime[0]);
-        list($dt_hour, $dt_minute, $dt_second) = explode(':', $datetime[1]);
-            
-        // Set datetime
-        $this->datetime = date_create('@' . (string) mktime($dt_hour, $dt_minute,
-                                      $dt_second, $dt_month, $dt_day, $dt_year));
+        // Date/Time
+        $this->datetime = date_create($game_data->GameDate);
         
         if ($game_data->IsScoreEnabled == 'true') {
             $this->scoring_enabled = true;
