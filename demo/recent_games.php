@@ -1,4 +1,5 @@
 <?php
+require(dirname($_SERVER['SCRIPT_FILENAME']) . '/shared.php');
 require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../rss_parser.php');
 require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../odst_parser.php');
 // In case short tag is enabled
@@ -12,13 +13,13 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
 <body>
   <div class="header">
     <h1>ODST Game Data</h1>
-    <p>Quick-and-Dirty Page to test parts of the parser</p>
+    <p>Demonstation pages to show off the features of ODST GSP</p>
   </div>
   
   <div id="data_menu">
     <h2>Recent games for <?php echo $_GET['gamertag']; ?>:</h2>
     <p>
-      <a href="game_request.html">Request data on another person</a>
+      <a href="index.html">Request data on another person</a>
     </p>
   </div>
   
@@ -34,7 +35,7 @@ $games = odst_rss($gamertag);
 <?php foreach ($games as $game) {?>
   <div class="header">
     <h3>Recent Game <?php echo $game->gameid; ?></h3>
-    <p><a href="./game_data?gameid=<?php echo $game->gameid; ?>" title="Show the data for this game">Show data for this game</a></p>
+    <p><a href="./game_data?gameid=<?php echo $game->gameid; ?>" title="Show the data for this game">Show data for this game</a> <a href="./game_data?gameid=<?php echo $game->gameid; ?>&use_metadata=true" title="Show the data for this game, with metadata">(with metadata)</a></p>
   </div>
   <dl>
     
@@ -75,8 +76,8 @@ switch ($game->difficulty) {
         break;
 }?><br /></dd>
 
-    <dt>Duration (in seconds):</dt>
-    <dd><?php echo $game->duration; ?><br /></dd>
+    <dt>Duration:</dt>
+    <dd><?php echo tperiod($game->duration); ?><br /></dd>
     
     <dt>Date/time:</dt>
     <dd><?php echo $game->datetime->format('Y-m-d H:i:s');?><br /></dd>
@@ -91,11 +92,13 @@ switch ($game->difficulty) {
     <dd><?php echo $game->score; ?><br /></dd>
     
 <?php
-list($total_waves, $bonus_rounds, $set_reached, $round_reached, $wave_reached) = 
-wave_position($game->waves);
+if ($game->waves > 0) {
+    
+    list($bonus_rounds, $set_reached, $round_reached, $wave_reached) = 
+    wave_position($game->waves);
 ?>
     <dt>Total Waves:</dt>
-    <dd><?php echo $total_waves;?><br /></dd>
+    <dd><?php echo $game->waves;?><br /></dd>
     
     <dt>Bonus Rounds:</dt>
     <dd><?php echo $bonus_rounds;?><br /></dd>
@@ -107,7 +110,8 @@ wave_position($game->waves);
     <dd><?php echo $round_reached;?><br /></dd>
     
     <dt>Wave Reached:</dt>
-    <dd><?php echo $wave_reached;?><br /></dd>
+    <dd><?php echo $wave_reached;?><br /></dd><?php
+} ?>
   </dl><?php 
 } ?>
 </body>

@@ -8,38 +8,56 @@
 <body class="forms">
   <div class="header">
     <h1>ODST Game Data</h1>
-    <p>Quick-and-Dirty Page to test parts of the parser</p>
+    <p>Demonstation pages to show off the features of ODST GSP</p>
   </div>
   
   <h2>Game Data</h2>
   <form method="get" action="game_data.php">
+    <p>
+       Displays the data and stats for a specific game. Optionally can use
+       locally-cached metadata to show user-friendly data
+    </p>
     <fieldset>
-      <label>Game ID: <input type="text" name="gameid" /></label>
+      <label>Game ID: <input type="text" name="gameid" /></label><br />
+      <label>Use Metadata? <input type="checkbox" name="use_metadata" value="true" /></label>
     </fieldset>
-    <p><input type="submit" /></p>
+    <p><input type="submit" value="View Game Stats" /></p>
   </form>
   
   <h2>Recent Games</h2>
   <form method="get" action="recent_games.php">
+    <p>List the recent games for a Gamertag.</p>
     <fieldset>
       <label>Gamertag: <input type="text" name="gamertag" /></label>
     </fieldset>
-    <p><input type="submit" /></p>
+    <p><input type="submit" value="View Recent Games" /></p>
   </form>
   
   <h2>Raw Game Data XML/SOAP</h2>
   <form method="get" action="raw_xmldata.php">
+    <p>Dumps the raw XML/SOAP received for a game.</p>
     <fieldset>
       <input type="hidden" name="mode" value="game" />
       <label>Game ID: <input type="text" name="gameid" /></label>
     </fieldset>
-    <p><input type="submit" /></p>
+    <p><input type="submit" value="Download Game XML" /></p>
   </form>
   
   <h2>Raw Game Metadata</h2>
   <form method="get" action="raw_xmldata.php">
-    <p><input type="hidden" name="mode" value="metadata" />
-    <input type="submit" /></p>
+    <p>
+      <input type="hidden" name="mode" value="metadata" />
+      Dumps the raw XML/SOAP for the game metadata.<br /><br />
+      <input type="submit" value="Download Metadata XML" />
+    </p>
+  </form>
+  
+  <h2>Update Metadata</h2>
+  <form method="post" action="metadata.php">
+    <p>
+      This will update the locally stored metadata. Only run as necessary.<br /><br />
+      <input type="submit" value="Update Metadata" />
+    </p>
   </form>
 </body>
 </html>

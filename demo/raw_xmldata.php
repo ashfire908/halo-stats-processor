@@ -1,4 +1,5 @@
 <?php
+require(dirname($_SERVER['SCRIPT_FILENAME']) . '/shared.php');
 require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../odst_parser.php');
 switch ($_GET['mode']) {
     case 'game':

@@ -41,3 +41,26 @@ img {
   border: none;
   vertical-align: middle;
 }
+
+/* Skulls */
+.skull_display {
+  position: relative;
+  height: 30px;
+}
+.skull_display img {
+  position: absolute;
+  top: 0px;
+  margin: 0 1px;
+}
+img.skull_1 { left: 0px; }
+img.skull_2 { left: 32px; }
+img.skull_3 { left: 64px; }
+img.skull_4 { left: 96px; }
+img.skull_5 { left: 128px; }
+img.skull_6 { left: 160px; }
+img.skull_7 { left: 192px; }
+img.skull_8 { left: 224px; }
+img.skull_9 { left: 256px; }
+img.skull_10 { left: 288px; }
+img.skull_11 { left: 320px; }
+img.skull_12 { left: 352px; }
