@@ -49,6 +49,13 @@ class ODSTGame {
     // Parse/Load Game Stats method
     function load_game() {
         // Grab the GameDetail Result for simplexml
+        if ($this->xml_data->getElementsByTagName('GetGameDetailResult')->item(0) == null) {
+            // Couldn't find response
+            $this->error_details[0] = -1;
+            $this->error_details[1] = "Internal Parser Error.";
+            $this->error = true;
+            return;
+        }
         $xml = simplexml_import_dom($this->xml_data->getElementsByTagName('GetGameDetailResult')->item(0));
         
         // Error Handling
