@@ -615,11 +615,11 @@ class ODSTSkull {
     
     function image_url($mode) {
         switch ($mode) {
-            case SKULL_ENABLED:
-                return 'http://' . BUNGIE_SERVER . $self->image_enabled;
+            case ODSTSkull::SKULL_ENABLED:
+                return 'http://' . BUNGIE_SERVER . $this->image_enabled;
                 break;
-            case SKULL_DISABLED:
-                return 'http://' . BUNGIE_SERVER . $self->image_disabled;
+            case ODSTSkull::SKULL_DISABLED:
+                return 'http://' . BUNGIE_SERVER . $this->image_disabled;
                 break;
         }
     }
