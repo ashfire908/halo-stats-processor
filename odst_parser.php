@@ -495,7 +495,7 @@ class ODSTMetadata {
                 $odst_character->points = (int) $character_attr->Pnts;
                 if ($character_attr->Vehic == 'true') {
                     $odst_character->vehicle = true;
-                } elseif ($character_attr->Vehic == 'false') {
+                } else {
                     $odst_character->vehicle = false;
                 }
                 
@@ -512,7 +512,7 @@ class ODSTMetadata {
             $odst_medal->display_name = (string) $medal_attr->Disp;
             $odst_medal->image_name = (string) $medal_attr->ImgName;
             $odst_medal->image_path = (string) $medal_attr->ImgPath;
-            $odst_medal->group = (string) $medal_attr->RowGroup;
+            $odst_medal->group = (string) $medal_attr->RowDisplay;
             $odst_medal->description = (string) $medal_attr->Desc;
             $odst_medal->points = (int) $medal_attr->Points;
             $odst_medal->display_row = (int) $medal_attr->Row;
