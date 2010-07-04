@@ -4,7 +4,6 @@ require_once('parser.php');
 
 // RSS settings
 define('HALO3_RSS_FEED', 'stats/halo3rss.ashx');
-define('RSS_DATE_FORMAT', 'D, d M Y H:i:s T');
 define('ODST_RSS', 35);
 
 // RSS feed game

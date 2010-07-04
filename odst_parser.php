@@ -84,8 +84,9 @@ class ODSTGame {
         $this->time_bonus = (float) $game_data->TimeBonus;
         
         // Date/Time
-        $this->datetime = date_create($game_data->GameDate);
+        $this->datetime = new DateTime($game_data->GameDate, new DateTimeZone('America/Los_Angeles'));
         
+        // Scoring/Firefight
         if ($game_data->IsScoreEnabled == 'true') {
             $this->scoring_enabled = true;
         }
