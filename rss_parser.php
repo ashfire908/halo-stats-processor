@@ -3,8 +3,9 @@ require_once('parser.php');
 // Bungie.net RSS Parser
 
 // RSS settings
-define('HALO3_RSS_FEED', 'stats/halo3rss.ashx');
-define('ODST_RSS', 35);
+define('RSS_FEED_HALO3', 'stats/halo3rss.ashx');
+define('RSS_MODE_HALO3', 3);
+define('RSS_MODE_ODST', 35);
 
 // RSS feed game
 class RSSGame {
@@ -40,8 +41,8 @@ function odst_rss($gamertag) {
     
     // Get RSS
     $rss = new DOMDocument();
-    $rss_url = 'http://' . BUNGIE_SERVER . '/' . HALO3_RSS_FEED . '?g=' .
-                rawurlencode($gamertag) . '&md=' . ODST_RSS;
+    $rss_url = 'http://' . BUNGIE_SERVER . '/' . RSS_FEED_HALO3 . '?g=' .
+                rawurlencode($gamertag) . '&md=' . RSS_MODE_ODST;
     $curl_rss = curl_init($rss_url);
     curl_setopt($curl_rss, CURLOPT_USERAGENT, HTTP_USER_AGENT);
     curl_setopt($curl_rss, CURLOPT_RETURNTRANSFER, 1);

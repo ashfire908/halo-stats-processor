@@ -2,7 +2,7 @@
 require_once('parser.php');
 // ODST Game Parser
 
-define('ODST_EMBLEM_GAME', 2);
+
 // ODST SOAP Settings
 define('ODST_SERVICE', 'api/odst/ODSTService');
 define('ODST_GAME', 'GetGameDetail');
@@ -364,7 +364,7 @@ class ODSTPlayer {
 
         $url = 'http://' . BUNGIE_SERVER . '/' . EMBLEM_PATH .
         "?s=$size&0=$a_pri&1=$a_sec&2=$e_pri&3=$e_sec&fi=$e_design&bi=$b_design&fl=$e_toggle&m="
-         . ODST_EMBLEM_GAME;
+         . EMBLEM_GAME_ODST;
         return $url;
     }
     
