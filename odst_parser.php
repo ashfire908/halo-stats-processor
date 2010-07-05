@@ -228,7 +228,7 @@ class ODSTGame {
                         // Update wave stats
                         if ($this->firefight === true) {
                             $current_wave->score -= $event->S;
-                            $current_wave->suicides++;
+                            $current_wave->betrayals++;
                         }
                         break;
                     case 'KILL':      // A player killed an enemy
