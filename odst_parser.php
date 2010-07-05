@@ -3,12 +3,12 @@ require_once('parser.php');
 // ODST Game Parser
 
 // ODST SOAP Settings
-define('ODST_SERVICE', 'api/odst/ODSTService');
-define('ODST_GAME', 'GetGameDetail');
-define('ODST_METADATA', 'GetGameMetaData');
+define('ODST_SOAP_SERVICE', 'api/odst/ODSTService');
+define('ODST_SOAP_GAME', 'GetGameDetail');
+define('ODST_SOAP_METADATA', 'GetGameMetaData');
 define('ODST_SOAP_CLIENT_URI', 'http://tempuri.org/');
-define('SOAP_CLIENT_VERSION', 2);
-define('SOAP_REQUEST_VERSION', SOAP_1_1);
+define('ODST_SOAP_CLIENT_VERSION', 2);
+define('ODST_SOAP_REQUEST_VERSION', SOAP_1_1);
 
 // ODST Game class
 class ODSTGame {
@@ -34,15 +34,15 @@ class ODSTGame {
     
     // Retrieve Game Stats method
     function get_game($game_id) {
-        $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
-        $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/'. ODST_GAME;
+        $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SOAP_SERVICE . '.svc';
+        $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SOAP_SERVICE . '/'. ODST_SOAP_GAME;
         // Get/make the client
         $client = new SoapClient(null, array('location' => $url,
                                              'uri' => ODST_SOAP_CLIENT_URI,
-                                             'soap_version' => SOAP_CLIENT_VERSION,
+                                             'soap_version' => ODST_SOAP_CLIENT_VERSION,
                                              'trace' => true));
         $soap_request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body><GetGameDetail xmlns=\"http://www.bungie.net/api/odst\"><gameId>${game_id}</gameId></GetGameDetail></s:Body></s:Envelope>";
-        $this->xml_data->loadXML($client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1));
+        $this->xml_data->loadXML($client->__doRequest($soap_request, $url, $soap_url, ODST_SOAP_REQUEST_VERSION));
     }
     
     // Parse/Load Game Stats method
@@ -544,15 +544,15 @@ class ODSTMetadata {
     }
     
     function get_metadata() {
-        $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '.svc';
-        $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SERVICE . '/' . ODST_METADATA;
+        $url = 'http://' . BUNGIE_SERVER . '/' . ODST_SOAP_SERVICE . '.svc';
+        $soap_url = 'http://' . BUNGIE_SERVER . '/' . ODST_SOAP_SERVICE . '/' . ODST_SOAP_METADATA;
         // Get/make the client
         $client = new SoapClient(null, array('location' => $url,
                                              'uri' => ODST_SOAP_CLIENT_URI,
-                                             'soap_version' => SOAP_CLIENT_VERSION,
+                                             'soap_version' => ODST_SOAP_CLIENT_VERSION,
                                              'trace' => true));
         $soap_request = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><GetGameMetaData xmlns="http://www.bungie.net/api/odst" /></s:Body></s:Envelope>';
-        $this->xml_data->loadXML($client->__doRequest($soap_request, $url, $soap_url, SOAP_1_1));
+        $this->xml_data->loadXML($client->__doRequest($soap_request, $url, $soap_url, ODST_SOAP_REQUEST_VERSION));
     }
     
     function load_metadata() {
