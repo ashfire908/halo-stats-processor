@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<GetGameDetailResponse xmlns="http://www.bungie.net/api/odst">
+			<GetGameDetailResult
+				xmlns:a="http://schemas.datacontract.org/2004/07/BungieNet.API.ODST.Response"
+				xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<reason xmlns="http://schemas.datacontract.org/2004/07/BungieNet.API">Okay</reason>
+				<status xmlns="http://schemas.datacontract.org/2004/07/BungieNet.API">7777</status>
+				<a:Game
+					xmlns:b="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Halo3.ODST">
+					<b:Difficulty>1</b:Difficulty>
+					<b:Duration>442</b:Duration>
+					<b:GameDate>2010-05-23T21:04:00</b:GameDate>
+					<b:GameEvents>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>40</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>41</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>42</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>42</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>43</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>44</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>35</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>44</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>DoubleKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>44</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>35</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>44</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>55</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>46</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>55</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>46</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>55</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>46</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>275</b:S>
+							<b:ST>Leader</b:ST>
+							<b:ST2>Brute</b:ST2>
+							<b:T>46</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>OverKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>46</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>10</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>49</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>63</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>75</b:S>
+							<b:ST>Leader</b:ST>
+							<b:ST2>Brute</b:ST2>
+							<b:T>65</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>85</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>15</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>87</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>89</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>91</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>DoubleKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>93</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>35</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>93</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>35</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>93</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>GrenadeStick</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>97</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Assist</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>97</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>75</b:S>
+							<b:ST>Leader</b:ST>
+							<b:ST2>Brute</b:ST2>
+							<b:T>99</b:T>
+							<b:WEP>PlasmaGrenade</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>100</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>15</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>102</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Assist</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>107</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>MeleeKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>108</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Assist</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>108</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>DoubleKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>110</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>20</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>110</b:T>
+							<b:WEP>Smg</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>175</b:S>
+							<b:ST>Leader</b:ST>
+							<b:ST2>Brute</b:ST2>
+							<b:T>110</b:T>
+							<b:WEP>Melee</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>10</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>111</b:T>
+							<b:WEP>Smg</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>50</b:S>
+							<b:ST>KillingSpree</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>308</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>MeleeKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>308</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>15</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>310</b:T>
+							<b:WEP>Melee</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>StealthKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>311</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>15</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>313</b:T>
+							<b:WEP>Melee</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>315</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>DoubleKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>316</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>20</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>316</b:T>
+							<b:WEP>Smg</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>20</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>316</b:T>
+							<b:WEP>Smg</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>317</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Headshot</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>317</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>45</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>319</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>TripleKill</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>319</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>45</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>319</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>45</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>319</b:T>
+							<b:WEP>MagnumPistol</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>50</b:S>
+							<b:ST>KillingSpree</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>321</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>10</b:S>
+							<b:ST>Infantry</b:ST>
+							<b:ST2>Grunt</b:ST2>
+							<b:T>323</b:T>
+							<b:WEP>Smg</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>MEDAL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>0</b:S>
+							<b:ST>Assist</b:ST>
+							<b:ST2 i:nil="true" />
+							<b:T>409</b:T>
+							<b:WEP i:nil="true" />
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>0</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>20</b:S>
+							<b:ST>Specialist</b:ST>
+							<b:ST2>Jackal</b:ST2>
+							<b:T>411</b:T>
+							<b:WEP>Smg</b:WEP>
+						</b:GE>
+						<b:GE>
+							<b:ET>KILL</b:ET>
+							<b:PC>1</b:PC>
+							<b:PE>0</b:PE>
+							<b:S>20</b:S>
+							<b:ST>Specialist</b:ST>
+							<b:ST2>Jackal</b:ST2>
+							<b:T>412</b:T>
+							<b:WEP>Shotgun</b:WEP>
+						</b:GE>
+					</b:GameEvents>
+					<b:GamePlayers>
+						<b:Plyr>
+							<b:ArmorFlags>AAAAAgEAAAA=</b:ArmorFlags>
+							<b:ArmorType>0</b:ArmorType>
+							<b:DataIndex>0</b:DataIndex>
+							<b:EmblemColors>DQEYAw==</b:EmblemColors>
+							<b:EmblemFlags>UDAAAxgBAAA=</b:EmblemFlags>
+							<b:Gamertag>Andrew Hampe   </b:Gamertag>
+							<b:ServiceTag>ASH</b:ServiceTag>
+						</b:Plyr>
+						<b:Plyr>
+							<b:ArmorFlags>AAAAAAAAAAA=</b:ArmorFlags>
+							<b:ArmorType>0</b:ArmorType>
+							<b:DataIndex>1</b:DataIndex>
+							<b:EmblemColors>AgMAAg==</b:EmblemColors>
+							<b:EmblemFlags>DCYBAgADAAA=</b:EmblemFlags>
+							<b:Gamertag>thethingkiller </b:Gamertag>
+							<b:ServiceTag>L098</b:ServiceTag>
+						</b:Plyr>
+					</b:GamePlayers>
+					<b:GameWaves />
+					<b:InitialPrimarySkulls />
+					<b:InitialSecondarySkulls>IWHBYD</b:InitialSecondarySkulls>
+					<b:IsScoreEnabled>false</b:IsScoreEnabled>
+					<b:IsSurvival>false</b:IsSurvival>
+					<b:MapName>Mombasa Streets</b:MapName>
+					<b:TimeBonus>3</b:TimeBonus>
+					<b:Waves>0</b:Waves>
+				</a:Game>
+			</GetGameDetailResult>
+		</GetGameDetailResponse>
+	</s:Body>
+</s:Envelope>
