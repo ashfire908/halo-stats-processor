@@ -26,7 +26,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
     </p>
   </div>
   
-  <p>Processing...<?php
+  <p>Processing...<code><?php
 $gamenum = $_GET['gameid'];
 $use_metadata = false;
 if (array_key_exists('use_metadata', $_GET) and $_GET['use_metadata'] == 'true') {
@@ -34,7 +34,7 @@ if (array_key_exists('use_metadata', $_GET) and $_GET['use_metadata'] == 'true')
         $use_metadata = true;
         $metadata = unserialize(file_get_contents(METADATA_FILE));
     } else {
-        print ' Error, could not find local metadata. Please <a href="metadata.php" title="Generate local metadata copy">generate the local copy</a>. <br />';
+        print ' Error, could not find local metadata. Please <a href="metadata.php" title="Generate local metadata copy">generate the local copy</a>.<br />';
     }
 }
 if ($gamenum == '') {
@@ -44,7 +44,9 @@ if ($gamenum == '') {
 $game = new ODSTGame;
 $game->get_game($gamenum);
 $game->load_game();
-?> Done.</p>
+print_r($game);
+
+?></code> Done.</p>
 
   <h3>Error</h3>
   <dl>
@@ -103,6 +105,23 @@ switch ($game->difficulty) {
     
     <dt>Firefight Game?</dt>
     <dd><?php echo btt($game->firefight); ?><br /></dd>
+    
+    <dt>Kills:</dt>
+    <dd><?php echo $game->kills; ?><br /></dd>
+    
+    <dt>Deaths:</dt>
+    <dd><?php echo $game->deaths; ?><br /></dd>
+    
+    <dt>Suicides:</dt>
+    <dd><?php echo $game->suicides; ?><br /></dd>
+    
+    <dt>Betrayals:</dt>
+    <dd><?php echo $game->betrayals; ?><br /></dd>
+<?php if (! $game->firefight) { ?>
+    
+    <dt>Reverts:</dt>
+    <dd><?php echo $game->reverts; ?><br /></dd>
+<?php } ?>
   </dl>
   
   <div class="header">
@@ -176,6 +195,7 @@ foreach ($player->weapons_used as $weapon) {
         
         <dt>Medals</dt>
         <dd>
+          <span class="subtitle">Total Medals: <?php echo $player->medal_count; ?></span>
           <dl>
 <?php foreach ($player->medals as $medal => $count) {
     if ($use_metadata) {
@@ -338,8 +358,10 @@ foreach ($game->weapons_used as $weapon) {
 }
 ?>
       </ul>
-
-    <h3>Medals:</h3>
+    <div class="header">
+      <h3>Medals:</h3>
+      <p>Total medals: <?php echo $game->medal_count; ?></p>
+    </div>
       <dl>
 <?php foreach ($game->medals as $medal => $count) {
     if ($use_metadata) {
