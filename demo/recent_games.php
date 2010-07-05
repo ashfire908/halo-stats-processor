@@ -7,19 +7,19 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>ODST Game Data - Recent games for <?php echo $_GET['gamertag']; ?></title>
+  <title>Halo SP - Recent ODST games for <?php echo $_GET['gamertag']; ?></title>
   <link rel="stylesheet" href="demo_css.css" type="text/css" />
 </head>
 <body>
   <div class="header">
-    <h1>ODST Game Data</h1>
-    <p>Demonstation pages to show off the features of ODST GSP</p>
+    <h1>Halo SP</h1>
+    <p>Demonstation pages to show off the features of Halo Stats Processor</p>
   </div>
   
   <div id="data_menu">
     <h2>Recent games for <?php echo $_GET['gamertag']; ?>:</h2>
     <p>
-      <a href="index.html">Request data on another person</a>
+      <a href="index.html" title="Main Page">Return to main page</a>
     </p>
   </div>
   
@@ -35,7 +35,7 @@ $games = odst_rss($gamertag);
 <?php foreach ($games as $game) {?>
   <div class="header">
     <h3>Recent Game <?php echo $game->gameid; ?></h3>
-    <p><a href="./game_data?gameid=<?php echo $game->gameid; ?>" title="Show the data for this game">Show data for this game</a> <a href="./game_data?gameid=<?php echo $game->gameid; ?>&use_metadata=true" title="Show the data for this game, with metadata">(with metadata)</a></p>
+    <p><a href="./game_stats?gameid=<?php echo $game->gameid; ?>" title="Show the data for this game">Show data for this game</a> <a href="./game_stats?gameid=<?php echo $game->gameid; ?>&use_metadata=true" title="Show the data for this game, with metadata">(with metadata)</a></p>
   </div>
   <dl>
     

@@ -6,23 +6,23 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>ODST Game Data - Results for gameid <?php echo $_GET['gameid']; ?></title>
+  <title>Halo SP - Results for ODST gameid <?php echo $_GET['gameid']; ?></title>
   <link rel="stylesheet" href="demo_css.css" type="text/css" />
 </head>
 <body>
   <div class="header">
-    <h1>ODST Game Data</h1>
-    <p>Demonstation pages to show off the features of ODST GSP</p>
+    <h1>Halo SP</h1>
+    <p>Demonstation pages to show off the features of Halo Stats Processor</p>
   </div>
   
   <div id="data_menu">
     <h2>Data for gameid <?php echo $_GET['gameid']; ?>:</h2>
     <p>
+      <a href="index.html" title="Main Page">Return to main page</a>
+      &middot;
       <a href="http://www.bungie.net/Stats/ODSTg.aspx?gameid=<?php echo $_GET['gameid']; ?>" title="Link to game <?php echo $_GET['gameid']; ?> on Bungie.net">Bungie.net Link</a>
       &middot;
-      <a href="index.html">Request data on another game</a>
-      &middot;
-      <a href="raw_xmldata.php?mode=game&amp;gameid=<?php echo $_GET['gameid']; ?>">Get raw SOAP/XML data</a>
+      <a href="raw_xmldata.php?mode=odst_game&amp;gameid=<?php echo $_GET['gameid']; ?>" title="Download raw XML/SOAP">Download raw SOAP/XML for this game</a>
     </p>
   </div>
   

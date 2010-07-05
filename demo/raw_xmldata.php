@@ -2,7 +2,7 @@
 require(dirname($_SERVER['SCRIPT_FILENAME']) . '/shared.php');
 require(dirname($_SERVER['SCRIPT_FILENAME']) . '/../odst_parser.php');
 switch ($_GET['mode']) {
-    case 'game':
+    case 'odst_game':
         $gameid = $_GET['gameid'];
         if ($gameid == '') {
             echo "Error: No Game ID given. Aborting...";
@@ -14,7 +14,7 @@ switch ($_GET['mode']) {
         $odst_game->get_game($gameid);
         echo $odst_game->dump_xml();
         break;
-    case 'metadata':
+    case 'odst_metadata':
         header('Content-Type: text/xml; charset=utf-8');
         header('Content-Disposition: attachment; filename="game_metadata.xml"');
         $metadata = new ODSTMetadata;

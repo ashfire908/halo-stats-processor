@@ -2,7 +2,6 @@
 require_once('parser.php');
 // ODST Game Parser
 
-
 // ODST SOAP Settings
 define('ODST_SERVICE', 'api/odst/ODSTService');
 define('ODST_GAME', 'GetGameDetail');
