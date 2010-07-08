@@ -4,3 +4,6 @@
 .project
 .settings
 .buildpath
+
+# Metadata for demo
+demo/.local_metadata
