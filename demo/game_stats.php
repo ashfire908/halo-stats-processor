@@ -44,8 +44,6 @@ if ($gamenum == '') {
 $game = new ODSTGame;
 $game->get_game($gamenum);
 $game->load_game();
-print_r($game);
-
 ?></code> Done.</p>
 
   <h3>Error</h3>
