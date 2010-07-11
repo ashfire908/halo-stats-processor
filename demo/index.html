@@ -33,23 +33,15 @@
     <p><input type="submit" value="View Recent Games" /></p>
   </form>
   
-  <h2>Download ODST Game XML</h2>
+  <h2>Download XML data</h2>
   <form method="get" action="raw_xmldata.php">
-    <p>Dumps the raw XML/SOAP received for a ODST game.</p>
+    <p>Dumps the raw XML/SOAP received.</p>
     <fieldset>
-      <input type="hidden" name="mode" value="odst_game" />
-      <label>Game ID: <input type="text" name="gameid" /></label>
+      <label>ODST Game data <input type="radio" name="mode" value="odst_game" /></label><br />
+      <label>ODST Metadata <input type="radio" name="mode" value="odst_metadata" /></label><br />
+      <label>Game ID (for game data): <input type="text" name="gameid" /></label>
     </fieldset>
-    <p><input type="submit" value="Download ODST Game XML" /></p>
-  </form>
-  
-  <h2>Download ODST Game Metadata XML</h2>
-  <form method="get" action="raw_xmldata.php">
-    <p>
-      <input type="hidden" name="mode" value="odst_metadata" />
-      Dumps the raw XML/SOAP for the ODST game metadata.<br /><br />
-      <input type="submit" value="Download ODST Metadata XML" />
-    </p>
+    <p><input type="submit" value="Download XML" /></p>
   </form>
   
   <h2>Update ODST Metadata</h2>
