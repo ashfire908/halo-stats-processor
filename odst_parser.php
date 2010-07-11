@@ -27,6 +27,11 @@ class ODSTGame {
         $this->xml_data = new DOMDocument;
     }
     
+    function load_xml($xml) {
+        // Load XML in a string into XML data property
+        $this->xml_data->loadXML($xml);
+    }
+    
     function dump_xml() {
         // Recreate the XML document into a string
         return $this->xml_data->saveXML();
