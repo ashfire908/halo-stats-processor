@@ -6,8 +6,8 @@ is a library for accessing and processing Halo statistics. Its primary function
 is to retrieve data from Bungie.net, parse it, and return easily-accessible (and
 possibly additional) stats for the developer to use in other projects. A full
 list of the features of Halo SP is listed later on. Halo SP supports
-Halo 3: ODST fully, with future full support for Halo: Reach and possibly Halo 3
-planned.
+Halo 3: ODST fully, with future full support for Halo: Reach (and possibly Halo
+3) planned.
 
 Requirements
 ------------
@@ -40,6 +40,14 @@ looking at Halo SP on [ASW][asw]. If neither answered your question or you'd
 rather like to talk to a person instead, you can either drop into the [#ASW IRC
 channel on ClueIRC][asw irc] or email a (the) developer with your question.
 
+Reporting Bugs
+--------------
+
+If you find a bug or other issue, create an
+[Issue](http://github.com/Ashfire908/halo-stats-processor/issues) for it. Please
+provide the relevant information and a good description of the issue when
+submitting the problem.
+
 Contributing
 ------------
 
@@ -49,7 +57,8 @@ To suggest/submit a change/patch, do the following steps:
 2. Create a branch (git checkout -b my_branch)
 3. Commit your changes (git commit -am "Added new stat")
 4. Push to the branch (git push origin my_branch)
-5. Create an [Issue](http://github.com/Ashfire908/halo-stats-processor/issues) with a link to your branch
+5. Create an [Issue](http://github.com/Ashfire908/halo-stats-processor/issues)
+with a link to your branch
 
 If you would like to become a developer of Halo Stats Processor, please contact
 [Ashfire908](http://github.com/Ashfire908 "Ashfire908 on GitHub").
