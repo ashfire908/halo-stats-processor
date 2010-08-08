@@ -27,7 +27,7 @@ class RecentGame {
 class RecentHalo3Game extends RecentGame {
     // Halo 3 Stats
     public $playlist;
-    public $gametype;
+    public $gamevariant;
     public $teams = true;
 }
 
@@ -77,8 +77,8 @@ function get_rss($gamertag, $game) {
 function halo3_rss($gamertag) {
     // Regular expressions
     $regex_link = '/gameid=([0-9]+)/';
-    $regex_description = '/(?:Playlist: (?P<playlist>[A-Za-z0-9 ]+)).*?(?P<gametype>[A-Za-z0-9 ]+) on (?P<map>[A-Za-z0-9 ]+)/';
-    $regex_player = '/(?P<gamertag>[A-Za-z0-9 ]+)(?: \((?P<team>[A-Za-z]+)\))?: (?P<standing>[0-9]+[stndrh]+), (?P<score>[0-9]+), (?P<kills>[0-9]+), (?P<deaths>[0-9]+), (?P<assists>[0-9]+)/';
+    $regex_description = '/(?:Playlist: (?P<playlist>[A-Za-z0-9 ]+)).*?(?P<gamevariant>[A-Za-z0-9 ]+) on (?P<map>[A-Za-z0-9 ]+)/';
+    $regex_player = '/(?P<gamertag>[A-Za-z0-9 ]+)(?: \((?P<team>[A-Za-z]+)\))?: (?P<standing>[0-9]+)[stndrh]+, (?P<score>[0-9]+), (?P<kills>[0-9]+), (?P<deaths>[0-9]+), (?P<assists>[0-9]+)/';
     
     $games = array();
     
@@ -92,7 +92,6 @@ function halo3_rss($gamertag) {
         $game->game = GAME_HALO_3;
         
         // Get the data from the XML
-        //$title = $rss_game->getElementsByTagName('title')->item(0)->nodeValue;
         $link = $rss_game->getElementsByTagName('link')->item(0)->nodeValue;
         $date = $rss_game->getElementsByTagName('pubDate')->item(0)->nodeValue;
         $description = $rss_game->getElementsByTagName('description')->item(0)->nodeValue;
@@ -106,13 +105,9 @@ function halo3_rss($gamertag) {
         
         // Playlist, gametype, map
         preg_match($regex_description, $description, $desc_match);
-        $game->gametype = $desc_match['gametype'];
+        $game->gamevariant = $desc_match['gamevariant'];
         $game->map = $desc_match['map'];
-        if ($game->gametype == $game->map) {
-            $game->playlist = "Forge";
-        } else {
-            $game->playlist = $desc_match['playlist'];
-        }
+        $game->playlist = $desc_match['playlist'];
         
         // Players
         preg_match_all($regex_player, $description, $players_match, PREG_SET_ORDER);
@@ -122,16 +117,16 @@ function halo3_rss($gamertag) {
             
             // Set the stats
             $player->gamertag = $player_match['gamertag'];
-            if (array_key_exists('team', $player_match)) {
+            if ($player_match['team'] != null) {
                 $player->team = $player_match['team'];
             } else {
                 $game->teams = false;
             }
-            $player->standing = $player_match['standing'];
-            $player->score = $player_match['score'];
-            $player->kills = $player_match['kills'];
-            $player->deaths = $player_match['deaths'];
-            $player->assists = $player_match['assists'];
+            $player->standing = (int) $player_match['standing'];
+            $player->score = (int) $player_match['score'];
+            $player->kills = (int) $player_match['kills'];
+            $player->deaths = (int) $player_match['deaths'];
+            $player->assists = (int) $player_match['assists'];
             
             // Add player to array
             $game->players[] = $player;
@@ -204,7 +199,7 @@ function odst_rss($gamertag) {
         }
         $game->duration = $desc_match['duration'] * 60;
         $game->players = $desc_match['players'];
-        if (array_key_exists('score', $desc_match)) {
+        if ($desc_match['score'] != null) {
             $game->score = $desc_match['score'];
         }
         if ($game->mode === 'Firefight') {

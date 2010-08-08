@@ -110,8 +110,8 @@ switch ($game->difficulty) {
     <dt>Playlist:</dt>
     <dd><?php echo $game->playlist; ?><br /></dd>
     
-    <dt>Gametype:</dt>
-    <dd><?php echo $game->gametype; ?><br /></dd><?php } ?>
+    <dt>Game Variant:</dt>
+    <dd><?php echo $game->gamevariant; ?><br /></dd><?php } ?>
     
     <dt>Map:</dt>
     <dd><?php echo $game->map; ?><br /></dd>
