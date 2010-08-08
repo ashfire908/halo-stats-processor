@@ -5,9 +5,9 @@ Halo Stats Processor, or *Halo SP* (previously called ODST Game Stats Processor)
 is a library for accessing and processing Halo statistics. Its primary function
 is to retrieve data from Bungie.net, parse it, and return easily-accessible (and
 possibly additional) stats for the developer to use in other projects. A full
-list of the features of Halo SP is listed later on. Halo SP supports
-Halo 3: ODST fully, with future full support for Halo: Reach (and possibly Halo
-3) planned.
+list of the features of Halo SP is listed later on. Halo SP supports Halo 3:
+ODST fully and Halo 3 recent games, with future full support for Halo: Reach 
+(and possibly Halo 3) planned.
 
 Requirements
 ------------
@@ -24,6 +24,10 @@ Features
 --------
 
 Right now, Halo Stats Processor has the following features:
+
+Halo 3
+
+* Recent games support
 
 Halo 3: ODST
 
