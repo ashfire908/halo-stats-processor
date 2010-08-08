@@ -24,11 +24,13 @@
     <p><input type="submit" value="View Game Stats" /></p>
   </form>
   
-  <h2>Recent ODST Games</h2>
+  <h2>Recent Games</h2>
   <form method="get" action="recent_games.php">
-    <p>List the recent ODST games for a Gamertag.</p>
+    <p>List the recent games for a Gamertag.</p>
     <fieldset>
-      <label>Gamertag: <input type="text" name="gamertag" /></label>
+      <label>Gamertag: <input type="text" name="gamertag" /></label><br />
+      <label>Recent Halo 3 Games <input type="radio" name="game" value="1" /></label><br />
+      <label>Recent ODST Games <input type="radio" name="game" value="2" /></label>
     </fieldset>
     <p><input type="submit" value="View Recent Games" /></p>
   </form>

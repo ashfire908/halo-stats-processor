@@ -31,6 +31,7 @@ dl dd {
   margin-left: .5em;
 }
 .subdata { margin-left: 2em; }
+dl + .subdata { margin-top: 0 !important; }
 h3, h4 { margin-bottom: 0; }
 
 fieldset {
@@ -65,3 +66,16 @@ img.skull_9 { left: 256px; }
 img.skull_10 { left: 288px; }
 img.skull_11 { left: 320px; }
 img.skull_12 { left: 352px; }
+
+/* Standings Table */
+table.standings {
+  border-collapse: collapse;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+table.standings tbody tr { border-bottom: 1px solid #CCC; }
+table.standings th {
+  border-bottom: 1px solid #000000;
+  padding: 0 .25em;
+}
+table.standings td { padding: .25em; }
