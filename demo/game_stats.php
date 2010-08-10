@@ -12,7 +12,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
 <body>
   <div class="header">
     <h1>Halo SP</h1>
-    <p>Demonstation pages to show off the features of Halo Stats Processor</p>
+    <p>Demonstration pages to show off the features of Halo Stats Processor</p>
   </div>
   
   <div id="data_menu">
@@ -27,19 +27,19 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
   </div>
   
   <p>Processing...<code><?php
-$gamenum = $_GET['gameid'];
 $use_metadata = false;
+if ($_GET['gameid'] == '') {
+  echo "Error: No Game ID given. Aborting...";
+  trigger_error("No Game ID given", E_USER_ERROR);
+}
+$gamenum = $_GET['gameid'];
 if (array_key_exists('use_metadata', $_GET) and $_GET['use_metadata'] == 'true') {
-    if (file_exists(METADATA_FILE)) {
+    if (is_readable(METADATA_FILE)) {
         $use_metadata = true;
         $metadata = unserialize(file_get_contents(METADATA_FILE));
     } else {
-        print ' Error, could not find local metadata. Please <a href="metadata.php" title="Generate local metadata copy">generate the local copy</a>.<br />';
+        echo ' Error, could not read the metadata file. Please <a href="metadata.php" title="Generate local metadata copy">generate the local copy</a>.<br />';
     }
-}
-if ($gamenum == '') {
-  print "Error: No Game ID given. Aborting...";
-  trigger_error("No Game ID given", E_USER_ERROR);
 }
 $game = new ODSTGame;
 $game->get_game($gamenum);

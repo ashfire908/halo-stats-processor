@@ -12,7 +12,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
 <body>
   <div class="header">
     <h1>Halo SP</h1>
-    <p>Demonstation pages to show off the features of Halo Stats Processor</p>
+    <p>Demonstration pages to show off the features of Halo Stats Processor</p>
   </div>
   
   <div id="data_menu">
@@ -23,16 +23,41 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
   </div>
   
   <p>Processing...<?php
-$metadata = new ODSTMetadata;
-$metadata->get_metadata();
-$metadata->load_metadata();
-file_put_contents(METADATA_FILE, serialize($metadata));
-?> Done.</p>
-
+// Check if the metadata file exists but is not writeable
+if (file_exists(METADATA_FILE) and ! is_writable(METADATA_FILE)) {
+  ?> Error.</p>
+  
   <p>
-    Local metadata updated, you can
-    <a href="index.html" title="Link back to the main screen">go back to the main menu</a>.
-  </p>
+    Metadata file is not writable. Update failed.<br />
+    <a href="index.html" title="Main menu">Return to the main menu</a>.
+  </p><?php
+} else {
+  if (!$metadata_file = @fopen(METADATA_FILE, 'wb')) {
+    ?> Error.</p>
+  
+  <p>
+    Can't open metadata file. Update failed.<br />
+    <a href="index.html" title="Main menu">Return to the main menu</a>.
+  </p><?php
+  } else {
+    $metadata = new ODSTMetadata;
+    $metadata->get_metadata();
+    $metadata->load_metadata();
+    if (fwrite($metadata_file, serialize($metadata)) === FALSE) {
+       ?> Error.</p>
+  
+  <p>
+    Can't write to metadata file. Update failed.<br />
+    <a href="index.html" title="Main menu">Return to the main menu</a>.
+  </p><?php
+    } else {
+      ?> Done.</p>
+
+  <p>Local metadata updated. <a href="index.html" title="Main menu">Return to the main menu</a>.</p><?php
+    }
+  }
+}
+?>
 
 </body>
 </html>

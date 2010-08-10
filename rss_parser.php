@@ -7,9 +7,9 @@ define('RSS_FEED_HALO3', 'stats/halo3rss.ashx');
 define('RSS_MODE_HALO3', 3);
 define('RSS_MODE_ODST', 35);
 
-// Recent game
+// Recent game base class
 class RecentGame {
-    // Diffculty constants
+    // Difficulty constants
     const EASY = 0;
     const NORMAL = 1;
     const HEROIC = 2;
@@ -75,7 +75,7 @@ function get_rss($gamertag, $game) {
 
 // Load a feed of Halo 3 Games
 function halo3_rss($gamertag) {
-    // Regular expressions
+    // Regular expressions for parsing the RSS
     $regex_link = '/gameid=([0-9]+)/';
     $regex_description = '/(?:Playlist: (?P<playlist>[A-Za-z0-9 ]+)).*?(?P<gamevariant>[A-Za-z0-9 ]+) on (?P<map>[A-Za-z0-9 ]+)/';
     $regex_player = '/(?P<gamertag>[A-Za-z0-9 ]+)(?: \((?P<team>[A-Za-z]+)\))?: (?P<standing>[0-9]+)[stndrh]+, (?P<score>[0-9]+), (?P<kills>[0-9]+), (?P<deaths>[0-9]+), (?P<assists>[0-9]+)/';
@@ -117,7 +117,7 @@ function halo3_rss($gamertag) {
             
             // Set the stats
             $player->gamertag = $player_match['gamertag'];
-            if ($player_match['team'] != null) {
+            if ($player_match['team'] != NULL) {
                 $player->team = $player_match['team'];
             } else {
                 $game->teams = false;
@@ -141,7 +141,7 @@ function halo3_rss($gamertag) {
 
 // Load a feed of ODST games
 function odst_rss($gamertag) {
-    // Regular expressions
+    // Regular expressions for parsing the RSS
     $regex_link = '/gameid=([0-9]+)/';
     $regex_description = '/(?:Difficulty: (?P<difficulty>(?:Easy|Normal|Heroic|Legendary))).*?(?:Game Duration: (?P<duration>[0-9\.]+) minutes).*?(?:Players: (?P<players>[0-9]))/';
     $regex_waves = '/(?:Waves: (?P<waves>[0-9]+))/';
@@ -175,14 +175,14 @@ function odst_rss($gamertag) {
         $game->datetime = date_create($date);
         
         // Remaining stats
-        // Run the regexps on the description.
-        // Yes, it's messy. If you can get a better (working) way...
+        // Run the regular expressions on the description.
+        // TODO: Make this more clean; merge the reg exps
         preg_match($regex_description, $description, $desc_match);
         preg_match($regex_score, $description, $desc_match_score);
         preg_match($regex_waves, $description, $desc_match_waves);
         $desc_match = array_merge($desc_match, $desc_match_score, $desc_match_waves);
         
-        // Run through the results of the regexps
+        // Run through the results of the regular expressions
         switch ($desc_match['difficulty']) {
             case 'Easy':
                 $game->difficulty = RecentODSTGame::EASY;
@@ -199,7 +199,7 @@ function odst_rss($gamertag) {
         }
         $game->duration = $desc_match['duration'] * 60;
         $game->players = $desc_match['players'];
-        if ($desc_match['score'] != null) {
+        if ($desc_match['score'] != NULL) {
             $game->score = $desc_match['score'];
         }
         if ($game->mode === 'Firefight') {

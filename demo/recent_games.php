@@ -24,7 +24,7 @@ switch ($_GET['game']) {
 <body>
   <div class="header">
     <h1>Halo SP</h1>
-    <p>Demonstation pages to show off the features of Halo Stats Processor</p>
+    <p>Demonstration pages to show off the features of Halo Stats Processor</p>
   </div>
   
   <div id="data_menu">
