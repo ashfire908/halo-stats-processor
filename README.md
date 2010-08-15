@@ -47,8 +47,7 @@ channel on ClueIRC][asw irc] or email a (the) developer with your question.
 Reporting Bugs
 --------------
 
-If you find a bug or other issue, create an
-[Issue](http://github.com/Ashfire908/halo-stats-processor/issues) for it. Please
+If you find a bug or other issue, create an [Issue][issue] for it. Please
 provide the relevant information and a good description of the issue when
 submitting the problem.
 
@@ -61,8 +60,7 @@ To suggest/submit a change/patch, do the following steps:
 2. Create a branch (git checkout -b my_branch)
 3. Commit your changes (git commit -am "Added new stat")
 4. Push to the branch (git push origin my_branch)
-5. Create an [Issue](http://github.com/Ashfire908/halo-stats-processor/issues)
-with a link to your branch
+5. Create an [Issue][issue] with a link to your branch
 
 If you would like to become a developer of Halo Stats Processor, please contact
 [Ashfire908](http://github.com/Ashfire908 "Ashfire908 on GitHub").
@@ -72,9 +70,10 @@ Meta
 
 * Home Page:      <http://null.cluenet.org/~ashfire908/projects/halo_sp/>
 * GitHub Project: <http://github.com/Ashfire908/halo-stats-processor>
-* Documentation:  <http://wiki.github.com/Ashfire908/halo-stats-processor/>
+* Documentation:  <http://github.com/Ashfire908/halo-stats-processor/wiki>
 
-[asw]:     http://null.cluenet.org/~ashfire908/projects/halo_sp/   "Project Home Page on ASW"
-[doc]:     http://wiki.github.com/Ashfire908/halo-stats-processor/ "GitHub Documentation Wiki"
-[asw irc]: irc://irc.cluenet.org/#ASW                              "#ASW on ClueIRC"
+[asw]:     http://null.cluenet.org/~ashfire908/projects/halo_sp/    "Project Home Page on ASW"
+[issue]:   http://github.com/Ashfire908/halo-stats-processor/issues "Issue Tracker"
+[doc]:     http://github.com/Ashfire908/halo-stats-processor/wiki   "GitHub Documentation Wiki"
+[asw irc]: irc://irc.cluenet.org/#ASW                               "#ASW on ClueIRC"
 
