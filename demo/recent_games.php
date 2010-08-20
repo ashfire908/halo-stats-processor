@@ -57,7 +57,7 @@ switch ($_GET['game']) {
 <?php foreach ($games as $game) {?>
   <div class="header">
     <h3>Recent Game <?php echo $game->gameid; ?></h3>
-    <?php if ($game->game == GAME_ODST) { ?><p><a href="./game_stats?gameid=<?php echo $game->gameid; ?>" title="Show the data for this game">Show data for this game</a> <a href="./game_stats?gameid=<?php echo $game->gameid; ?>&use_metadata=true" title="Show the data for this game, with metadata">(with metadata)</a></p><?php } ?>
+    <?php if ($game->game == GAME_ODST) { ?><p><a href="./game_stats.php?gameid=<?php echo $game->gameid; ?>" title="Show the data for this game">Show data for this game</a> <a href="./game_stats.php?gameid=<?php echo $game->gameid; ?>&use_metadata=true" title="Show the data for this game, with metadata">(with metadata)</a></p><?php } ?>
   </div>
   <dl>
     
