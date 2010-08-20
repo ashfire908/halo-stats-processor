@@ -29,20 +29,18 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
   <p>Processing...<code><?php
 $use_metadata = false;
 if ($_GET['gameid'] == '') {
-  echo "Error: No Game ID given. Aborting...";
-  trigger_error("No Game ID given", E_USER_ERROR);
+  trigger_error('No Game ID given', E_USER_ERROR);
 }
-$gamenum = $_GET['gameid'];
 if (array_key_exists('use_metadata', $_GET) and $_GET['use_metadata'] == 'true') {
     if (is_readable(METADATA_FILE)) {
         $use_metadata = true;
         $metadata = unserialize(file_get_contents(METADATA_FILE));
     } else {
-        echo ' Error, could not read the metadata file. Please <a href="metadata.php" title="Generate local metadata copy">generate the local copy</a>.<br />';
+        trigger_error('Error, could not read the metadata file. Please <a href="metadata.php" title="Generate local metadata copy">generate the local copy</a>.', E_USER_WARNING);
     }
 }
 $game = new ODSTGame;
-$game->get_game($gamenum);
+$game->get_game($_GET['gameid']);
 $game->load_game();
 ?></code> Done.</p>
 
