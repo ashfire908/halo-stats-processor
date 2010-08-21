@@ -91,10 +91,10 @@ class ODSTGame {
         }
         
         // Players
-        $this->player_count = count($game_data->GamePlayers->children('b', true));
         foreach($game_data->GamePlayers->children('b', true) as $player) {
             $player_info = new ODSTPlayer;
             $player_info->id = (int) $player->DataIndex;
+            $player_info->ghost = false; // Player was given to us
             $player_info->gamertag = rtrim((string) $player->Gamertag);
             $player_info->service_tag = (string) $player->ServiceTag;
             $player_info->armor_flags = unpack('C*', base64_decode((string) $player->ArmorFlags));
@@ -167,7 +167,7 @@ class ODSTGame {
         // distinction between the causing player and the affected player exists
         // (eg Betrayals). Otherwise, PC should be used, and PE if PC is
         // negative.
-
+        
         foreach ($game_data->GameEvents->children('b', true) as $event) {
             // Start of game event loop
             // Event currently being processed is at $event
@@ -175,7 +175,24 @@ class ODSTGame {
             // Setup event players
             $player_1 = (int) $event->PC;
             $player_2 = (int) $event->PE;
-            // If PC is not set, use PE.
+            // Detect if the event is tied to a player that we were not told about. (A
+            // "ghost" player). If so, create a player for the ghost.
+            if ($player_1 > -1 and ! array_key_exists($player_1, $this->players)) {
+                // Create missing player
+                $player = new ODSTPlayer;
+                $player->id = $player_1;
+                $player->ghost = true;
+                $this->players[$player_1] = $player;
+            }
+            if ($player_2 > -1 and ! array_key_exists($player_2, $this->players)) {
+                // Create missing player
+                $player = new ODSTPlayer;
+                $player->id = $player_2;
+                $player->ghost = true;
+                $this->players[$player_2] = $player;
+            }
+            
+            // Set automatic player
             if ($player_1 > -1) {
                 $player_auto = $player_1;
             } else {
@@ -256,8 +273,8 @@ class ODSTGame {
                     }
                     // Over time stats (global, per-user)
                     $this->deaths_over_time[] = array((int) $event->T, $this->deaths);
-                    $this->players[$player_auto]->deaths_over_time[] = 
-                         array((int) $event->T, $this->players[$player_auto]->deaths);
+                    $this->players[$player_2]->deaths_over_time[] = 
+                         array((int) $event->T, $this->players[$player_2]->deaths);
                 case 'AIBETRAYAL': // A player betrayed an AI ally
                     if ($this->scoring_enabled === true) {
                         // Subtract from player score
@@ -273,8 +290,8 @@ class ODSTGame {
                     }
                     // Over time stats (global, per-user)
                     $this->betrayals_over_time[] = array((int) $event->T, $this->betrayals);
-                    $this->players[$player_auto]->betrayals_over_time[] = 
-                         array((int) $event->T, $this->players[$player_auto]->betrayals);
+                    $this->players[$player_1]->betrayals_over_time[] = 
+                         array((int) $event->T, $this->players[$player_1]->betrayals);
                     break;
                 case 'KILL':      // A player killed an enemy
                     if ($this->scoring_enabled === true) {
@@ -290,7 +307,7 @@ class ODSTGame {
                         $current_wave->score += $event->S;
                     }
                     // Check for new weapon (global, per-user, per-wave)
-                       if (! in_array($event->WEP, $this->weapons_used)) {
+                    if (! in_array($event->WEP, $this->weapons_used)) {
                         $this->weapons_used[] = (string) $event->WEP;
                     }
                     if (! in_array($event->WEP, $this->players[$player_auto]->weapons_used)) {
@@ -385,6 +402,9 @@ class ODSTGame {
                 $player->medal_count += $medal;
             }
         }
+        
+        // Calculate player count
+        $this->player_count = count($this->players);
     }
     
     // SOAP/XML data
@@ -460,6 +480,7 @@ class ODSTPlayer {
     
     // Basic player details
     public $id;
+    public $ghost; // If the player was given in the data or was a "ghost" we detected
     public $gamertag;
     public $service_tag;
     
