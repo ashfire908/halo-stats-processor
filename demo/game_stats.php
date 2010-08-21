@@ -129,6 +129,10 @@ foreach ($game->players as $player) {
 ?>    <div class="subdata">
       <h4>Player ID <?php echo $player->id; ?></h4>
       <dl>
+        <dt>Ghost</dt>
+        <dd><?php echo btt($player->ghost); ?><br /></dd>
+<?php if ($player->ghost === false) { ?>
+
         <dt>Emblem</dt>
         <dd>
           <a href="<?php echo $player->emblem_url(100); ?>" title="Player <?php echo $player->id; ?>'s Emblem">
@@ -140,7 +144,7 @@ foreach ($game->players as $player) {
         <dt>Gamertag</dt>
         <dd>
           <?php echo $player->gamertag; ?>
-          <sup><a href="recent_games.php?gamertag=<?php echo rawurlencode($player->gamertag); ?>" title="Recent games for <?php echo $player->gamertag; ?>">View Recent Games</a></sup>
+          <sup><a href="recent_games.php?gamertag=<?php echo rawurlencode($player->gamertag); ?>&amp;game=<?php echo GAME_ODST; ?>" title="Recent ODST games for <?php echo $player->gamertag; ?>">View Recent ODST Games</a></sup>
           <br />
         </dd>
   
@@ -158,6 +162,7 @@ foreach ($game->players as $player) {
   
         <dt>EmblemFlags</dt>
         <dd><?php echo implode(', ', $player->emblem_flags); ?><br /></dd>
+<?php } ?>
   
         <dt>Score</dt>
         <dd><?php echo $player->score; ?><br /></dd>
@@ -200,7 +205,7 @@ foreach ($player->weapons_used as $weapon) {
 ?>
             <dt><?php echo $medal; ?></dt>
             <dd><?php echo $count; ?><br /></dd>
-<?php } 
+<?php }
 ?>
           </dl>
         </dd>
