@@ -35,17 +35,20 @@ switch ($_GET['game']) {
   </div>
   
   <p>Processing...<?php
-$gamertag = $_GET['gamertag'];
-if ($gamertag == '') {
-  echo 'Error: No Game ID given. Aborting...';
-  trigger_error('No Game ID given', E_USER_ERROR);
+if ($_GET['gamertag'] == '') {
+  echo 'Error: No Gamertag given. Aborting...';
+  trigger_error('No Gametag given', E_USER_ERROR);
+}
+if ($_GET['game'] == '') {
+  echo 'Error: No Game given. Aborting...';
+  trigger_error('No Game given', E_USER_ERROR);
 }
 switch ($_GET['game']) {
   case GAME_HALO_3:
-    $games = halo3_rss($gamertag);
+    $games = halo3_rss($_GET['gamertag']);
     break;
   case GAME_ODST:
-    $games = odst_rss($gamertag);
+    $games = odst_rss($_GET['gamertag']);
     break;
   case GAME_REACH:
     echo 'Error: Halo: Reach is not supported.';
