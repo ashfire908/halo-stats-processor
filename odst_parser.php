@@ -800,7 +800,7 @@ class ODSTWeapon {
 // Firefight Wave Position Calculator
 function wave_position($waves) {
     $bonus_rounds = (int) floor($waves / 16);
-    $waves -= $bonus_rounds - 1;
+    $waves -= $bonus_rounds + 1;
     $set_reached = (int) floor($waves / 15) + 1;
     $round_reached = (int) floor($waves % 15 / 5) + 1;
     $wave_reached = $waves % 15 % 5 + 1;
