@@ -1,6 +1,6 @@
 <?php
 // Game Parser
-define('HTTP_USER_AGENT', 'Halo SP (Dev)');
+define('HTTP_USER_AGENT', 'Halo SP (Git)');
 
 // Bungie.net Settings
 define('BUNGIE_SERVER', 'www.bungie.net');
