@@ -561,19 +561,21 @@ class ODSTMetadata {
     
     function image_url($object, $size = NULL, $type = NULL) {
         // Check if the object supports image URL generation
-        if ($object->image_gen === false) {
+        if (is_subclass_of($object, 'ODSTImageGen') === false) {
             return;
         }
         // Default for the size argument
-        if ($size === NULL and $this->image_default_size === NULL) {
-            return;
-        } elseif ($size === NULL) {
+        if ($size === NULL) {
+            if ($this->image_default_size === NULL) {
+               return;
+            }
             $size = $this->image_default_size;
         }
         // Default for the type argument
-        if ($type === NULL and $this->image_default_type === NULL) {
-            return;
-        } elseif ($type === NULL) {
+        if ($type === NULL) {
+            if ($this->image_default_type === NULL) {
+               return;
+            }
             $type = $this->image_default_type;
         }
         
@@ -729,9 +731,14 @@ class ODSTMetadata {
     public $image_default_type;
 }
 
+// ODST Metadata dummy parent class
+// Extending this class with enable use of ODSTMetadata::image_gen()
+class ODSTImageGen {
+}
+
 // ODST Metadata Character
-class ODSTCharacter {
-    public $image_gen = true; // Image URL Generation supported
+class ODSTCharacter extends ODSTImageGen {
+    // Image URL Generation supported
     
     public $id; // Internal name
     public $name; // Character name
@@ -745,8 +752,8 @@ class ODSTCharacter {
 }
 
 // ODST Metadata Medal
-class ODSTMedal {
-    public $image_gen = true; // Image URL Generation supported
+class ODSTMedal extends ODSTImageGen {
+    // Image URL Generation supported
     
     public $id; // Internal name
     public $display_name; // Human-friendly name
@@ -764,8 +771,6 @@ class ODSTSkull {
     // Enabled/Disabled Skull Image constants
     const SKULL_ENABLED = true;
     const SKULL_DISABLED = false;
-    
-    public $image_gen = false; // Image URL Generation not supported
     
     function image_url($mode) {
         switch ($mode) {
@@ -787,8 +792,8 @@ class ODSTSkull {
 }
 
 // ODST Metadata Weapon
-class ODSTWeapon {
-    public $image_gen = true;  // Image URL Generation supported
+class ODSTWeapon extends ODSTImageGen {
+    // Image URL Generation supported
     
     public $id; // Internal name
     public $display_name; // Human-friendly name
