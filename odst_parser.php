@@ -767,19 +767,12 @@ class ODSTMedal extends ODSTImageGen {
 }
 
 // ODST Metadata Skull
-class ODSTSkull {
-    // Enabled/Disabled Skull Image constants
-    const SKULL_ENABLED = true;
-    const SKULL_DISABLED = false;
-    
-    function image_url($mode) {
-        switch ($mode) {
-            case ODSTSkull::SKULL_ENABLED:
-                return 'http://' . BUNGIE_SERVER . $this->image_enabled;
-                break;
-            case ODSTSkull::SKULL_DISABLED:
-                return 'http://' . BUNGIE_SERVER . $this->image_disabled;
-                break;
+class ODSTSkull {    
+    function image_url($enabled) {
+        if ($enabled === True) {
+            return 'http://' . BUNGIE_SERVER . $this->image_enabled;
+        } else {
+            return 'http://' . BUNGIE_SERVER . $this->image_disabled;
         }
     }
     public $id; // Internal name
