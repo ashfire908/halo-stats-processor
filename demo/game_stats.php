@@ -219,10 +219,10 @@ if ($use_metadata) { ?>
 <?php
     foreach ($metadata->skulls as $skull) {
         if (in_array($skull->id, $game->skulls_primary_start) or in_array($skull->id, $game->skulls_secondary_start)) {
-            $url = $skull->image_url(ODSTSkull::SKULL_ENABLED);
+            $url = $skull->image_url(true);
             $title = ' (On)';
         } else {
-            $url = $skull->image_url(ODSTSkull::SKULL_DISABLED);
+            $url = $skull->image_url(false);
             $title = ' (Off)';
         }
 ?>      <img src="<?php echo $url; ?>" title="<?php echo $skull->display_name . $title; ?>" class="skull_<?php echo $skull->order + 1; ?>" />
