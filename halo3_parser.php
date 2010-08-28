@@ -44,7 +44,8 @@ class Halo3CampaignGame extends Halo3Game {
     const LEGENDARY = 3;
     
     function get_game($game_id) {
-        $page_url = 'http://' . BUNGIE_SERVER . '/' . HALO3_URL_CAMPAIGN_GAME . '?gameid=' . $game_id;
+        $page_url = 'http://' . BUNGIE_SERVER . '/' . HALO3_URL_CAMPAIGN_GAME .
+                    '?gameid=' . $game_id;
         
         // Set up cURL
         $curl_page = curl_init($page_url);
@@ -56,9 +57,6 @@ class Halo3CampaignGame extends Halo3Game {
     }
     
     function load_game() {
-        // Regular Expressions for scraping the page.
-        // Summary
-        
         // TODO: Check if any errors occured with getting the page.
         
         // Pick out the game details part of the page.
@@ -76,10 +74,7 @@ class Halo3CampaignGame extends Halo3Game {
         $vehicle_kills = $this->html_data->getElementById('divVehicleKills');
         
         // Get the player(s)
-        $player_1 = $this->html_data->getElementById('ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl01_pnlPlayerDetails');
-        $player_2 = $this->html_data->getElementById('ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl02_pnlPlayerDetails');
-        $player_3 = $this->html_data->getElementById('ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl03_pnlPlayerDetails');
-        $player_4 = $this->html_data->getElementById('ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl04_pnlPlayerDetails');
+        $player_id = 'ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0*_pnlPlayerDetails';
         
         // TODO: Handle if anything coming out of DOM is null.
         
@@ -127,6 +122,67 @@ class Halo3CampaignGame extends Halo3Game {
             $current_line++;
         }
         
+        // Process players
+        for ($i = 0; $i <= 3; $i++) {
+            $id = str_replace('*', $i + 1, $player_id);
+            if ($this->html_data->getElementById($id) != null) {
+                $this->load_player($i);
+            }
+        }
+    }
+    
+    protected function load_player($player_id) {
+        // Get the ids to look for
+        $player_num = $player_id + 1;
+        $id_gamertag = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_hypGamertag";
+        $id_emblem = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_EmblemCtrl_imgEmblem";
+        $id_details = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_pnlPlayerDetails";
+        $id_row = "ctl00_mainContent_bnetpcgd_rptCarnage_ctl0${player_num}_trPlayerRow";
+        
+        // Create a player
+        $player = new Halo3CampaignPlayer;
+        
+        // ID and Gamertag
+        $player->id = $player_id;
+        $player->gamertag = rtrim($this->html_data->
+                                  getElementById($id_gamertag)->nodeValue, ' ');
+        
+        // Emblem
+        $emblem_url = $this->html_data->getElementById($id_emblem)->
+                      getAttribute('src');
+        $emblem = array();
+        foreach(explode('&', parse_url($emblem_url, PHP_URL_QUERY)) as $field) {
+            $split = explode('=', $field, 2);
+            $emblem[$split[0]] = $split[1];
+        }
+        $player->emblem_colors = array($emblem['0'], $emblem['1'], $emblem['2'], $emblem['3']);
+        $player->emblem_design = array($emblem['fi'], $emblem['bi'], $emblem['fl']);
+        
+        // Player Score
+        if ($this->scoring_enabled === true) {
+            $score = $this->html_data->getElementById($id_details)->
+                     getElementsByTagName('table')->item(0)->firstChild->
+                     getElementsByTagName('td')->item(1)->nodeValue;
+            if ($score == '-') {
+                $player->score = 0;
+            } else {
+                $player->score = (int) str_replace(',', '', $score);
+            }
+        }
+        
+        // Kills, Deaths, and Betrayals
+        $carnage_row = $this->html_data->getElementById($id_row)->
+                       getElementsByTagName('td');
+        
+        $player->kills = (int) $carnage_row->item(1)->nodeValue;
+        $player->kills_enemy = (int) $carnage_row->item(2)->nodeValue;
+        $player->kills_vehicle = (int) $carnage_row->item(3)->nodeValue;
+        $player->deaths = (int) $carnage_row->item(4)->nodeValue;
+        $player->betrayal_player = (int) $carnage_row->item(5)->nodeValue;
+        $player->betrayal_ally = (int) $carnage_row->item(6)->nodeValue;
+        
+        // Add the player to the players
+        $this->players[$player_id] = $player;
     }
     
     // General info
@@ -139,6 +195,52 @@ class Halo3CampaignGame extends Halo3Game {
     
     // Players
     public $player_count = -1;
+    public $players = array();
+    
+    // Skulls
+    public $skulls_primary_start = array();
+    public $skulls_secondary_start = array();
+}
+
+// Halo 3 Player class
+class Halo3Player {
+    function emblem_url($size) {
+        // Generate URL for the player's emblem
+        list($a_pri, $a_sec, $e_pri, $e_sec) = $this->emblem_colors;
+        list($e_design, $b_design, $e_toggle) = $this->emblem_design;
+
+        $url = 'http://' . BUNGIE_SERVER . '/' . EMBLEM_PATH .
+        "?s=$size&0=$a_pri&1=$a_sec&2=$e_pri&3=$e_sec&fi=$e_design&bi=$b_design&fl=$e_toggle&m="
+         . EMBLEM_GAME_HALO_3;
+        return $url;
+    }
+    
+    // Basic player details
+    public $id;
+    public $gamertag;
+    //public $service_tag;
+    
+    // Emblems
+    public $emblem_colors = array();
+    public $emblem_design = array();
+}
+
+class Halo3CampaignPlayer extends Halo3Player {
+    // Kills, Deaths, Medals, etc.
+    public $score = -1;
+    public $kills = 0;
+    public $kills_enemy = 0;
+    public $kills_vehicle = 0;
+    public $deaths = 0;
+    public $betrayal_player = 0;
+    public $betrayal_ally = 0;
+    
+    // Kills by type
+    public $kills_type_enemy = array('infantry' => 0, 'specialists' => 0,
+                                     'leader' => 0, 'hero' => 0);
+    public $kills_type_vehicle = array('light' => 0, 'medium' => 0,
+                                       'heavy' => 0, 'giant' => 0);
+    
 }
 
 function search_class($elements, $class) {
