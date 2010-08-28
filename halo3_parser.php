@@ -150,7 +150,9 @@ class Halo3CampaignGame extends Halo3Game {
         $id_gamertag = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_hypGamertag";
         $id_emblem = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_EmblemCtrl_imgEmblem";
         $id_details = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_pnlPlayerDetails";
-        $id_row = "ctl00_mainContent_bnetpcgd_rptCarnage_ctl0${player_num}_trPlayerRow";
+        $id_carnage = "ctl00_mainContent_bnetpcgd_rptCarnage_ctl0${player_num}_trPlayerRow";
+        $id_enemy = "ctl00_mainContent_bnetpcgd_rptKills_ctl0${player_num}_trPlayerRow";
+        $id_vehicle = "ctl00_mainContent_bnetpcgd_rptVehicles_ctl0${player_num}_trPlayerRow";
         
         // Create a player
         $player = new Halo3CampaignPlayer;
@@ -184,7 +186,7 @@ class Halo3CampaignGame extends Halo3Game {
         }
         
         // Kills, Deaths, and Betrayals
-        $carnage_row = $this->html_data->getElementById($id_row)->
+        $carnage_row = $this->html_data->getElementById($id_carnage)->
                        getElementsByTagName('td');
         
         $player->kills = (int) $carnage_row->item(1)->nodeValue;
@@ -193,6 +195,22 @@ class Halo3CampaignGame extends Halo3Game {
         $player->deaths = (int) $carnage_row->item(4)->nodeValue;
         $player->betrayal_player = (int) $carnage_row->item(5)->nodeValue;
         $player->betrayal_ally = (int) $carnage_row->item(6)->nodeValue;
+        
+        // Kills by class
+        $enemy_row = $this->html_data->getElementById($id_enemy)->
+                     getElementsByTagName('td');
+        $player->kills_type_enemy['infantry'] = (int) $enemy_row->item(2)->nodeValue;
+        $player->kills_type_enemy['specialists'] = (int) $enemy_row->item(3)->nodeValue;
+        $player->kills_type_enemy['leader'] = (int) $enemy_row->item(4)->nodeValue;
+        $player->kills_type_enemy['hero'] = (int) $enemy_row->item(5)->nodeValue;
+        
+        $vehicle_row = $this->html_data->getElementById($id_vehicle)->
+                       getElementsByTagName('td');
+        $player->kills_type_vehicle['light'] = (int) $vehicle_row->item(2)->nodeValue;
+        $player->kills_type_vehicle['medium'] = (int) $vehicle_row->item(3)->nodeValue;
+        $player->kills_type_vehicle['heavy'] = (int) $vehicle_row->item(4)->nodeValue;
+        $player->kills_type_vehicle['giant'] = (int) $vehicle_row->item(5)->nodeValue;
+        
         
         // Add the player to the players
         $this->players[$player_id] = $player;
