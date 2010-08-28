@@ -48,8 +48,8 @@ class Halo3CampaignGame extends Halo3Game {
         
         // Set up cURL
         $curl_page = curl_init($page_url);
-        curl_setopt($curl_rss, CURLOPT_USERAGENT, HTTP_USER_AGENT);
-        curl_setopt($curl_rss, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl_page, CURLOPT_USERAGENT, HTTP_USER_AGENT);
+        curl_setopt($curl_page, CURLOPT_RETURNTRANSFER, 1);
         // Get RSS
         $this->html_data->loadHTML(curl_exec($curl_page));
         curl_close($curl_page);
