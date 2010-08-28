@@ -57,6 +57,13 @@ class Halo3CampaignGame extends Halo3Game {
     }
     
     function load_game() {
+        $player_id = 'ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0*_pnlPlayerDetails';
+        $skull_id = 'ctl00_mainContent_bnetpcgd_bnetSkulls_rptSkulls_ctl*_imgSkull';
+        $skull_map = array(1 => 'Iron', 2 => 'BlackEye', 3 => 'ToughLuck',
+                           4 => 'Catch', 5 => 'Fog', 6 => 'Famine',
+                           7 => 'ThunderStorm', 8 => 'Tilt', 9 => 'Mythic',
+                           12 => 'Blind', 13 => 'Cowbell',
+                           14 => 'GruntBirthdayParty', 15 => 'IWHBYD');
         // TODO: Check if any errors occured with getting the page.
         
         // Pick out the game details part of the page.
@@ -72,9 +79,6 @@ class Halo3CampaignGame extends Halo3Game {
         $carnage = $this->html_data->getElementById('divCarnage');
         $enemy_kills = $this->html_data->getElementById('divEnemyKills');
         $vehicle_kills = $this->html_data->getElementById('divVehicleKills');
-        
-        // Get the player(s)
-        $player_id = 'ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0*_pnlPlayerDetails';
         
         // TODO: Handle if anything coming out of DOM is null.
         
@@ -129,6 +133,15 @@ class Halo3CampaignGame extends Halo3Game {
                 $this->load_player($i);
             }
         }
+        
+        // Skulls
+        foreach($skull_map as $skull_num => $skull_name) {
+            $id = str_replace('*', str_pad($skull_num, 2, '0', STR_PAD_LEFT), $skull_id);
+            if ($this->html_data->getElementById($id) != null) {
+                $this->skulls[] = $skull_name;
+            }
+        }
+        
     }
     
     protected function load_player($player_id) {
@@ -198,8 +211,7 @@ class Halo3CampaignGame extends Halo3Game {
     public $players = array();
     
     // Skulls
-    public $skulls_primary_start = array();
-    public $skulls_secondary_start = array();
+    public $skulls = array();
 }
 
 // Halo 3 Player class
