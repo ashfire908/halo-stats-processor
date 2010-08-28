@@ -142,6 +142,24 @@ class Halo3CampaignGame extends Halo3Game {
             }
         }
         
+        // Kills, Deaths, Medals, etc.
+        foreach($this->players as $player) {
+            $this->kills += $player->kills;
+            $this->kills_enemy += $player->kills_enemy;
+            $this->kills_vehicle += $player->kills_vehicle;
+            $this->deaths += $player->deaths;
+            $this->betrayals += $player->betrayals;
+            $this->betrayals_player += $player->betrayals_player;
+            $this->betrayals_ally += $player->betrayals_ally;
+            
+            foreach($player->kills_type_enemy as $key => $count) {
+                $this->kills_type_enemy[$key] += $count;
+            }
+            foreach($player->kills_type_vehicle as $key => $count) {
+                $this->kills_type_vehicle[$key] += $count;
+            }
+        }
+        
     }
     
     protected function load_player($player_id) {
@@ -193,8 +211,9 @@ class Halo3CampaignGame extends Halo3Game {
         $player->kills_enemy = (int) $carnage_row->item(2)->nodeValue;
         $player->kills_vehicle = (int) $carnage_row->item(3)->nodeValue;
         $player->deaths = (int) $carnage_row->item(4)->nodeValue;
-        $player->betrayal_player = (int) $carnage_row->item(5)->nodeValue;
-        $player->betrayal_ally = (int) $carnage_row->item(6)->nodeValue;
+        $player->betrayals_player = (int) $carnage_row->item(5)->nodeValue;
+        $player->betrayals_ally = (int) $carnage_row->item(6)->nodeValue;
+        $player->betrayals = $player->betrayals_player + $player->betrayals_ally;
         
         // Kills by class
         $enemy_row = $this->html_data->getElementById($id_enemy)->
@@ -230,6 +249,21 @@ class Halo3CampaignGame extends Halo3Game {
     
     // Skulls
     public $skulls = array();
+    
+    // Kills, Deaths, Medals, etc.
+    public $kills = 0;
+    public $kills_enemy = 0;
+    public $kills_vehicle = 0;
+    public $deaths = 0;
+    public $betrayals = 0;
+    public $betrayals_player = 0;
+    public $betrayals_ally = 0;
+    
+    // Kills by type
+    public $kills_type_enemy = array('infantry' => 0, 'specialists' => 0,
+                                     'leader' => 0, 'hero' => 0);
+    public $kills_type_vehicle = array('light' => 0, 'medium' => 0,
+                                       'heavy' => 0, 'giant' => 0);
 }
 
 // Halo 3 Player class
@@ -248,7 +282,6 @@ class Halo3Player {
     // Basic player details
     public $id;
     public $gamertag;
-    //public $service_tag;
     
     // Emblems
     public $emblem_colors = array();
@@ -262,8 +295,9 @@ class Halo3CampaignPlayer extends Halo3Player {
     public $kills_enemy = 0;
     public $kills_vehicle = 0;
     public $deaths = 0;
-    public $betrayal_player = 0;
-    public $betrayal_ally = 0;
+    public $betrayals = 0;
+    public $betrayals_player = 0;
+    public $betrayals_ally = 0;
     
     // Kills by type
     public $kills_type_enemy = array('infantry' => 0, 'specialists' => 0,
