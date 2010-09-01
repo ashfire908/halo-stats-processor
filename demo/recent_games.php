@@ -129,7 +129,7 @@ switch ($game->difficulty) {
 if ($game->waves > 0) {
     
     list($bonus_rounds, $set_reached, $round_reached, $wave_reached) = 
-    wave_position($game->waves);
+    ODSTGame::wave_position($game->waves);
 ?>
     <dt>Total Waves:</dt>
     <dd><?php echo $game->waves;?><br /></dd>
