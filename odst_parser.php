@@ -121,7 +121,7 @@ class ODSTGame {
             // Calculate Set, Round, Wave reached and number of Bonus Rounds
             $this->total_waves = (int) $game_data->Waves;
             list($this->bonus_rounds, $this->set_reached, $this->round_reached,
-                 $this->wave_reached) = wave_position((int) $game_data->Waves);
+                 $this->wave_reached) = ODSTGame::wave_position((int) $game_data->Waves);
 
             // Initialize Wave Stats
             $a = 1;
@@ -405,6 +405,17 @@ class ODSTGame {
         
         // Calculate player count
         $this->player_count = count($this->players);
+    }
+    
+    // Firefight Wave Position Calculator
+    static function wave_position($waves) {
+        $bonus_rounds = (int) floor($waves / 16);
+        $waves -= $bonus_rounds + 1;
+        $set_reached = (int) floor($waves / 15) + 1;
+        $round_reached = (int) floor($waves % 15 / 5) + 1;
+        $wave_reached = $waves % 15 % 5 + 1;
+        
+        return array($bonus_rounds, $set_reached, $round_reached, $wave_reached);
     }
     
     // SOAP/XML data
@@ -793,15 +804,4 @@ class ODSTWeapon extends ODSTImageGen {
     public $image_name;
     public $image_path;
     public $description;
-}
-
-// Firefight Wave Position Calculator
-function wave_position($waves) {
-    $bonus_rounds = (int) floor($waves / 16);
-    $waves -= $bonus_rounds + 1;
-    $set_reached = (int) floor($waves / 15) + 1;
-    $round_reached = (int) floor($waves % 15 / 5) + 1;
-    $wave_reached = $waves % 15 % 5 + 1;
-    
-    return array($bonus_rounds, $set_reached, $round_reached, $wave_reached);
 }
