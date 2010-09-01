@@ -369,27 +369,25 @@ class ODSTGame {
         
         // Post event processing score calculations
         if ($this->scoring_enabled === true) {
-            // Calculate the main score
-            $this->score = (float) 0;
-            foreach ($this->players as $player) {
-                $this->score += $player->score;
-            }
-            
             // Handle time bonus
             if ($this->time_bonus > 1.0) {
-                $this->score = $this->score * $this->time_bonus;
                 foreach ($this->players as $player) {
                     $player->score = $player->score * $this->time_bonus;
                 }
             }
             
             // Convert scores to integers
-            $this->score = (int) $this->score;
             foreach ($this->players as $player) {
                 $player->score = (int) $player->score;
             }
             foreach ($this->wave_stats as $wave) {
                 $wave->score = (int) $wave->score;
+            }
+            
+            // Calculate the main score
+            $this->score = 0;
+            foreach ($this->players as $player) {
+                $this->score += $player->score;
             }
         }
         
