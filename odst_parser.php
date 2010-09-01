@@ -372,6 +372,7 @@ class ODSTGame {
             // Handle time bonus
             if ($this->time_bonus > 1.0) {
                 foreach ($this->players as $player) {
+                    $player->raw_score = (int) $player->score;
                     $player->score = $player->score * $this->time_bonus;
                 }
             }
@@ -382,12 +383,15 @@ class ODSTGame {
             }
             foreach ($this->wave_stats as $wave) {
                 $wave->score = (int) $wave->score;
+                $wave->raw_score = $wave->score;
             }
             
             // Calculate the main score
             $this->score = 0;
+            $this->raw_score = 0;
             foreach ($this->players as $player) {
                 $this->score += $player->score;
+                $this->raw_score += $player->raw_score;
             }
         }
         
@@ -403,6 +407,42 @@ class ODSTGame {
         
         // Calculate player count
         $this->player_count = count($this->players);
+    }
+    
+    // Apply a post-game multiplier
+    function calc_multiplier($multi) {
+        if ($this->scoring_enabled === true) {
+            $this->post_multiplier = $multi;
+            
+            // Reset scores
+            foreach ($this->players as $player) {
+                $player->score = $player->raw_score;
+            }
+            foreach ($this->wave_stats as $wave) {
+                $wave->score = $player->raw_score;
+            }
+            
+            // Calculate time bonus
+            if ($this->time_bonus > 1.0) {
+                foreach ($this->players as $player) {
+                    $player->score = $player->score * $this->time_bonus;
+                }
+            }
+            
+            // Calculate post-game multiplier scores
+            foreach ($this->players as $player) {
+                $player->score = (int) ((int) $player->score * $this->post_multiplier);
+            }
+            foreach ($this->wave_stats as $wave) {
+                $wave->score = (int) ($wave->score * $this->post_multiplier);
+            }
+            
+            // Calculate the main score
+            $this->score = 0;
+            foreach ($this->players as $player) {
+                $this->score += $player->score;
+            }
+        }
     }
     
     // Firefight Wave Position Calculator
@@ -430,7 +470,9 @@ class ODSTGame {
     public $map;
     public $scoring_enabled = false;
     public $score = -1;
+    public $raw_score = -1;
     public $time_bonus = 0.0;
+    public $post_multiplier = 0.0;
     public $firefight = false;
     
     // Kills, Deaths, Medals, etc.
@@ -501,6 +543,7 @@ class ODSTPlayer {
     
     // Kills, Deaths, Medals, etc.
     public $score = -1;
+    public $raw_score = -1;
     public $kills = 0;
     public $deaths = 0;
     public $suicides = 0;
@@ -529,6 +572,7 @@ class ODSTFirefightWave {
     
     // Kills, Deaths, Medals, etc.
     public $score = -1;
+    public $raw_score = -1;
     public $kills = 0;
     public $deaths = 0;
     public $suicides = 0;
