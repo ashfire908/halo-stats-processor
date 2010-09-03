@@ -95,6 +95,9 @@ switch ($game->difficulty) {
     <dt>Score:</dt>
     <dd><?php echo $game->score; ?><br /></dd>
     
+    <dt>Raw Score:</dt>
+    <dd><?php echo $game->raw_score; ?><br /></dd>
+    
     <dt>Time Bonus:</dt>
     <dd><?php echo $game->time_bonus; ?><br /></dd>
 <?php } ?>
@@ -166,6 +169,9 @@ foreach ($game->players as $player) {
   
         <dt>Score</dt>
         <dd><?php echo $player->score; ?><br /></dd>
+        
+        <dt>Raw Score:</dt>
+        <dd><?php echo $player->raw_score; ?><br /></dd>
   
         <dt>Kills</dt>
         <dd><?php echo $player->kills; ?><br /></dd>
@@ -298,6 +304,9 @@ foreach ($game->wave_stats as $wave) {
           
         <dt>Score:</dt>
         <dd><?php echo $wave->score; ?><br /></dd>
+        
+        <dt>Raw Score:</dt>
+        <dd><?php echo $wave->raw_score; ?><br /></dd>
           
         <dt>Kills:</dt>
         <dd><?php echo $wave->kills; ?><br /></dd>
