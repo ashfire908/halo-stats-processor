@@ -409,10 +409,15 @@ class ODSTGame {
         $this->player_count = count($this->players);
     }
     
-    // Apply a post-game multiplier
-    function calc_multiplier($multi) {
+    // Apply a post-game multiplier and/or change the time bonus
+    function calc_multiplier($multi = NULL, $time = NULL) {
         if ($this->scoring_enabled === true) {
-            $this->post_multiplier = $multi;
+            if (!$multi === NULL) {
+                $this->post_multiplier = $multi;
+            }
+            if (!$time === NULL) {
+                $this->time_bonus = $time;
+            }
             
             // Reset scores
             foreach ($this->players as $player) {
@@ -471,8 +476,8 @@ class ODSTGame {
     public $scoring_enabled = false;
     public $score = -1;
     public $raw_score = -1;
-    public $time_bonus = 0.0;
-    public $post_multiplier = 0.0;
+    public $time_bonus = 1.0;
+    public $post_multiplier = 1.0;
     public $firefight = false;
     
     // Kills, Deaths, Medals, etc.
