@@ -368,12 +368,16 @@ class ODSTGame {
         }
         
         // Post event processing score calculations
-        if ($this->scoring_enabled === true) {
+        if ($this->scoring_enabled === true) {            
             // Handle time bonus
             if ($this->time_bonus > 1.0) {
                 foreach ($this->players as $player) {
                     $player->raw_score = (int) $player->score;
                     $player->score = $player->score * $this->time_bonus;
+                }
+            } else {
+                foreach ($this->players as $player) {
+                    $player->raw_score = (int) $player->score;
                 }
             }
             
