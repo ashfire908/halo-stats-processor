@@ -152,6 +152,14 @@ class Halo3CampaignGame extends Halo3Game {
             $this->betrayals_player += $player->betrayals_player;
             $this->betrayals_ally += $player->betrayals_ally;
             
+            // Medals
+            foreach($player->medals as $medal => $count) {
+                if (!array_key_exists($medal, $this->medals)) {
+                    $this->medals[$medal] = 0;
+                }
+                $this->medals[$medal] += $count;
+            }
+            
             foreach($player->kills_type_enemy as $key => $count) {
                 $this->kills_type_enemy[$key] += $count;
             }
@@ -171,6 +179,18 @@ class Halo3CampaignGame extends Halo3Game {
         $id_carnage = "ctl00_mainContent_bnetpcgd_rptCarnage_ctl0${player_num}_trPlayerRow";
         $id_enemy = "ctl00_mainContent_bnetpcgd_rptKills_ctl0${player_num}_trPlayerRow";
         $id_vehicle = "ctl00_mainContent_bnetpcgd_rptVehicles_ctl0${player_num}_trPlayerRow";
+        $id_medal_div = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_rptMedals_ctl0|_divMedal";
+        $id_medal_img = "ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0${player_num}_rptMedals_ctl0|_imgMedal";
+        
+        // Map medal URLs to names
+        $medal_map = array(
+        '/images/halo3stats/medals/thumbs/254b3b67-5d28-415c-a47b-7bd112311090.gif' => 'GrenadeStick',
+        '/images/halo3stats/medals/thumbs/7cb03717-d7e5-4568-bdb4-3404860842ad.gif' => 'Headshot',
+        '/images/halo3stats/medals/thumbs/ae8fe9e6-7d63-4808-a9af-69cb5ad6f2dd.gif' => 'StealthKill',
+        '/images/halo3stats/medals/thumbs/e25dab10-e49e-457b-a787-ca3c20122fa3.gif' => 'MultiKill',
+        '/images/halo3stats/medals/thumbs/ea4be065-1cd6-415d-898e-d1e66b76d846.gif' => 'NeedlerSuperdetonationKill',
+        '/images/halo3stats/medals/thumbs/c895610e-dbf2-4746-bcfd-012bdc022d9a.gif' => 'EmpKill',
+        '/images/halo3stats/medals/thumbs/ca2173da-f2c1-4e56-a994-e6512530e1e2.gif' => 'RoadKill');
         
         // Create a player
         $player = new Halo3CampaignPlayer;
@@ -230,6 +250,31 @@ class Halo3CampaignGame extends Halo3Game {
         $player->kills_type_vehicle['heavy'] = (int) $vehicle_row->item(4)->nodeValue;
         $player->kills_type_vehicle['giant'] = (int) $vehicle_row->item(5)->nodeValue;
         
+        // Medals
+        // Prepare for first loop
+        $current_medal = 1;
+        $current_medal_div = str_replace('|', $current_medal, $id_medal_div);
+        $current_medal_img = str_replace('|', $current_medal, $id_medal_img);
+        
+        while($this->html_data->getElementById($current_medal_div) != NULL) {
+            // Get medal name and count
+            $count = search_class($this->html_data->getElementById($current_medal_div)
+                                                  ->getElementsByTagName('div'), 'num')->nodeValue;
+            $src = $this->html_data->getElementById($current_medal_img)->getAttribute('src');
+            
+            // Set medal name
+            $player->medals[$medal_map[$src]] = (int) $count;
+            
+            // Get ready for next loop
+            $current_medal++;
+            $current_medal_div = str_replace('|', $current_medal, $id_medal_div);
+            $current_medal_img = str_replace('|', $current_medal, $id_medal_img);
+        }
+        
+        // Medal Count
+        foreach($player->medals as $medal) {
+            $player->medal_count += (int) $medal;
+        }
         
         // Add the player to the players
         $this->players[$player_id] = $player;
@@ -258,6 +303,8 @@ class Halo3CampaignGame extends Halo3Game {
     public $betrayals = 0;
     public $betrayals_player = 0;
     public $betrayals_ally = 0;
+    public $medals = array();
+    public $medal_count = 0;
     
     // Kills by type
     public $kills_type_enemy = array('infantry' => 0, 'specialists' => 0,
@@ -298,6 +345,8 @@ class Halo3CampaignPlayer extends Halo3Player {
     public $betrayals = 0;
     public $betrayals_player = 0;
     public $betrayals_ally = 0;
+    public $medals = array();
+    public $medal_count = 0;
     
     // Kills by type
     public $kills_type_enemy = array('infantry' => 0, 'specialists' => 0,
@@ -319,5 +368,5 @@ function search_class($elements, $class) {
             }
         }
     }
-    return null;
+    return NULL;
 }
