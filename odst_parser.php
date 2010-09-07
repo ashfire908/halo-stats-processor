@@ -241,10 +241,27 @@ class ODSTGame {
                         // Subtract from wave score
                         $current_wave->score -= $event->S;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->deaths_by_weapon)) {
+                        $this->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_auto]->deaths_by_weapon)) {
+                        $this->players[$player_auto]->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->deaths_by_weapon)) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->deaths_over_time[] = array((int) $event->T, $this->deaths);
                     $this->players[$player_auto]->deaths_over_time[] = 
                          array((int) $event->T, $this->players[$player_auto]->deaths);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->deaths_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_auto]->deaths_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case 'SUICIDE':    // A player committed suicide
                     if ($this->scoring_enabled === true) {
@@ -259,10 +276,27 @@ class ODSTGame {
                         // Subtract from wave score
                         $current_wave->score -= $event->S;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->suicides_by_weapon)) {
+                        $this->suicides_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_auto]->suicides_by_weapon)) {
+                        $this->players[$player_auto]->suicides_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->suicides_by_weapon)) {
+                        $current_wave->suicides_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->suicides_over_time[] = array((int) $event->T, $this->suicides);
                     $this->players[$player_auto]->suicides_over_time[] = 
                          array((int) $event->T, $this->players[$player_auto]->suicides);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->suicides_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_auto]->suicides_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->suicides_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case 'BETRAYAL':   // A player betrayed an ally
                     // Add to death count (global, per-user, per-wave)
@@ -271,10 +305,27 @@ class ODSTGame {
                     if ($this->firefight === true) {
                         $current_wave->deaths++;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->deaths_by_weapon)) {
+                        $this->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_2]->deaths_by_weapon)) {
+                        $this->players[$player_2]->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->deaths_by_weapon)) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->deaths_over_time[] = array((int) $event->T, $this->deaths);
                     $this->players[$player_2]->deaths_over_time[] = 
                          array((int) $event->T, $this->players[$player_2]->deaths);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->deaths_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_2]->deaths_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP]++;
+                    }
                 case 'AIBETRAYAL': // A player betrayed an AI ally
                     if ($this->scoring_enabled === true) {
                         // Subtract from player score
@@ -288,10 +339,27 @@ class ODSTGame {
                         // Subtract from wave score
                         $current_wave->score -= $event->S;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->betrayals_by_weapon)) {
+                        $this->betrayals_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_1]->betrayals_by_weapon)) {
+                        $this->players[$player_1]->betrayals_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->betrayals_by_weapon)) {
+                        $current_wave->betrayals_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->betrayals_over_time[] = array((int) $event->T, $this->betrayals);
                     $this->players[$player_1]->betrayals_over_time[] = 
                          array((int) $event->T, $this->players[$player_1]->betrayals);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->betrayals_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_1]->betrayals_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->betrayals_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case 'KILL':      // A player killed an enemy
                     if ($this->scoring_enabled === true) {
@@ -316,10 +384,26 @@ class ODSTGame {
                     if ($this->firefight === true and ! in_array($event->WEP, $current_wave->weapons_used)) {
                         $current_wave->weapons_used[] = (string) $event->WEP;
                     }
+                    if (! array_key_exists((string) $event->WEP, $this->kills_by_weapon)) {
+                        $this->kills_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_auto]->kills_by_weapon)) {
+                        $this->players[$player_auto]->kills_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->kills_by_weapon)) {
+                        $current_wave->kills_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->kills_over_time[] = array((int) $event->T, $this->kills);
                     $this->players[$player_auto]->kills_over_time[] = 
                          array((int) $event->T, $this->players[$player_auto]->kills);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->kills_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_auto]->kills_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->kills_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case "MEDAL":
                     if ($this->scoring_enabled === true) {
@@ -499,6 +583,11 @@ class ODSTGame {
     public $betrayals_over_time = array();
     public $reverts_over_time = array();
     public $medals_over_time = array();
+    // By weapon
+    public $kills_by_weapon = array();
+    public $deaths_by_weapon = array();
+    public $suicides_by_weapon = array();
+    public $betrayals_by_weapon = array();
     
     // Players
     public $player_count;
@@ -565,6 +654,11 @@ class ODSTPlayer {
     public $suicides_over_time = array();
     public $betrayals_over_time = array();
     public $medals_over_time = array();
+    // By weapon
+    public $kills_by_weapon = array();
+    public $deaths_by_weapon = array();
+    public $suicides_by_weapon = array();
+    public $betrayals_by_weapon = array();
     
     // Weapons
     public $weapons_used = array();
@@ -587,6 +681,11 @@ class ODSTFirefightWave {
     public $suicides = 0;
     public $betrayals = 0;
     public $medals = array();
+    // By weapon
+    public $kills_by_weapon = array();
+    public $deaths_by_weapon = array();
+    public $suicides_by_weapon = array();
+    public $betrayals_by_weapon = array();
     
     // Weapons
     public $weapons_used = array();
