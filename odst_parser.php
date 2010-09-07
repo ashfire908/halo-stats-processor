@@ -139,7 +139,7 @@ class ODSTGame {
                 ++$a;
             }
             $this->wave_stats[$a-1]->end = $this->duration;
-            $game->wave_stats[$a-1]->length = $this->wave_stats[$a-1]->end - $this->wave_stats[$a-1]->start;
+            $this->wave_stats[$a-1]->length = $this->wave_stats[$a-1]->end - $this->wave_stats[$a-1]->start;
         } else {
             // Reset revert count
             $this->reverts = 0;
