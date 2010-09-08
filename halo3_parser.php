@@ -57,6 +57,7 @@ class Halo3CampaignGame extends Halo3Game {
     }
     
     function load_game() {
+        $multiplier_id = 'ctl00_mainContent_bnetpcgd_pnlMultipliers';
         $player_id = 'ctl00_mainContent_bnetpcgd_rptGamePlayers_ctl0*_pnlPlayerDetails';
         $skull_id = 'ctl00_mainContent_bnetpcgd_bnetSkulls_rptSkulls_ctl*_imgSkull';
         $skull_map = array(1 => 'Iron', 2 => 'BlackEye', 3 => 'ToughLuck',
@@ -124,6 +125,34 @@ class Halo3CampaignGame extends Halo3Game {
                     break;
             }
             $current_line++;
+        }
+        
+        // Multipliers
+        if ($this->scoring_enabled === true) {
+            $multipliers = search_class($this->html_data->getElementById($multiplier_id)
+                                             ->getElementsByTagName('ul'), 'cp_multiply');
+            $current_line = 0;
+            foreach($multipliers->getElementsByTagName('li') as $multiplier) {
+                $bonus = (float) trim($multiplier->getElementsByTagName('div')->item(1)->nodeValue, ' x');
+                switch($current_line) {
+                    case 0:
+                        $this->bonus_difficulty = $bonus;
+                        break;
+                    case 1:
+                        $this->bonus_skull = $bonus;
+                        break;
+                    case 2:
+                        $this->bonus_subtotal = $bonus;
+                        break;
+                    case 3:
+                        $this->bonus_time = $bonus;
+                        break;
+                    case 4:
+                        $this->bonus_total = $bonus;
+                        break;
+                }
+                $current_line++;
+            }
         }
         
         // Process players
@@ -287,6 +316,13 @@ class Halo3CampaignGame extends Halo3Game {
     public $map;
     public $scoring_enabled = false;
     public $score = -1;
+    
+    // Multipliers
+    public $bonus_difficulty = 0.0;
+    public $bonus_skull = 0.0;
+    public $bonus_subtotal = 0.0;
+    public $bonus_time = 0.0;
+    public $bonus_total = 0.0;
     
     // Players
     public $player_count = -1;
