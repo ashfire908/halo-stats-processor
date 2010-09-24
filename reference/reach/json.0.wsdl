@@ -1,1 +1,236 @@
-<?xml version="1.0" encoding="utf-8"?><wsdl:definitions targetNamespace="http://www.bungie.net/api/reach" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.bungie.net/api/reach" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"><wsdl:types><xsd:schema targetNamespace="http://www.bungie.net/api/reach/Imports"><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd0" namespace="http://www.bungie.net/api/reach"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BungieNet.API.Reach.Response"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BungieNet.API"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Reach"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.wsGameData"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Reach.DataContracts"/><xsd:import schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Bungie.Blf.Reach.GameStructures"/></xsd:schema></wsdl:types><wsdl:message name="ReachApiJson_GetGameMetadata_InputMessage"><wsdl:part name="parameters" element="tns:GetGameMetadata"/></wsdl:message><wsdl:message name="ReachApiJson_GetGameMetadata_OutputMessage"><wsdl:part name="parameters" element="tns:GetGameMetadataResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetGameHistory_InputMessage"><wsdl:part name="parameters" element="tns:GetGameHistory"/></wsdl:message><wsdl:message name="ReachApiJson_GetGameHistory_OutputMessage"><wsdl:part name="parameters" element="tns:GetGameHistoryResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetGameDetails_InputMessage"><wsdl:part name="parameters" element="tns:GetGameDetails"/></wsdl:message><wsdl:message name="ReachApiJson_GetGameDetails_OutputMessage"><wsdl:part name="parameters" element="tns:GetGameDetailsResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerDetailsWithStatsByMap_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerDetailsWithStatsByMap"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerDetailsWithStatsByMap_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerDetailsWithStatsByMapResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerDetailsWithStatsByPlaylist"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerDetailsWithStatsByPlaylistResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerDetailsWithNoStats_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerDetailsWithNoStats"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerDetailsWithNoStats_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerDetailsWithNoStatsResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerFileShare_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerFileShare"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerFileShare_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerFileShareResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetFileDetails_InputMessage"><wsdl:part name="parameters" element="tns:GetFileDetails"/></wsdl:message><wsdl:message name="ReachApiJson_GetFileDetails_OutputMessage"><wsdl:part name="parameters" element="tns:GetFileDetailsResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerRecentScreenshots_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerRecentScreenshots"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerRecentScreenshots_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerRecentScreenshotsResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerFileSets_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerFileSets"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerFileSets_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerFileSetsResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerFileSetFiles_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerFileSetFiles"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerFileSetFiles_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerFileSetFilesResponse"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerRenderedVideos_InputMessage"><wsdl:part name="parameters" element="tns:GetPlayerRenderedVideos"/></wsdl:message><wsdl:message name="ReachApiJson_GetPlayerRenderedVideos_OutputMessage"><wsdl:part name="parameters" element="tns:GetPlayerRenderedVideosResponse"/></wsdl:message><wsdl:message name="ReachApiJson_ReachFileSearch_InputMessage"><wsdl:part name="parameters" element="tns:ReachFileSearch"/></wsdl:message><wsdl:message name="ReachApiJson_ReachFileSearch_OutputMessage"><wsdl:part name="parameters" element="tns:ReachFileSearchResponse"/></wsdl:message><wsdl:portType name="ReachApiJson"><wsdl:operation name="GetGameMetadata"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameMetadata" message="tns:ReachApiJson_GetGameMetadata_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameMetadataResponse" message="tns:ReachApiJson_GetGameMetadata_OutputMessage"/></wsdl:operation><wsdl:operation name="GetGameHistory"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameHistory" message="tns:ReachApiJson_GetGameHistory_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameHistoryResponse" message="tns:ReachApiJson_GetGameHistory_OutputMessage"/></wsdl:operation><wsdl:operation name="GetGameDetails"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameDetails" message="tns:ReachApiJson_GetGameDetails_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameDetailsResponse" message="tns:ReachApiJson_GetGameDetails_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerDetailsWithStatsByMap"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByMap" message="tns:ReachApiJson_GetPlayerDetailsWithStatsByMap_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByMapResponse" message="tns:ReachApiJson_GetPlayerDetailsWithStatsByMap_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerDetailsWithStatsByPlaylist"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByPlaylist" message="tns:ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByPlaylistResponse" message="tns:ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerDetailsWithNoStats"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithNoStats" message="tns:ReachApiJson_GetPlayerDetailsWithNoStats_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithNoStatsResponse" message="tns:ReachApiJson_GetPlayerDetailsWithNoStats_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerFileShare"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileShare" message="tns:ReachApiJson_GetPlayerFileShare_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileShareResponse" message="tns:ReachApiJson_GetPlayerFileShare_OutputMessage"/></wsdl:operation><wsdl:operation name="GetFileDetails"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetFileDetails" message="tns:ReachApiJson_GetFileDetails_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetFileDetailsResponse" message="tns:ReachApiJson_GetFileDetails_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerRecentScreenshots"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRecentScreenshots" message="tns:ReachApiJson_GetPlayerRecentScreenshots_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRecentScreenshotsResponse" message="tns:ReachApiJson_GetPlayerRecentScreenshots_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerFileSets"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSets" message="tns:ReachApiJson_GetPlayerFileSets_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSetsResponse" message="tns:ReachApiJson_GetPlayerFileSets_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerFileSetFiles"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSetFiles" message="tns:ReachApiJson_GetPlayerFileSetFiles_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSetFilesResponse" message="tns:ReachApiJson_GetPlayerFileSetFiles_OutputMessage"/></wsdl:operation><wsdl:operation name="GetPlayerRenderedVideos"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRenderedVideos" message="tns:ReachApiJson_GetPlayerRenderedVideos_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRenderedVideosResponse" message="tns:ReachApiJson_GetPlayerRenderedVideos_OutputMessage"/></wsdl:operation><wsdl:operation name="ReachFileSearch"><wsdl:input wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/ReachFileSearch" message="tns:ReachApiJson_ReachFileSearch_InputMessage"/><wsdl:output wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/ReachFileSearchResponse" message="tns:ReachApiJson_ReachFileSearch_OutputMessage"/></wsdl:operation></wsdl:portType></wsdl:definitions>
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions targetNamespace="http://www.bungie.net/api/reach"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+	xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.bungie.net/api/reach"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+	xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+	xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.bungie.net/api/reach/Imports">
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd0"
+				namespace="http://www.bungie.net/api/reach" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd1"
+				namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd2"
+				namespace="http://schemas.datacontract.org/2004/07/BungieNet.API.Reach.Response" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd3"
+				namespace="http://schemas.datacontract.org/2004/07/BungieNet.API" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd4"
+				namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Reach" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd5"
+				namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd6"
+				namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Resources" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd7"
+				namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.wsGameData" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd8"
+				namespace="http://schemas.datacontract.org/2004/07/BungieNet.Appserver.Stats.Reach.DataContracts" />
+			<xsd:import
+				schemaLocation="http://www.bungie.net/api/reach/ReachApiJson.svc?xsd=xsd9"
+				namespace="http://schemas.datacontract.org/2004/07/Bungie.Blf.Reach.GameStructures" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ReachApiJson_GetGameMetadata_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetGameMetadata" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetGameMetadata_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetGameMetadataResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetGameHistory_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetGameHistory" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetGameHistory_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetGameHistoryResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetGameDetails_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetGameDetails" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetGameDetails_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetGameDetailsResponse" />
+	</wsdl:message>
+	<wsdl:message
+		name="ReachApiJson_GetPlayerDetailsWithStatsByMap_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerDetailsWithStatsByMap" />
+	</wsdl:message>
+	<wsdl:message
+		name="ReachApiJson_GetPlayerDetailsWithStatsByMap_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerDetailsWithStatsByMapResponse" />
+	</wsdl:message>
+	<wsdl:message
+		name="ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerDetailsWithStatsByPlaylist" />
+	</wsdl:message>
+	<wsdl:message
+		name="ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_OutputMessage">
+		<wsdl:part name="parameters"
+			element="tns:GetPlayerDetailsWithStatsByPlaylistResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerDetailsWithNoStats_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerDetailsWithNoStats" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerDetailsWithNoStats_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerDetailsWithNoStatsResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerFileShare_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerFileShare" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerFileShare_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerFileShareResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetFileDetails_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetFileDetails" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetFileDetails_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetFileDetailsResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerRecentScreenshots_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerRecentScreenshots" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerRecentScreenshots_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerRecentScreenshotsResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerFileSets_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerFileSets" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerFileSets_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerFileSetsResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerFileSetFiles_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerFileSetFiles" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerFileSetFiles_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerFileSetFilesResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerRenderedVideos_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerRenderedVideos" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_GetPlayerRenderedVideos_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetPlayerRenderedVideosResponse" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_ReachFileSearch_InputMessage">
+		<wsdl:part name="parameters" element="tns:ReachFileSearch" />
+	</wsdl:message>
+	<wsdl:message name="ReachApiJson_ReachFileSearch_OutputMessage">
+		<wsdl:part name="parameters" element="tns:ReachFileSearchResponse" />
+	</wsdl:message>
+	<wsdl:portType name="ReachApiJson">
+		<wsdl:operation name="GetGameMetadata">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameMetadata"
+				message="tns:ReachApiJson_GetGameMetadata_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameMetadataResponse"
+				message="tns:ReachApiJson_GetGameMetadata_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetGameHistory">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameHistory"
+				message="tns:ReachApiJson_GetGameHistory_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameHistoryResponse"
+				message="tns:ReachApiJson_GetGameHistory_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetGameDetails">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameDetails"
+				message="tns:ReachApiJson_GetGameDetails_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetGameDetailsResponse"
+				message="tns:ReachApiJson_GetGameDetails_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerDetailsWithStatsByMap">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByMap"
+				message="tns:ReachApiJson_GetPlayerDetailsWithStatsByMap_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByMapResponse"
+				message="tns:ReachApiJson_GetPlayerDetailsWithStatsByMap_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerDetailsWithStatsByPlaylist">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByPlaylist"
+				message="tns:ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithStatsByPlaylistResponse"
+				message="tns:ReachApiJson_GetPlayerDetailsWithStatsByPlaylist_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerDetailsWithNoStats">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithNoStats"
+				message="tns:ReachApiJson_GetPlayerDetailsWithNoStats_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerDetailsWithNoStatsResponse"
+				message="tns:ReachApiJson_GetPlayerDetailsWithNoStats_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerFileShare">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileShare"
+				message="tns:ReachApiJson_GetPlayerFileShare_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileShareResponse"
+				message="tns:ReachApiJson_GetPlayerFileShare_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetFileDetails">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetFileDetails"
+				message="tns:ReachApiJson_GetFileDetails_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetFileDetailsResponse"
+				message="tns:ReachApiJson_GetFileDetails_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerRecentScreenshots">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRecentScreenshots"
+				message="tns:ReachApiJson_GetPlayerRecentScreenshots_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRecentScreenshotsResponse"
+				message="tns:ReachApiJson_GetPlayerRecentScreenshots_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerFileSets">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSets"
+				message="tns:ReachApiJson_GetPlayerFileSets_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSetsResponse"
+				message="tns:ReachApiJson_GetPlayerFileSets_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerFileSetFiles">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSetFiles"
+				message="tns:ReachApiJson_GetPlayerFileSetFiles_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerFileSetFilesResponse"
+				message="tns:ReachApiJson_GetPlayerFileSetFiles_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlayerRenderedVideos">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRenderedVideos"
+				message="tns:ReachApiJson_GetPlayerRenderedVideos_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/GetPlayerRenderedVideosResponse"
+				message="tns:ReachApiJson_GetPlayerRenderedVideos_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="ReachFileSearch">
+			<wsdl:input
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/ReachFileSearch"
+				message="tns:ReachApiJson_ReachFileSearch_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://www.bungie.net/api/reach/ReachApiJson/ReachFileSearchResponse"
+				message="tns:ReachApiJson_ReachFileSearch_OutputMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
