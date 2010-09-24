@@ -6,7 +6,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Halo SP - Results for ODST gameid <?php echo $_GET['gameid']; ?></title>
+  <title>Halo SP Demo - Results for ODST gameid <?php echo $_GET['gameid']; ?></title>
   <link rel="stylesheet" href="demo_css.css" type="text/css" />
 </head>
 <body>
@@ -95,6 +95,9 @@ switch ($game->difficulty) {
     <dt>Score:</dt>
     <dd><?php echo $game->score; ?><br /></dd>
     
+    <dt>Raw Score:</dt>
+    <dd><?php echo $game->raw_score; ?><br /></dd>
+    
     <dt>Time Bonus:</dt>
     <dd><?php echo $game->time_bonus; ?><br /></dd>
 <?php } ?>
@@ -166,6 +169,9 @@ foreach ($game->players as $player) {
   
         <dt>Score</dt>
         <dd><?php echo $player->score; ?><br /></dd>
+        
+        <dt>Raw Score:</dt>
+        <dd><?php echo $player->raw_score; ?><br /></dd>
   
         <dt>Kills</dt>
         <dd><?php echo $player->kills; ?><br /></dd>
@@ -219,10 +225,10 @@ if ($use_metadata) { ?>
 <?php
     foreach ($metadata->skulls as $skull) {
         if (in_array($skull->id, $game->skulls_primary_start) or in_array($skull->id, $game->skulls_secondary_start)) {
-            $url = $skull->image_url(ODSTSkull::SKULL_ENABLED);
+            $url = $skull->image_url(true);
             $title = ' (On)';
         } else {
-            $url = $skull->image_url(ODSTSkull::SKULL_DISABLED);
+            $url = $skull->image_url(false);
             $title = ' (Off)';
         }
 ?>      <img src="<?php echo $url; ?>" title="<?php echo $skull->display_name . $title; ?>" class="skull_<?php echo $skull->order + 1; ?>" />
@@ -298,6 +304,9 @@ foreach ($game->wave_stats as $wave) {
           
         <dt>Score:</dt>
         <dd><?php echo $wave->score; ?><br /></dd>
+        
+        <dt>Raw Score:</dt>
+        <dd><?php echo $wave->raw_score; ?><br /></dd>
           
         <dt>Kills:</dt>
         <dd><?php echo $wave->kills; ?><br /></dd>

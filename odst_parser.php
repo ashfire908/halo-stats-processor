@@ -121,7 +121,7 @@ class ODSTGame {
             // Calculate Set, Round, Wave reached and number of Bonus Rounds
             $this->total_waves = (int) $game_data->Waves;
             list($this->bonus_rounds, $this->set_reached, $this->round_reached,
-                 $this->wave_reached) = wave_position((int) $game_data->Waves);
+                 $this->wave_reached) = ODSTGame::wave_position((int) $game_data->Waves);
 
             // Initialize Wave Stats
             $a = 1;
@@ -139,7 +139,7 @@ class ODSTGame {
                 ++$a;
             }
             $this->wave_stats[$a-1]->end = $this->duration;
-            $game->wave_stats[$a-1]->length = $this->wave_stats[$a-1]->end - $this->wave_stats[$a-1]->start;
+            $this->wave_stats[$a-1]->length = $this->wave_stats[$a-1]->end - $this->wave_stats[$a-1]->start;
         } else {
             // Reset revert count
             $this->reverts = 0;
@@ -241,10 +241,27 @@ class ODSTGame {
                         // Subtract from wave score
                         $current_wave->score -= $event->S;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->deaths_by_weapon)) {
+                        $this->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_auto]->deaths_by_weapon)) {
+                        $this->players[$player_auto]->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->deaths_by_weapon)) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->deaths_over_time[] = array((int) $event->T, $this->deaths);
                     $this->players[$player_auto]->deaths_over_time[] = 
                          array((int) $event->T, $this->players[$player_auto]->deaths);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->deaths_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_auto]->deaths_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case 'SUICIDE':    // A player committed suicide
                     if ($this->scoring_enabled === true) {
@@ -259,10 +276,27 @@ class ODSTGame {
                         // Subtract from wave score
                         $current_wave->score -= $event->S;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->suicides_by_weapon)) {
+                        $this->suicides_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_auto]->suicides_by_weapon)) {
+                        $this->players[$player_auto]->suicides_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->suicides_by_weapon)) {
+                        $current_wave->suicides_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->suicides_over_time[] = array((int) $event->T, $this->suicides);
                     $this->players[$player_auto]->suicides_over_time[] = 
                          array((int) $event->T, $this->players[$player_auto]->suicides);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->suicides_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_auto]->suicides_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->suicides_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case 'BETRAYAL':   // A player betrayed an ally
                     // Add to death count (global, per-user, per-wave)
@@ -271,10 +305,27 @@ class ODSTGame {
                     if ($this->firefight === true) {
                         $current_wave->deaths++;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->deaths_by_weapon)) {
+                        $this->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_2]->deaths_by_weapon)) {
+                        $this->players[$player_2]->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->deaths_by_weapon)) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->deaths_over_time[] = array((int) $event->T, $this->deaths);
                     $this->players[$player_2]->deaths_over_time[] = 
                          array((int) $event->T, $this->players[$player_2]->deaths);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->deaths_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_2]->deaths_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->deaths_by_weapon[(string) $event->WEP]++;
+                    }
                 case 'AIBETRAYAL': // A player betrayed an AI ally
                     if ($this->scoring_enabled === true) {
                         // Subtract from player score
@@ -288,10 +339,27 @@ class ODSTGame {
                         // Subtract from wave score
                         $current_wave->score -= $event->S;
                     }
+                    // Check for new weapon (global, per-user, per-wave)
+                    if (! array_key_exists((string) $event->WEP, $this->betrayals_by_weapon)) {
+                        $this->betrayals_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_1]->betrayals_by_weapon)) {
+                        $this->players[$player_1]->betrayals_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->betrayals_by_weapon)) {
+                        $current_wave->betrayals_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->betrayals_over_time[] = array((int) $event->T, $this->betrayals);
                     $this->players[$player_1]->betrayals_over_time[] = 
                          array((int) $event->T, $this->players[$player_1]->betrayals);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->betrayals_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_1]->betrayals_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->betrayals_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case 'KILL':      // A player killed an enemy
                     if ($this->scoring_enabled === true) {
@@ -316,10 +384,26 @@ class ODSTGame {
                     if ($this->firefight === true and ! in_array($event->WEP, $current_wave->weapons_used)) {
                         $current_wave->weapons_used[] = (string) $event->WEP;
                     }
+                    if (! array_key_exists((string) $event->WEP, $this->kills_by_weapon)) {
+                        $this->kills_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if (! array_key_exists((string) $event->WEP, $this->players[$player_auto]->kills_by_weapon)) {
+                        $this->players[$player_auto]->kills_by_weapon[(string) $event->WEP] = 0;
+                    }
+                    if ($this->firefight === true and
+                        ! array_key_exists((string) $event->WEP, $current_wave->kills_by_weapon)) {
+                        $current_wave->kills_by_weapon[(string) $event->WEP] = 0;
+                    }
                     // Over time stats (global, per-user)
                     $this->kills_over_time[] = array((int) $event->T, $this->kills);
                     $this->players[$player_auto]->kills_over_time[] = 
                          array((int) $event->T, $this->players[$player_auto]->kills);
+                    // By weapon stats (global, per-user, per-wave)
+                    $this->kills_by_weapon[(string) $event->WEP]++;
+                    $this->players[$player_auto]->kills_by_weapon[(string) $event->WEP]++;
+                    if ($this->firefight === true) {
+                        $current_wave->kills_by_weapon[(string) $event->WEP]++;
+                    }
                     break;
                 case "MEDAL":
                     if ($this->scoring_enabled === true) {
@@ -368,28 +452,34 @@ class ODSTGame {
         }
         
         // Post event processing score calculations
-        if ($this->scoring_enabled === true) {
-            // Calculate the main score
-            $this->score = (float) 0;
-            foreach ($this->players as $player) {
-                $this->score += $player->score;
-            }
-            
+        if ($this->scoring_enabled === true) {            
             // Handle time bonus
             if ($this->time_bonus > 1.0) {
-                $this->score = $this->score * $this->time_bonus;
                 foreach ($this->players as $player) {
+                    $player->raw_score = (int) $player->score;
                     $player->score = $player->score * $this->time_bonus;
+                }
+            } else {
+                foreach ($this->players as $player) {
+                    $player->raw_score = (int) $player->score;
                 }
             }
             
             // Convert scores to integers
-            $this->score = (int) $this->score;
             foreach ($this->players as $player) {
                 $player->score = (int) $player->score;
             }
             foreach ($this->wave_stats as $wave) {
                 $wave->score = (int) $wave->score;
+                $wave->raw_score = $wave->score;
+            }
+            
+            // Calculate the main score
+            $this->score = 0;
+            $this->raw_score = 0;
+            foreach ($this->players as $player) {
+                $this->score += $player->score;
+                $this->raw_score += $player->raw_score;
             }
         }
         
@@ -407,6 +497,58 @@ class ODSTGame {
         $this->player_count = count($this->players);
     }
     
+    // Apply a post-game multiplier and/or change the time bonus
+    function calc_multiplier($multi = NULL, $time = NULL) {
+        if ($this->scoring_enabled === true) {
+            if (!$multi === NULL) {
+                $this->post_multiplier = $multi;
+            }
+            if (!$time === NULL) {
+                $this->time_bonus = $time;
+            }
+            
+            // Reset scores
+            foreach ($this->players as $player) {
+                $player->score = $player->raw_score;
+            }
+            foreach ($this->wave_stats as $wave) {
+                $wave->score = $player->raw_score;
+            }
+            
+            // Calculate time bonus
+            if ($this->time_bonus > 1.0) {
+                foreach ($this->players as $player) {
+                    $player->score = $player->score * $this->time_bonus;
+                }
+            }
+            
+            // Calculate post-game multiplier scores
+            foreach ($this->players as $player) {
+                $player->score = (int) ((int) $player->score * $this->post_multiplier);
+            }
+            foreach ($this->wave_stats as $wave) {
+                $wave->score = (int) ($wave->score * $this->post_multiplier);
+            }
+            
+            // Calculate the main score
+            $this->score = 0;
+            foreach ($this->players as $player) {
+                $this->score += $player->score;
+            }
+        }
+    }
+    
+    // Firefight Wave Position Calculator
+    static function wave_position($waves) {
+        $bonus_rounds = (int) floor($waves / 16);
+        $waves -= $bonus_rounds + 1;
+        $set_reached = (int) floor($waves / 15) + 1;
+        $round_reached = (int) floor($waves % 15 / 5) + 1;
+        $wave_reached = $waves % 15 % 5 + 1;
+        
+        return array($bonus_rounds, $set_reached, $round_reached, $wave_reached);
+    }
+    
     // SOAP/XML data
     public $xml_data;
     
@@ -421,7 +563,9 @@ class ODSTGame {
     public $map;
     public $scoring_enabled = false;
     public $score = -1;
-    public $time_bonus = 0.0;
+    public $raw_score = -1;
+    public $time_bonus = 1.0;
+    public $post_multiplier = 1.0;
     public $firefight = false;
     
     // Kills, Deaths, Medals, etc.
@@ -439,6 +583,11 @@ class ODSTGame {
     public $betrayals_over_time = array();
     public $reverts_over_time = array();
     public $medals_over_time = array();
+    // By weapon
+    public $kills_by_weapon = array();
+    public $deaths_by_weapon = array();
+    public $suicides_by_weapon = array();
+    public $betrayals_by_weapon = array();
     
     // Players
     public $player_count;
@@ -492,6 +641,7 @@ class ODSTPlayer {
     
     // Kills, Deaths, Medals, etc.
     public $score = -1;
+    public $raw_score = -1;
     public $kills = 0;
     public $deaths = 0;
     public $suicides = 0;
@@ -504,6 +654,11 @@ class ODSTPlayer {
     public $suicides_over_time = array();
     public $betrayals_over_time = array();
     public $medals_over_time = array();
+    // By weapon
+    public $kills_by_weapon = array();
+    public $deaths_by_weapon = array();
+    public $suicides_by_weapon = array();
+    public $betrayals_by_weapon = array();
     
     // Weapons
     public $weapons_used = array();
@@ -520,11 +675,17 @@ class ODSTFirefightWave {
     
     // Kills, Deaths, Medals, etc.
     public $score = -1;
+    public $raw_score = -1;
     public $kills = 0;
     public $deaths = 0;
     public $suicides = 0;
     public $betrayals = 0;
     public $medals = array();
+    // By weapon
+    public $kills_by_weapon = array();
+    public $deaths_by_weapon = array();
+    public $suicides_by_weapon = array();
+    public $betrayals_by_weapon = array();
     
     // Weapons
     public $weapons_used = array();
@@ -793,15 +954,4 @@ class ODSTWeapon extends ODSTImageGen {
     public $image_name;
     public $image_path;
     public $description;
-}
-
-// Firefight Wave Position Calculator
-function wave_position($waves) {
-    $bonus_rounds = (int) floor($waves / 16);
-    $waves -= $bonus_rounds + 1;
-    $set_reached = (int) floor($waves / 15) + 1;
-    $round_reached = (int) floor($waves % 15 / 5) + 1;
-    $wave_reached = $waves % 15 % 5 + 1;
-    
-    return array($bonus_rounds, $set_reached, $round_reached, $wave_reached);
 }
