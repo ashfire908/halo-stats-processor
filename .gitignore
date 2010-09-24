@@ -7,3 +7,7 @@
 
 # Metadata for demo
 demo/.local_metadata
+
+# Testing directory for developer use
+testing
+
