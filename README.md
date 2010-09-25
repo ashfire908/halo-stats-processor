@@ -6,8 +6,8 @@ is a library for accessing and processing Halo statistics. Its primary function
 is to retrieve data from Bungie.net, parse it, and return easily-accessible (and
 possibly additional) stats for the developer to use in other projects. A full
 list of the features of Halo SP is listed later on. Halo SP supports Halo 3:
-ODST fully and Halo 3 recent games, with future full support for Halo: Reach 
-(and possibly Halo 3) planned.
+ODST fully and Halo 3 recent games, with future full support for Halo: Reach and
+Halo 3 planned.
 
 Requirements
 ------------
@@ -16,8 +16,8 @@ To be able to run and use Halo Stats Processor, you need to meet the following
 requirements:
 
 * PHP 5.1 or greater
-* CURL (RSS support)
-* SOAP (Game/Metadata support)
+* CURL (RSS/Halo: Reach support)
+* SOAP (Halo 3: ODST support)
 * Permissions to write/create file(s) (Demo metadata)
 
 Features
