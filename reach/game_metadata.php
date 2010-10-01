@@ -32,7 +32,7 @@ class ReachGameMetadata extends ReachBase {
         
         // Commendations
         foreach($this->json_data->Data->AllCommendationsById as $commend) {
-            $commendation = new ReachGameCommendation;
+            $commendation = new ReachMetadataCommendation;
             
             // Set the commendation properties
             $commendation->id = $commend->Value->Id;
@@ -51,7 +51,7 @@ class ReachGameMetadata extends ReachBase {
         
         // Enemies
         foreach($this->json_data->Data->AllEnemiesById as $api_enemy) {
-            $enemy = new ReachGameEnemy;
+            $enemy = new ReachMetadataEnemy;
             
             // Set the enemy properties
             $enemy->id = $api_enemy->Value->Id;
@@ -65,7 +65,7 @@ class ReachGameMetadata extends ReachBase {
         
         // Maps
         foreach($this->json_data->Data->AllMapsById as $api_map) {
-            $map = new ReachGameMap;
+            $map = new ReachMetadataMap;
             
             // Set the map properties
             $map->id = $api_map->Value->Id;
@@ -79,7 +79,7 @@ class ReachGameMetadata extends ReachBase {
         
         // Medals
         foreach($this->json_data->Data->AllMedalsById as $api_medal) {
-            $medal = new ReachGameMedal;
+            $medal = new ReachMetadataMedal;
             
             // Set the medal properties
             $medal->id = $api_medal->Value->Id;
@@ -93,7 +93,7 @@ class ReachGameMetadata extends ReachBase {
         
         // Weapons
         foreach($this->json_data->Data->AllWeaponsById as $api_weapon) {
-            $weapon = new ReachGameWeapon;
+            $weapon = new ReachMetadataWeapon;
             
             // Set the weapon properties
             $weapon->id = $api_medal->Value->Id;
@@ -122,8 +122,8 @@ class ReachGameMetadata extends ReachBase {
     public $game_variant_classes = array();
 }
 
-// Reach Game Commendation
-class ReachGameCommendation {
+// Reach Game Metadata Commendation
+class ReachMetadataCommendation {
     public $id;
     public $name;
     public $description;
@@ -131,24 +131,24 @@ class ReachGameCommendation {
                                'gold' => -1, 'onyx' => -1, 'max' => -1);
 }
 
-// Reach Game Enemy
-class ReachGameEnemy {
+// Reach Game Metadata Enemy
+class ReachMetadataEnemy {
     public $id;
     public $name;
     public $image_name;
     public $description;
 }
 
-// Reach Game Map {
-class ReachGameMap {
+// Reach Game Metadata Map {
+class ReachMetadataMap {
     public $id;
     public $name;
     public $map_type;
     public $image_name;
 }
 
-// Reach Game Medal
-class ReachGameMedal {
+// Reach Game Metadata Medal
+class ReachMetadataMedal {
     public $id;
     public $name;
     public $image_name;
