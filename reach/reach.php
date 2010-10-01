@@ -29,23 +29,28 @@ class ReachBase {
                 break;
             case JSON_ERROR_DEPTH:
                 $this->error = True;
-                $this->error_details(-2, 'JSON Error - Maximum stack depth has been exceeded');
+                $this->error_details[0] = -2;
+                $this->error_details[1] = 'JSON Error - Maximum stack depth has been exceeded';
                 break;
             case JSON_ERROR_CTRL_CHAR:
                 $this->error = True;
-                $this->error_details(-2, 'JSON Error - Control character error (possibly incorrectly encoded)');
+                $this->error_details[0] = -2;
+                $this->error_details[1] = 'JSON Error - Control character error (possibly incorrectly encoded)';
                 break;
             case JSON_ERROR_STATE_MISMATCH:
                 $this->error = True;
-                $this->error_details(-2, 'JSON Error - Invalid or malformed JSON');
+                $this->error_details[0] = -2;
+                $this->error_details[1] = 'JSON Error - Invalid or malformed JSON';
                 break;
             case JSON_ERROR_SYNTAX:
                 $this->error = True;
-                $this->error_details(-2, 'JSON Error - Syntax error');
+                $this->error_details[0] = -2;
+                $this->error_details[1] = 'JSON Error - Syntax error';
                 break;
             case JSON_ERROR_UTF8:
                 $this->error = True;
-                $this->error_details(-2, 'JSON Error - Malformed UTF-8 characters (possibly incorrectly encoded)');
+                $this->error_details[0] = -2;
+                $this->error_details[1] = 'JSON Error - Malformed UTF-8 characters (possibly incorrectly encoded)';
                 break;
         }
         
