@@ -71,6 +71,10 @@ class ReachBase {
         return;
     }
     
+    static function parse_timestamp($timestamp) {
+        return new DateTime('@' . substr($timestamp, 6, 10));
+    }
+    
     // JSON data
     public $json_data;
     
