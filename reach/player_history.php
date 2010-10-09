@@ -20,7 +20,8 @@ class ReachPlayerHistory extends ReachBase {
     function get_history($gamertag, $varient_class, $page) {
         $url = 'http://' . BUNGIE_SERVER . REACH_API_JSON_ENDPOINT .
                            REACH_API_PLAYER_HISTORY . '/' . implode('/', array(
-                           REACH_API_KEY, $gamertag, $variant_class, $page));
+                           REACH_API_KEY, rawurlencode($gamertag),
+                           rawurlencode($variant_class), rawurlencode($page)));
         // Set up cURL
         $curl_json = curl_init($url);
         curl_setopt($curl_json, CURLOPT_USERAGENT, HTTP_USER_AGENT);
@@ -33,6 +34,12 @@ class ReachPlayerHistory extends ReachBase {
     }
     
     function load_metadata() {
+        // Check for error
+        $this->check_error();
+        if ($this->error == True) {
+            return False;
+        }
+        
         
     }
 }
