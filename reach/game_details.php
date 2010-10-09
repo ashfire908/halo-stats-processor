@@ -11,7 +11,7 @@ class ReachGameDetails extends ReachBase {
     function get_details($game_id) {
         $url = 'http://' . BUNGIE_SERVER . REACH_API_JSON_ENDPOINT .
                            REACH_API_GAME_DETAILS . '/' . implode('/',
-                           array(REACH_API_KEY, $game_id));
+                           array(REACH_API_KEY, rawurlencode($game_id)));
         // Set up cURL
         $curl_json = curl_init($url);
         curl_setopt($curl_json, CURLOPT_USERAGENT, HTTP_USER_AGENT);
