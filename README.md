@@ -35,6 +35,12 @@ Halo 3: ODST
 * Recent games support
 * Metadata
 
+Halo: Reach
+
+* Game
+  * Metadata
+  * Details
+
 Getting Help
 ------------
 
