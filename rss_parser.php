@@ -117,7 +117,7 @@ function halo3_rss($gamertag) {
             
             // Set the stats
             $player->gamertag = $player_match['gamertag'];
-            if ($player_match['team'] != NULL) {
+            if (!is_null($player_match['team'])) {
                 $player->team = $player_match['team'];
             } else {
                 $game->teams = false;
@@ -199,7 +199,7 @@ function odst_rss($gamertag) {
         }
         $game->duration = $desc_match['duration'] * 60;
         $game->players = $desc_match['players'];
-        if ($desc_match['score'] != NULL) {
+        if (array_key_exists('score', $desc_match) and !is_null($desc_match['score'])) {
             $game->score = $desc_match['score'];
         }
         if ($game->mode === 'Firefight') {
