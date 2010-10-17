@@ -55,13 +55,14 @@ class ODSTGame {
     // Parse/Load Game Stats method
     function load_game() {
         // Grab the GameDetail Result for simplexml
-        if ($this->xml_data->getElementsByTagName('GetGameDetailResult')->item(0) == null) {
+        if (is_null($this->xml_data->getElementsByTagName('GetGameDetailResult')->item(0))) {
             // Couldn't find response
             $this->error_details[0] = -1;
             $this->error_details[1] = "Internal Parser Error.";
             $this->error = true;
             return;
         }
+        
         $xml = simplexml_import_dom($this->xml_data->getElementsByTagName('GetGameDetailResult')->item(0));
         
         // Error Handling
@@ -122,13 +123,13 @@ class ODSTGame {
             $this->total_waves = (int) $game_data->Waves;
             list($this->bonus_rounds, $this->set_reached, $this->round_reached,
                  $this->wave_reached) = ODSTGame::wave_position((int) $game_data->Waves);
-
+            
             // Initialize Wave Stats
             $a = 1;
             foreach ($game_data->GameWaves->children('b', true) as $wave) {
                 $this->wave_stats[$a] = new ODSTFirefightWave;
                 $this->wave_stats[$a]->id = $a;
-                if ($this->scoring_enabled === true) {
+                if ($this->scoring_enabled) {
                     $this->wave_stats[$a]->score = 0;
                 }
                 $this->wave_stats[$a]->start = $wave->STR;
@@ -234,7 +235,7 @@ class ODSTGame {
                     break;
             }
             
-            if ($this->scoring_enabled === true) {
+            if ($this->scoring_enabled) {
                 // If the score pegs into the negative, set it to zero.
                 foreach ($this->players as $player) {
                     if ($player->score < 0) {
@@ -246,7 +247,7 @@ class ODSTGame {
         }
         
         // Post event processing score calculations
-        if ($this->scoring_enabled === true) {            
+        if ($this->scoring_enabled) {
             // Handle time bonus
             if ($this->time_bonus > 1.0) {
                 foreach ($this->players as $player) {
@@ -619,12 +620,12 @@ class ODSTGame {
     }
     
     // Apply a post-game multiplier and/or change the time bonus
-    function calc_multiplier($multi = NULL, $time = NULL) {
-        if ($this->scoring_enabled === true) {
-            if (!$multi === NULL) {
+    function calc_multiplier($multi = null, $time = null) {
+        if ($this->scoring_enabled) {
+            if (!is_null($multi)) {
                 $this->post_multiplier = $multi;
             }
-            if (!$time === NULL) {
+            if (!is_null($time)) {
                 $this->time_bonus = $time;
             }
             
@@ -841,21 +842,21 @@ class ODSTMetadata {
         return $this->xml_data->saveXML();
     }
     
-    function image_url($object, $size = NULL, $type = NULL) {
+    function image_url($object, $size = null, $type = null) {
         // Check if the object supports image URL generation
-        if (is_subclass_of($object, 'ODSTImageGen') === false) {
+        if (!is_subclass_of($object, 'ODSTImageGen')) {
             return;
         }
         // Default for the size argument
-        if ($size === NULL) {
-            if ($this->image_default_size === NULL) {
+        if (is_null($size)) {
+            if (is_null($this->image_default_size)) {
                return;
             }
             $size = $this->image_default_size;
         }
         // Default for the type argument
-        if ($type === NULL) {
-            if ($this->image_default_type === NULL) {
+        if (is_null($type)) {
+            if (is_null($this->image_default_type)) {
                return;
             }
             $type = $this->image_default_type;
@@ -886,7 +887,7 @@ class ODSTMetadata {
     
     function load_metadata() {
         // Grab the GetGameMetaDataResult Result for simplexml
-        if ($this->xml_data->getElementsByTagName('GetGameMetaDataResult')->item(0) == null) {
+        if (is_null($this->xml_data->getElementsByTagName('GetGameMetaDataResult')->item(0))) {
             // Couldn't find response
             $this->error_details[0] = -1;
             $this->error_details[1] = "Internal Parser Error.";
@@ -1051,7 +1052,7 @@ class ODSTMedal extends ODSTImageGen {
 // ODST Metadata Skull
 class ODSTSkull {    
     function image_url($enabled) {
-        if ($enabled === True) {
+        if ($enabled) {
             return 'http://' . BUNGIE_SERVER . $this->image_enabled;
         } else {
             return 'http://' . BUNGIE_SERVER . $this->image_disabled;
