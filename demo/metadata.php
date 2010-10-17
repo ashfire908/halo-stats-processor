@@ -22,10 +22,10 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
       </p>
   </div>
   
-  <p>Processing...<?php
+  <p>Processing... <tt><?php
 // Check if the metadata file exists but is not writeable
-if (file_exists(METADATA_FILE) and ! is_writable(METADATA_FILE)) {
-  ?> Error.</p>
+if (file_exists(METADATA_FILE) and !is_writable(METADATA_FILE)) {
+  ?></tt> Error.</p>
   
   <p>
     Metadata file is not writable. Update failed.<br />
@@ -33,7 +33,7 @@ if (file_exists(METADATA_FILE) and ! is_writable(METADATA_FILE)) {
   </p><?php
 } else {
   if (!$metadata_file = @fopen(METADATA_FILE, 'wb')) {
-    ?> Error.</p>
+    ?></tt> Error.</p>
   
   <p>
     Can't open metadata file. Update failed.<br />
@@ -44,14 +44,14 @@ if (file_exists(METADATA_FILE) and ! is_writable(METADATA_FILE)) {
     $metadata->get_metadata();
     $metadata->load_metadata();
     if (fwrite($metadata_file, serialize($metadata)) === FALSE) {
-       ?> Error.</p>
+       ?></tt> Error.</p>
   
   <p>
     Can't write to metadata file. Update failed.<br />
     <a href="index.html" title="Main menu">Return to the main menu</a>.
   </p><?php
     } else {
-      ?> Done.</p>
+      ?></tt> Done.</p>
 
   <p>Local metadata updated. <a href="index.html" title="Main menu">Return to the main menu</a>.</p><?php
     }

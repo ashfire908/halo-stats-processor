@@ -34,7 +34,7 @@ switch ($_GET['game']) {
     </p>
   </div>
   
-  <p>Processing...<?php
+  <p>Processing... <tt><?php
 if ($_GET['gamertag'] == '') {
   echo 'Error: No Gamertag given. Aborting...';
   trigger_error('No Gametag given', E_USER_ERROR);
@@ -55,7 +55,7 @@ switch ($_GET['game']) {
     trigger_error('Halo: Reach is not supported.', E_USER_ERROR);
     break;
 }
-?> Done.</p>
+?></tt> Done.</p>
 
 <?php foreach ($games as $game) {?>
   <div class="header">

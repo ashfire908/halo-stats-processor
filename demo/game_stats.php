@@ -26,7 +26,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';?>
     </p>
   </div>
   
-  <p>Processing...<code><?php
+  <p>Processing...<tt><?php
 $use_metadata = false;
 if ($_GET['gameid'] == '') {
   trigger_error('No Game ID given', E_USER_ERROR);
@@ -42,7 +42,7 @@ if (array_key_exists('use_metadata', $_GET) and $_GET['use_metadata'] == 'true')
 $game = new ODSTGame;
 $game->get_game($_GET['gameid']);
 $game->load_game();
-?></code> Done.</p>
+?></tt> Done.</p>
 
   <h3>Error</h3>
   <dl>
