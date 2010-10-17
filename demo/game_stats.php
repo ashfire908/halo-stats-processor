@@ -64,16 +64,16 @@ if ($game->error === false) {
     <dt>Difficulty:</dt>
     <dd><?php
 switch ($game->difficulty) {
-  case 0:
+  case ODSTGame::EASY:
     echo 'Easy';
     break;
-  case 1:
+  case ODSTGame::NORMAL:
     echo 'Normal';
     break;
-  case 2:
+  case ODSTGame::HEROIC:
     echo 'Heroic';
     break;
-  case 3:
+  case ODSTGame::LEGENDARY:
     echo 'Legendary';
     break;
 }
