@@ -1,6 +1,28 @@
 <?php
+/* Halo Stats Processor
+ * Bungie.net RSS Parser
+ * 
+ * Copyright © 2010 Andrew Hampe
+ * 
+ * This file is part of Halo Stats Processor.
+ * 
+ * Halo Stats Processor is free software: you can redistribute it
+ * and/or modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation, either version
+ * 2.1 of the License, or (at your option) any later version.
+ * 
+ * Halo Stats Processor is distributed in the hope that it will be
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with Halo Stats Processor. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+
+// Requires core parser
 require_once('parser.php');
-// Bungie.net RSS Parser
 
 // RSS settings
 define('RSS_FEED_HALO3', 'stats/halo3rss.ashx');
