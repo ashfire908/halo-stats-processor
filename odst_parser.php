@@ -171,18 +171,21 @@ class ODSTGame {
         // Process game events
         //
         // Score is calculated per player, then the score from the players is
-        // added up and returned as the total score. It has to be done this
-        // way to correctly track the scores to make sure they don't dip into
-        // the negatives.
+        // added up and returned as the total score. This is done to properly
+        // track the scores (players' scores start at 0 and can't be negative,
+        // hence why they are tracked individually).
         // 
-        // Event variables key:
+        // Event variable keys:
         // ET  - Event Type
         // PC  - Player that caused the event.
         //       -1 means it wasn't caused by a player
         // PE  - Player affected by the event.
         // S   - How much to change the score (up or down depending on the event type).
         // ST  - String information on the event.
+        //       For MEDAL events: Stores the medal name.
+        //       For KILL/DEATH events: Stores the enemy class.
         // ST2 - Second string information on the event.
+        //       For KILL/DEATH events: Stores the enemy name.
         // T   - Time the event occurred.
         // WEP - The weapon involved in the event (if any).
         //
