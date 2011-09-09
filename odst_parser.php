@@ -80,7 +80,7 @@ class ODSTGame {
         if (is_null($this->xml_data->getElementsByTagName('GetGameDetailResult')->item(0))) {
             // Couldn't find response
             $this->error_details[0] = -1;
-            $this->error_details[1] = "Internal Parser Error.";
+            $this->error_details[1] = 'Internal Parser Error';
             $this->error = true;
             return;
         }
@@ -251,7 +251,7 @@ class ODSTGame {
                         $this->event_kill($event);
                     }
                     break;
-                case "MEDAL":     // A medal was earned
+                case 'MEDAL':     // A medal was earned
                     if ($this->firefight) {
                         $this->event_medal($event, $current_wave);
                     } else {
@@ -464,7 +464,7 @@ class ODSTGame {
              array((int) $event->T, $this->players[$player]->deaths);
         
         // By weapon stats
-        $this->event_weapon_add("deaths_by_weapon", $event, $player, $wave);
+        $this->event_weapon_add('deaths_by_weapon', $event, $player, $wave);
     }
     
     // Event - Suicide
@@ -915,7 +915,7 @@ class ODSTMetadata {
         if (is_null($this->xml_data->getElementsByTagName('GetGameMetaDataResult')->item(0))) {
             // Couldn't find response
             $this->error_details[0] = -1;
-            $this->error_details[1] = "Internal Parser Error.";
+            $this->error_details[1] = 'Internal Parser Error';
             $this->error = true;
             return;
         }
